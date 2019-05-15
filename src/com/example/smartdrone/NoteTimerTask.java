@@ -25,5 +25,4 @@ class NoteTimerTask extends TimerTask {
         Test.pickActiveKeyTestPrintInfo(_keyFinder);                                   // DEBUG STATEMENT
         _timer.cancel();
     }
-
 }

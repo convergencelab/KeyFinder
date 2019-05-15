@@ -50,7 +50,30 @@ public class KeyFinder {
      */
     private int _noteTimerLength;
 
+    /**
+     * Flag for a note being removed from list of active notes.
+     */
     private boolean _noteHasBeenRemoved;
+
+    /**
+     * The last note to have been removed.
+     */
+    private Note _removedNote;
+
+    /**
+     * Number of seconds for the KeyTimerTask.
+     */
+    private int _keyTimerLength;
+
+    /**
+     * Flag for a checking if the active key has changed.
+     */
+    private boolean _activeKeyHasBeenUpdated;
+
+    /**
+     * List of inactive keys that are in the running for the new active key.
+     */
+    private LinkedList<Key> _contenderKeys;
 
     /**
      * Constructs key finder object.
@@ -62,6 +85,7 @@ public class KeyFinder {
         _allNotes = _keys.getAllNotes();
         _noteTimerLength = 5;
         _noteHasBeenRemoved = false;
+        _keyTimerLength = 5;
     }
 
     /**
@@ -121,7 +145,6 @@ public class KeyFinder {
     public boolean removeNoteFromList(Note targetNote) {
         // If note not in _activeNotes.
         if (!_activeNotes.contains(targetNote)) {
-            // TODO: should there be an exception thrown here?
             return false;
         }
         // Remove note from _activeNotes.
@@ -129,6 +152,7 @@ public class KeyFinder {
             this._activeNotes.remove(targetNote);
             targetNote.cancelNoteTimer();
             _noteHasBeenRemoved = true;
+            _removedNote = targetNote;
             // Decrement strength of all keys containing this note.
             decrementKeysWithNote(targetNote);
             updateMaxStrength();
@@ -296,6 +320,10 @@ public class KeyFinder {
         }
     }
 
+    public void monitorContenderKeys() {
+        
+    }
+
     public void run() {
         Note curNote;
         int userNoteIx = Test.promptUserForNoteIndex();
@@ -333,12 +361,39 @@ public class KeyFinder {
      * Flag for when a note is removed from the active note list.
      * @return      boolean; true if note has been removed.
      */
-    public boolean getNoteHasBeenRemoved() {
+    public boolean noteHasBeenRemoved() {
         return _noteHasBeenRemoved;
     }
 
+    /**
+     * Reset the flag for note being removed.
+     */
+    public void resetNoteHasBeenRemoved() {
+        _noteHasBeenRemoved = false;
+    }
 
     /**
+     * Get the last note that has been removed from active note list.
+     * @return      Note; last note removed from active note list.
+     */
+    public Note getRemovedNote() {
+        return _removedNote;
+    }
+    
+    public void setKeyTimerLength(int seconds) {
+        _keyTimerLength = seconds;
+    }
+    
+    public boolean activeKeyHasBeenUpdated() {
+        return _activeKeyHasBeenUpdated;
+    }
+    
+    public void resetKeyHasBeenChanged() {
+        _activeKeyHasBeenUpdated = false;
+    }
+
+    /**
+     * UNUSED FUNCTION (I THINK)
      * Flag for when a note is removed from the active note list.
      * @return      boolean; true if note has been removed.
      */
