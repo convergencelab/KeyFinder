@@ -50,7 +50,30 @@ public class KeyFinder {
      */
     private int _noteTimerLength;
 
+    /**
+     * Flag for a note being removed from list of active notes.
+     */
     private boolean _noteHasBeenRemoved;
+
+    /**
+     * The last note to have been removed.
+     */
+    private Note _removedNote;
+
+    /**
+     * Number of seconds for the KeyTimerTask.
+     */
+    private int _keyTimerLength;
+
+    /**
+     * Flag for a checking if the active key has changed.
+     */
+    private boolean _activeKeyHasBeenUpdated;
+
+    /**
+     * List of inactive keys that are in the running for the new active key.
+     */
+    private LinkedList<Key> _contenderKeys;
 
     /**
      * Constructs key finder object.
@@ -61,7 +84,9 @@ public class KeyFinder {
         _activeKey = null;
         _allNotes = _keys.getAllNotes();
         _noteTimerLength = 5;
+        _keyTimerLength = 5;
         _noteHasBeenRemoved = false;
+        _activeKeyHasBeenUpdated = false;
     }
 
     /**
@@ -107,7 +132,7 @@ public class KeyFinder {
             // Increment strength of all keys containing this note.
             incrementKeysWithNote(targetNote);
             updateMaxStrength();
-            updateActiveKey();
+            updateContenderKeys();
         }
     }
 
@@ -121,7 +146,6 @@ public class KeyFinder {
     public boolean removeNoteFromList(Note targetNote) {
         // If note not in _activeNotes.
         if (!_activeNotes.contains(targetNote)) {
-            // TODO: should there be an exception thrown here?
             return false;
         }
         // Remove note from _activeNotes.
@@ -129,10 +153,11 @@ public class KeyFinder {
             this._activeNotes.remove(targetNote);
             targetNote.cancelNoteTimer();
             _noteHasBeenRemoved = true;
+            _removedNote = targetNote;
             // Decrement strength of all keys containing this note.
             decrementKeysWithNote(targetNote);
             updateMaxStrength();
-            updateActiveKey();
+            updateContenderKeys();
             return true;
         }
     }
@@ -264,6 +289,9 @@ public class KeyFinder {
      * @return      int; active keys strength.
      */
     public int getActiveKeyStrength() {
+        if (_activeKey == null) {
+            return 0;
+        }
         return this._keys.getMajorKeyAtIndex(_activeKey.getIx()).getStrength();
     }
 
@@ -294,6 +322,43 @@ public class KeyFinder {
             // Pick a random key that has max strength.
             this._activeKey = getRandomKey(getKeysWithMaxStrength());
         }
+    }
+
+    public void updateContenderKeys() {
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            Key curKey = getAllKeys().getMajorKeyAtIndex(i);
+            // Don't check active key.
+            if (curKey != _activeKey) {
+                // There are 4 states an inactive key can be in,
+                // however, only two require action:
+
+                // 1. Key is contender and doesn't meet the requirements.
+                if (curKey.isContender() && !meetsContenderRequirements(curKey)) {
+                    // Cancel timer.
+                    curKey.cancelKeyTimer();
+                    // Not a contender.
+                    curKey.setIsContender(false);
+                }
+                // 2. Key is not a contender and meets the requirements.
+                else if (!curKey.isContender() && meetsContenderRequirements(curKey)) {
+                    // Start timer.
+                    curKey.startKeyTimer(this, 5);
+                    // Is a contender.
+                    curKey.setIsContender(true);
+                }
+            }
+        }
+    }
+
+    /**
+     * An inactive key is a contender if it meets two requirements:
+     *   1. Key has greater strength than the current active key.
+     *   2. Key has max strength (can be same as other inactive keys).
+     * @param       curKey Key; key to be monitored.
+     * @return      boolean; true if key meets requirements.
+     */
+    private boolean meetsContenderRequirements(Key curKey) {
+        return curKey.getStrength() > getActiveKeyStrength() && curKey.getStrength() == _maxStrength;
     }
 
     public void run() {
@@ -333,16 +398,54 @@ public class KeyFinder {
      * Flag for when a note is removed from the active note list.
      * @return      boolean; true if note has been removed.
      */
-    public boolean getNoteHasBeenRemoved() {
+    public boolean noteHasBeenRemoved() {
         return _noteHasBeenRemoved;
     }
 
+    /**
+     * Reset the flag for note being removed.
+     */
+    public void resetNoteHasBeenRemoved() {
+        _noteHasBeenRemoved = false;
+    }
 
     /**
+     * Get the last note that has been removed from active note list.
+     * @return      Note; last note removed from active note list.
+     */
+    public Note getRemovedNote() {
+        return _removedNote;
+    }
+    
+    public void setKeyTimerLength(int seconds) {
+        _keyTimerLength = seconds;
+    }
+    
+    public boolean activeKeyHasBeenUpdated() {
+        return _activeKeyHasBeenUpdated;
+    }
+    
+    public void resetKeyHasBeenChanged() {
+        _activeKeyHasBeenUpdated = false;
+    }
+
+    /**
+     * UNUSED FUNCTION (I THINK)
      * Flag for when a note is removed from the active note list.
      * @return      boolean; true if note has been removed.
      */
     public void setNoteHasBeenRemoved(boolean bool) {
         _noteHasBeenRemoved = bool;
+    }
+
+    public void cancelAllKeyTimersExcept(Key ignoreKey) {
+        Key curKey;
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            curKey = getAllKeys().getMajorKeyAtIndex(i);
+            if (curKey.isContender()) {
+                curKey.cancelKeyTimer();
+                curKey.setIsContender(false);
+            }
+        }
     }
 }

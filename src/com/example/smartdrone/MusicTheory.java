@@ -24,6 +24,11 @@ public class MusicTheory {
     final static int[] PHRYGIAN_SCALE_SEQUENCE = { 0, 1, 3, 5, 7, 8, 10};
 
     /**
+     * Intervals that make up a major triad.
+     */
+    final static int[] MAJOR_TRAID_SEQUENCE = { 0, 4, 7 };
+
+    /**
      * An array of all 12 tones used in western music.
      * Ordered from 'C' to 'B' (ascending).
      */
@@ -39,4 +44,5 @@ public class MusicTheory {
      * This includes: major, melodic minor, harmonic minor, harmonic major.
      */
     final static int DIATONIC_SCALE_SIZE = 7;
+
 }

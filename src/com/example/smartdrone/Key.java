@@ -30,6 +30,19 @@ public class Key {
     private int _strength;
 
     /**
+     * Timer object that keeps track of the number of seconds a
+     * key object has been a contender as the new active key.
+     */
+    private Timer _timer;
+
+    /**
+     * TimerTask to set the key as new active key.
+     */
+    private KeyTimerTask _keyTimerTask;
+
+    private boolean _isContender;
+
+    /**
      * Constructs a container of all the notes in the key based on the key center given.
      * @param       keyCenterIx int; index of the key center.
      * @param       allNotes NoteCollection; contains every note object.
@@ -43,6 +56,7 @@ public class Key {
         this._name = MusicTheory.CHROMATIC_SCALE[this._ix];
         this._notes = new HashSet<>();
         this._strength = 0;
+        this._isContender = false;
         // Set up for target note index.
         int offset;
         int curNoteIx;
@@ -88,6 +102,14 @@ public class Key {
     }
 
     /**
+     * Returns Timer object.
+     * @return      Timer; timer object for key.
+     */
+    public Timer getTimer() {
+        return this._timer;
+    }
+
+    /**
      * Increase the keys strength by 1.
      */
     public void incrementStrength() {
@@ -99,6 +121,34 @@ public class Key {
      */
     public void decrementStrength() {
         this._strength--;
+    }
+
+    /**
+     * Starts a background thread to set contender key as new active key.
+     * @param       keyFinder KeyFinder; object that contains all active notes.
+     * @param       seconds int; length of timer.
+     */
+    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
+        _timer = new Timer();
+        // Schedule the monitor timer for the key.
+        _keyTimerTask = new KeyTimerTask(keyFinder, this);
+        _timer.schedule(_keyTimerTask, seconds * 1000);
+    }
+
+    /**
+     * Terminates the removal task of Note.
+     * Used when key is no longer a contender.
+     */
+    public void cancelKeyTimer() {
+        _keyTimerTask.cancel();
+    }
+
+    public boolean isContender() {
+        return _isContender;
+    }
+
+    public void setIsContender(boolean status) {
+        _isContender = status;
     }
 
     /**

@@ -14,12 +14,6 @@ import java.util.Timer;
  */
 public class Note {
     /**
-     * The number of seconds a Note will remain in the
-     * KeyFinder List until it is to be automatically removed.
-     */
-    private int _inactiveThreshold = 4;
-
-    /**
      * The number of semitones offset from 'C'.
      * Used for array lookup.
      * (0 = 'C'; 1 = 'C#'; 2 = 'D'; ...)
@@ -99,7 +93,7 @@ public class Note {
     }
 
     /**
-     * Returns NoteTimer object.
+     * Returns Timer object.
      * @return      Timer; timer object for note.
      */
     public Timer getTimer() {
@@ -117,6 +111,7 @@ public class Note {
     /**
      * Starts a background thread to remove Note object from list after it has become inactive.
      * @param       keyFinder KeyFinder; object that contains all active notes.
+     * @seconds     seconds int; length of timer.
      */
     public void startNoteTimer(KeyFinder keyFinder, int seconds) {
         _timer = new Timer();

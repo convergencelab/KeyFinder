@@ -8,5 +8,6 @@ public class source {
         // Run simulations: note entered will enter all notes from scale.
         KeyFinder kf = new KeyFinder();
         kf.run();
+
     }
 }
