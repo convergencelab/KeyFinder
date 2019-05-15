@@ -40,6 +40,8 @@ public class Key {
      */
     private KeyTimerTask _keyTimerTask;
 
+    private boolean _isContender;
+
     /**
      * Constructs a container of all the notes in the key based on the key center given.
      * @param       keyCenterIx int; index of the key center.
@@ -54,6 +56,7 @@ public class Key {
         this._name = MusicTheory.CHROMATIC_SCALE[this._ix];
         this._notes = new HashSet<>();
         this._strength = 0;
+        this._isContender = false;
         // Set up for target note index.
         int offset;
         int curNoteIx;
@@ -136,8 +139,16 @@ public class Key {
      * Terminates the removal task of Note.
      * Used when key is no longer a contender.
      */
-    public void cancelNoteTimer() {
+    public void cancelKeyTimer() {
         _keyTimerTask.cancel();
+    }
+
+    public boolean isContender() {
+        return _isContender;
+    }
+
+    public void setIsContender(boolean status) {
+        _isContender = status;
     }
 
     /**

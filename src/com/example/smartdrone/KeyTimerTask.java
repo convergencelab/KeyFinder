@@ -22,6 +22,10 @@ public class KeyTimerTask extends TimerTask {
     @Override
     public void run() {
         _keyFinder.setActiveKey(_toMonitor);
-        _timer.cancel();
+        _toMonitor.setIsContender(false);
+        _keyFinder.cancelAllKeyTimersExcept(_toMonitor);
     }
 }
+
+
+// TODO: 1) edge case; active key is null. 2) test to see if works.
