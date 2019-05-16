@@ -43,6 +43,8 @@ public class Note {
      */
     private NoteTimerTask _noteTimerTask;
 
+    private boolean _timerIsActive;
+
     /**
      * Constructs a new Note based on the index; octave is set to -1.
      * @param       noteIx int; the index of the note.
@@ -52,6 +54,7 @@ public class Note {
         this._ix = noteIx;
         this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
         this._octave = -1;
+        this._timerIsActive = false;
     }
 
     /**
@@ -65,6 +68,7 @@ public class Note {
         this._ix = noteIx;
         this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
         this._octave = octave;
+        this._timerIsActive = false;
     }
 
     /**
@@ -108,12 +112,24 @@ public class Note {
         return this._noteTimerTask;
     }
 
+    public boolean isTimerActive() {
+        return _timerIsActive;
+    }
+
+    public void setTimerIsInactive() {
+        _timerIsActive = false;
+    }
+
     /**
      * Starts a background thread to remove Note object from list after it has become inactive.
      * @param       keyFinder KeyFinder; object that contains all active notes.
      * @seconds     seconds int; length of timer.
      */
     public void startNoteTimer(KeyFinder keyFinder, int seconds) {
+        // If there is already an active timer.
+        if (isTimerActive()) {
+            _noteTimerTask.cancel();
+        }
         _timer = new Timer();
         // Schedule the removal of note for EXPIRATION_TIME length
         _noteTimerTask = new NoteTimerTask(keyFinder, this);

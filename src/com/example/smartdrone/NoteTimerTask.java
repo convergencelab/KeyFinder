@@ -21,8 +21,8 @@ class NoteTimerTask extends TimerTask {
     @Override
     public void run() {
         _keyFinder.removeNoteFromList(_toRemove);
-        System.out.println("\n*Removed Expired Note: " + _toRemove.getName() + "*");   // DEBUG STATEMENT
-        Test.pickActiveKeyTestPrintInfo(_keyFinder);                                   // DEBUG STATEMENT
+        // System.out.println("\n*Removed Expired Note: " + _toRemove.getName() + "*");   // DEBUG STATEMENT
+        // Test.pickActiveKeyTestPrintInfo(_keyFinder);                                   // DEBUG STATEMENT
         _timer.cancel();
     }
 }

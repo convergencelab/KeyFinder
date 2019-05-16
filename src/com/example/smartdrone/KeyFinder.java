@@ -113,26 +113,28 @@ public class KeyFinder {
      * strength of keys that contain the target note.
      * @param       targetNote Note; note that is to be added to the list.
      */
-    public void addNoteToList(Note targetNote) {
+    public boolean addNoteToList(Note targetNote) {
         System.out.println("*Adding note: " + targetNote.getName() + "*"); // DEBUG STATEMENT
         // If note in list.
         if (this._activeNotes.contains(targetNote)) {
             // Remove it and add it back.
             // ie: change it to the rear of the list.
             _activeNotes.remove(targetNote);
-            targetNote.restartTimer(this);
+            // targetNote.restartTimer(this);   // HAS BEEN MOVED TO APP
             _activeNotes.add(targetNote);
+            return true;
         }
         // If note not in list.
         else {
             // Add it to the rear.
             this._activeNotes.add(targetNote);
             // Start timer on note.
-            targetNote.startNoteTimer(this, _noteTimerLength);
+            // targetNote.startNoteTimer(this, _noteTimerLength);    // HAS BEEN MOVED TO APP
             // Increment strength of all keys containing this note.
             incrementKeysWithNote(targetNote);
             updateMaxStrength();
             updateContenderKeys();
+            return false;
         }
     }
 
@@ -342,7 +344,7 @@ public class KeyFinder {
                 // 2. Key is not a contender and meets the requirements.
                 else if (!curKey.isContender() && meetsContenderRequirements(curKey)) {
                     // Start timer.
-                    curKey.startKeyTimer(this, 5);
+                    curKey.startKeyTimer(this, _keyTimerLength);
                     // Is a contender.
                     curKey.setIsContender(true);
                 }
@@ -427,6 +429,10 @@ public class KeyFinder {
     
     public void resetKeyHasBeenChanged() {
         _activeKeyHasBeenUpdated = false;
+    }
+
+    public int getKeyTimerLength() {
+        return _keyTimerLength;
     }
 
     /**
