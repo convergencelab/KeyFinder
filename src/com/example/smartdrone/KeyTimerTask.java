@@ -26,6 +26,3 @@ public class KeyTimerTask extends TimerTask {
         _keyFinder.cancelAllKeyTimersExcept(_toMonitor);
     }
 }
-
-
-// TODO: 1) edge case; active key is null. 2) test to see if works.

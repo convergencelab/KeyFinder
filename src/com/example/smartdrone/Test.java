@@ -32,7 +32,7 @@ public class Test {
      * Function to test the increment function from the KeyFinder class.
      * Takes user input, increments corresponding index of _keyStrength array.
      */
-    static public void incrementKeysStrengthTest1() {
+/*    static public void incrementKeysStrengthTest1() {
         // Create KeyFinder object
         KeyFinder kf = new KeyFinder();
         Scanner in = new Scanner(System.in);
@@ -48,11 +48,13 @@ public class Test {
         }
     }
 
+ */
+
     /**
      * Function to test the increment and decrement function from the KeyFinder class.
      * Takes user input, increments and decrements corresponding index of _keyStrength array.
      */
-    static public void incrAndDecrKeysStrengthTest1() {
+/*    static public void incrAndDecrKeysStrengthTest1() {
         // Create KeyFinder object
         KeyFinder kf = new KeyFinder();
         Scanner in = new Scanner(System.in);
@@ -72,6 +74,8 @@ public class Test {
             userNote = in.nextInt();
         }
     }
+
+ */
 
     static public void printNoteList(LinkedList<Note> noteList) {
         if (noteList.isEmpty()) {

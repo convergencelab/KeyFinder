@@ -5,13 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * This class uses methods to determine which key has the strongest relationship to the notes being received.
- * It utilizes a LinkedList to store notes that are received. This notes all share an equal weight while in the queue,
- * though they have a timer that removes them from the queue if they have not been played after a certain amount
- * of time.
- * To monitor the relationship of each key, there is an array, _keyStrength, that stores the strength of the key.
+ * Determine which key has the strongest relationship to the notes being received.
+ * Notes are added to a list when received, and removed from the when they have become inactive.
+ * The active key is the key with the strongest strength. If more than one key has max strength then
+ * the active key will be chosen at random.
  */
-
 public class KeyFinder {
     /**
      * Collection of all notes;
@@ -20,77 +18,68 @@ public class KeyFinder {
     private NoteCollection _allNotes;
 
     /**
-     * A LinkedList that adds newly received notes at the end of the list.
-     * The front of the list will be checked to see if the timer has expired.
-     * When a new note is received, the list will be scanned to see if it already exists.
-     * If it does, than the timer will be reset and the note will be placed at the back of the list.
+     * A list of all active notes.
+     * Active notes affect key strength.
      */
     private LinkedList<Note> _activeNotes;
 
     /**
-     * KeyCollection contains an array of all 12 keys.
-     * Each key contains an array of all notes found in the key,
-     * as well as a set of all the note indexes for O(1) lookup time.
+     * Object that contains all key objects.
      */
-    private KeyCollection _keys;
+    private KeyCollection _allKeys;
 
     /**
-     * An int that keeps track of the maximum strength of all keys in the _keyStrength array.
-     * NOTE: This will not necessarily be the active key.
+     * The max strength among all keys.
+     * Not necessarily the active key.
      */
     private int _maxStrength;
 
     /**
-     * The current key that is being output by the application.
+     * The key that has the strongest correlation with the active notes.
      */
     private Key _activeKey;
 
     /**
-     * Number of seconds an active note can remain in the active note list since it has last been added.
+     * Number of seconds for the note timer task.
      */
     private int _noteTimerLength;
 
     /**
-     * Flag for a note being removed from list of active notes.
+     * Flag for a note being removed the active note list.
      */
     private boolean _noteHasBeenRemoved;
 
     /**
-     * The last note to have been removed.
+     * The last note that was removed.
      */
     private Note _removedNote;
 
     /**
-     * Number of seconds for the KeyTimerTask.
+     * Number of seconds for the key timer task.
      */
     private int _keyTimerLength;
 
     /**
      * Flag for a checking if the active key has changed.
      */
-    private boolean _activeKeyHasBeenUpdated;
+    private boolean _activeKeyHasChanged;
 
     /**
-     * List of inactive keys that are in the running for the new active key.
-     */
-    private LinkedList<Key> _contenderKeys;
-
-    /**
-     * Constructs key finder object.
+     * Constructor.
      */
     public KeyFinder() {
         _activeNotes = new LinkedList<>();
-        _keys = new KeyCollection();
+        _allKeys = new KeyCollection();
         _activeKey = null;
-        _allNotes = _keys.getAllNotes();
-        _noteTimerLength = 5;
-        _keyTimerLength = 5;
+        _allNotes = _allKeys.getAllNotes();
+        _noteTimerLength = 2;
+        _keyTimerLength = 2;
         _noteHasBeenRemoved = false;
-        _activeKeyHasBeenUpdated = false;
+        _activeKeyHasChanged = false;
     }
 
     /**
-     * Get object that contains array of all note objects.
+     * Get object that contains all note objects.
      * @return      NoteCollection; object with all note objects.
      */
     public NoteCollection getAllNotes() {
@@ -98,7 +87,7 @@ public class KeyFinder {
     }
 
     /**
-     * Returns the List of notes that are currently active.
+     * Returns the List of active notes.
      * @return      LinkedList; all active notes.
      */
     public LinkedList<Note> getActiveNotes() {
@@ -106,62 +95,59 @@ public class KeyFinder {
     }
 
     /**
-     * Method to add notes to _activeNotes.
-     * If not already exists, it will move it to the rear of the list.
-     * If it does not, it will add it to the rear of the list.
-     * This method has a side effect of incrementing the
-     * strength of keys that contain the target note.
-     * @param       targetNote Note; note that is to be added to the list.
+     * Add notes to active notes.
+     * Updates key strengths.
+     * @param       targetNote Note; note to be added to active notes.
      */
-    public boolean addNoteToList(Note targetNote) {
-        System.out.println("*Adding note: " + targetNote.getName() + "*"); // DEBUG STATEMENT
+    public void addNoteToList(Note targetNote) {
+        // System.out.println("*Adding note: " + targetNote.getName() + "*"); // DEBUG STATEMENT
         // If note in list.
-        if (this._activeNotes.contains(targetNote)) {
-            // Remove it and add it back.
-            // ie: change it to the rear of the list.
-            _activeNotes.remove(targetNote);
-            // targetNote.restartTimer(this);   // HAS BEEN MOVED TO APP
-            _activeNotes.add(targetNote);
-            return true;
+        if (activeNotesContain(targetNote)) {
+            // Do nothing.
+            // App restarts timer.
+            return;
         }
         // If note not in list.
         else {
-            // Add it to the rear.
+            // Add to list.
             this._activeNotes.add(targetNote);
-            // Start timer on note.
-            // targetNote.startNoteTimer(this, _noteTimerLength);    // HAS BEEN MOVED TO APP
-            // Increment strength of all keys containing this note.
             incrementKeysWithNote(targetNote);
             updateMaxStrength();
             updateContenderKeys();
-            return false;
         }
     }
 
     /**
-     * Method that removes notes from _activeNotes.
-     * This method has a side effect of decrementing the
-     * strength of keys that contain the target note.
-     * @param       targetNote Note; note to be removed from LinkedList.
-     * @return      true if targetNote in list; false otherwise.
+     * Removes notes from active notes.
+     * Updates key strengths.
+     * @param       targetNote Note; note to be removed from active notes.
      */
-    public boolean removeNoteFromList(Note targetNote) {
+    public void removeNoteFromList(Note targetNote) {
         // If note not in _activeNotes.
-        if (!_activeNotes.contains(targetNote)) {
-            return false;
+        if (!activeNotesContain(targetNote)) {
+            return;
         }
         // Remove note from _activeNotes.
         else {
             this._activeNotes.remove(targetNote);
             targetNote.cancelNoteTimer();
+            // Flag note removed. Used for debugging.
             _noteHasBeenRemoved = true;
             _removedNote = targetNote;
             // Decrement strength of all keys containing this note.
             decrementKeysWithNote(targetNote);
             updateMaxStrength();
             updateContenderKeys();
-            return true;
         }
+    }
+
+    /**
+     * Check if active notes list contains target note.
+     * @param       targetNote Note; note to check.
+     * @return      boolean; true if active notes contains target note.
+     */
+    private boolean activeNotesContain(Note targetNote) {
+        return this._activeNotes.contains(targetNote);
     }
 
     /**
@@ -169,166 +155,112 @@ public class KeyFinder {
      * @return      KeyCollection; object containing all keys.
      */
     public KeyCollection getAllKeys() {
-        return this._keys;
+        return this._allKeys;
     }
 
     /**
-     * Increment the strength of all keys that contain the target note by 1.
-     * @param       target Note; object that has entered List.
+     * Increment strength of all keys containing target note.
+     * @param       target Note; target note.
      */
-    public void incrementKeysWithNote(Note target) {
-        // Offset will represent the difference in semitones
-        // away from the next key that contains the target note.
-        // ie: next key.
-        int offset;
-        // Index of target note.
-        int noteIx = target.getIx();
+    private void incrementKeysWithNote(Note target) {
+        int curKeyOffset;
+        int targetNoteIx = target.getIx();
         // For each key that contains note.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            offset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
+            curKeyOffset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
             // Increment keys strength.
-            this._keys.getMajorKeyAtIndex(
-                    (noteIx + offset) % MusicTheory.TOTAL_NOTES).incrementStrength(); // TOTAL_NOTES = 12
+            _allKeys.getMajorKeyAtIndex(
+                    (targetNoteIx + curKeyOffset) % MusicTheory.TOTAL_NOTES).incrementStrength(); // TOTAL_NOTES = 12
         }
     }
 
     /**
-     * Decrement the strength of all keys that contain the target note by 1.
-     * @param       target Note; object that has exited List.
+     * Decrement strength of all keys containing target note.
+     * @param       target Note; target note.
      */
-    public void decrementKeysWithNote(Note target) {
-        // Offset will represent the difference in semitones
-        // away from the next key that contains the target note.
-        // ie: next key.
-        int offset;
-        int noteIx = target.getIx();
+    private void decrementKeysWithNote(Note target) {
+        int curKeyOffset;
+        int targetNoteIx = target.getIx();
         // For each key that contains note.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            offset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
+            curKeyOffset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
             // Decrement keys strength.
-            this._keys.getMajorKeyAtIndex(
-                    (noteIx + offset) % MusicTheory.TOTAL_NOTES).decrementStrength(); // TOTAL_NOTES = 12
+            _allKeys.getMajorKeyAtIndex(
+                    (targetNoteIx + curKeyOffset) % MusicTheory.TOTAL_NOTES).decrementStrength(); // TOTAL_NOTES = 12
         }
     }
 
     /**
-     * Method that takes a list of keys and returns one at random.
-     * Used when there are multiple keys that share the same strength.
-     * @param       keyList List; of Key objects.
-     * @return      Key; the winning key.
-     */
-    public Key getRandomKey(List<Key> keyList) {
-        // Get random number between (0 and num of keys with max strength -1; inclusive)
-        int randomIx = new Random().nextInt(keyList.size());
-        return keyList.get(randomIx);
-    }
-
-    /**
-     * Return the largest integer in the key strength array.
-     * @return      int representing the maximum strength from _keyStrength.
+     * Return max strength of all keys.
+     * @return      int; max strength.
      */
     public int getMaxStrength() {
         return _maxStrength;
     }
 
     /**
-     * Linear search through key strength;
-     * return the largest strength.
-     * MIN = 0; MAX = 7.
+     * Checks all keys; returns max strength.
      * @return      int; max strength among all keys.
      */
     private int findMaxStrength() {
-        int max = 0;
+        int maxStrength = 0;
         Key curKey;
         // For each int in array.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            curKey = this._keys.getMajorKeyAtIndex(i);
+            curKey = this._allKeys.getMajorKeyAtIndex(i);
             // If it's greater than current max.
-            if (curKey.getStrength() > max) {
+            if (curKey.getStrength() > maxStrength) {
                 // Max becomes current keys strength.
-                max = curKey.getStrength();
+                maxStrength = curKey.getStrength();
             }
         }
-        return max;
+        return maxStrength;
     }
 
     /**
-     * Sets the max strength to the highest value;
-     * finds highest value by calling findMaxStrength function.
-     * @see #findMaxStrength()
+     * Finds the max strength and updates max strength.
      */
     private void updateMaxStrength() {
         _maxStrength = findMaxStrength();
     }
 
     /**
-     * Returns a list with all keys that have max strength.
-     * @return      ArrayList of Key objects.
-     */
-    public List<Key> getKeysWithMaxStrength() {
-        return getAllKeys().getKeysWithStrength(getMaxStrength());
-    }
-
-    /**
-     * Returns the index of the key that is actively being played.
-     * NOTE: the active key isn't necessarily the strongest key.
+     * Returns the active key.
      */
     public Key getActiveKey() {
         return this._activeKey;
     }
 
     /**
-     * Sets the active key field to the key given.
+     * Set the active key.
+     * Triggers flag for active key change.
      * @param       newActiveKey Key; new active key.
      */
     public void setActiveKey(Key newActiveKey) {
         this._activeKey = newActiveKey;
+        _activeKeyHasChanged = true;
     }
 
     /**
-     * Returns the integer that represents the strength of the active key.
-     * NOTE: The active keys strength is not necessarily the max strength.
+     * Get active keys strength.
+     * No active key returns 0.
      * @return      int; active keys strength.
      */
-    public int getActiveKeyStrength() {
+    private int getActiveKeyStrength() {
         if (_activeKey == null) {
             return 0;
         }
-        return this._keys.getMajorKeyAtIndex(_activeKey.getIx()).getStrength();
+        return _allKeys.getMajorKeyAtIndex(_activeKey.getIx()).getStrength();
     }
 
     /**
-     * Check whether the active key has max strength.
-     * @return      true if active key has max strength; false otherwise.
+     * Monitors keys that are in contention for becoming the new active key.
      */
-    public boolean activeKeyHasMaxStrength() {
-        return getActiveKeyStrength() == getMaxStrength();
-    }
-
-    /**
-     * Method to determine what should be the active key.
-     */
-    public void updateActiveKey() {
-        // No active notes in List.
-        if (this._activeNotes.isEmpty()) {
-            this._activeKey = null;
-            return;
-        }
-        // If the active key still has max strength, return it.
-        // The active key therefore takes precedence over other keys,
-        // even if they all share max strength.
-        if (getActiveKey() != null && activeKeyHasMaxStrength()) {
-            return;
-        }
-        else {
-            // Pick a random key that has max strength.
-            this._activeKey = getRandomKey(getKeysWithMaxStrength());
-        }
-    }
-
-    public void updateContenderKeys() {
+    private void updateContenderKeys() {
+        Key curKey;
+        // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            Key curKey = getAllKeys().getMajorKeyAtIndex(i);
+            curKey = getAllKeys().getMajorKeyAtIndex(i);
             // Don't check active key.
             if (curKey != _activeKey) {
                 // There are 4 states an inactive key can be in,
@@ -363,33 +295,16 @@ public class KeyFinder {
         return curKey.getStrength() > getActiveKeyStrength() && curKey.getStrength() == _maxStrength;
     }
 
-    public void run() {
-        Note curNote;
-        int userNoteIx = Test.promptUserForNoteIndex();
-        while (userNoteIx != -1) {
-            System.out.println();
-            // Construct Note.
-            curNote = this.getAllNotes().getNoteAtIndex(userNoteIx);
-            // Add to list.
-            this.addNoteToList(curNote);
-            // Print out all the keys strength.
-            Test.pickActiveKeyTestPrintInfo(this);
-            // Prompt user again
-            System.out.println();
-            userNoteIx = Test.promptUserForNoteIndex();
-        }
-    }
-
     /**
-     * Return the number of seconds an active note can remain in the list.
-     * @return      int; noteTimerLength
+     * Get the length of the note timer.
+     * @return      int; number of seconds.
      */
     public int getNoteTimerLength() {
         return _noteTimerLength;
     }
 
     /**
-     * Set the number of seconds an active note can remain in the list.
+     * Set the length of the note timer.
      * @param       seconds int; number of seconds.
      */
     public void setNoteTimerLength(int seconds) {
@@ -397,57 +312,71 @@ public class KeyFinder {
     }
 
     /**
-     * Flag for when a note is removed from the active note list.
+     * Check if note has been removed.
      * @return      boolean; true if note has been removed.
      */
-    public boolean noteHasBeenRemoved() {
+    public boolean getNoteHasBeenRemoved() {
         return _noteHasBeenRemoved;
     }
 
     /**
      * Reset the flag for note being removed.
+     * @param       status boolean; if note has been removed.
      */
-    public void resetNoteHasBeenRemoved() {
-        _noteHasBeenRemoved = false;
+    public void setNoteHasBeenRemoved(boolean status) {
+        _noteHasBeenRemoved = status;
     }
 
     /**
-     * Get the last note that has been removed from active note list.
-     * @return      Note; last note removed from active note list.
+     * Get the last removed note.
+     * @return      Note; last removed note.
      */
     public Note getRemovedNote() {
         return _removedNote;
     }
-    
-    public void setKeyTimerLength(int seconds) {
-        _keyTimerLength = seconds;
-    }
-    
-    public boolean activeKeyHasBeenUpdated() {
-        return _activeKeyHasBeenUpdated;
-    }
-    
-    public void resetKeyHasBeenChanged() {
-        _activeKeyHasBeenUpdated = false;
-    }
 
+    /**
+     * Get the length of the key timer.
+     * @return      int; number of seconds.
+     */
     public int getKeyTimerLength() {
         return _keyTimerLength;
     }
 
     /**
-     * UNUSED FUNCTION (I THINK)
-     * Flag for when a note is removed from the active note list.
-     * @return      boolean; true if note has been removed.
+     * Set the length of the key timer.
+     * @param       seconds int; number of seconds.
      */
-    public void setNoteHasBeenRemoved(boolean bool) {
-        _noteHasBeenRemoved = bool;
+    public void setKeyTimerLength(int seconds) {
+        _keyTimerLength = seconds;
     }
 
+    /**
+     * Check if active key has changed.
+     * @return      boolean; true if active key has changed.
+     */
+    public boolean getActiveKeyHasChanged() {
+        return _activeKeyHasChanged;
+    }
+
+    /**
+     * Set active key change flag.
+     * @param       status boolean; true if active key has changed.
+     */
+    public void setActiveKeyHasChanged(boolean status) {
+        _activeKeyHasChanged = status;
+    }
+
+    /**
+     * Cancel all the key timers.
+     * Function used when key has been changed to prevent bug.
+     * @param       ignoreKey Key; key that does not require cancelling.
+     */
     public void cancelAllKeyTimersExcept(Key ignoreKey) {
         Key curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = getAllKeys().getMajorKeyAtIndex(i);
+            // Only contender keys will have an active timer.
             if (curKey.isContender()) {
                 curKey.cancelKeyTimer();
                 curKey.setIsContender(false);
