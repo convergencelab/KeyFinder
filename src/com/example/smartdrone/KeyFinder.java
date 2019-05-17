@@ -62,13 +62,7 @@ public class KeyFinder {
     /**
      * Flag for a checking if the active key has changed.
      */
-    private boolean _activeKeyHasBeenUpdated;
-
-            //TODO: if working, then delete.
-//    /**
-//     * List of inactive keys that are in the running for the new active key.
-//     */
-//    private LinkedList<Key> _contenderKeys;
+    private boolean _activeKeyHasChanged;
 
     /**
      * Constructor.
@@ -81,7 +75,7 @@ public class KeyFinder {
         _noteTimerLength = 2;
         _keyTimerLength = 2;
         _noteHasBeenRemoved = false;
-        _activeKeyHasBeenUpdated = false;
+        _activeKeyHasChanged = false;
     }
 
     /**
@@ -197,65 +191,54 @@ public class KeyFinder {
     }
 
     /**
-     * Return the largest integer in the key strength array.
-     * @return      int representing the maximum strength from _keyStrength.
+     * Return max strength of all keys.
+     * @return      int; max strength.
      */
     public int getMaxStrength() {
         return _maxStrength;
     }
 
     /**
-     * Linear search through key strength;
-     * return the largest strength.
-     * MIN = 0; MAX = 7.
+     * Checks all keys; returns max strength.
      * @return      int; max strength among all keys.
      */
     private int findMaxStrength() {
-        int max = 0;
+        int maxStrength = 0;
         Key curKey;
         // For each int in array.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = this._allKeys.getMajorKeyAtIndex(i);
             // If it's greater than current max.
-            if (curKey.getStrength() > max) {
+            if (curKey.getStrength() > maxStrength) {
                 // Max becomes current keys strength.
-                max = curKey.getStrength();
+                maxStrength = curKey.getStrength();
             }
         }
-        return max;
+        return maxStrength;
     }
 
     /**
-     * Sets the max strength to the highest value;
-     * finds highest value by calling findMaxStrength function.
-     * @see #findMaxStrength()
+     * Finds the max strength and updates max strength.
      */
     private void updateMaxStrength() {
         _maxStrength = findMaxStrength();
     }
 
     /**
-     * Returns a list with all keys that have max strength.
-     * @return      ArrayList of Key objects.
-     */
-    public List<Key> getKeysWithMaxStrength() {
-        return getAllKeys().getKeysWithStrength(getMaxStrength());
-    }
-
-    /**
-     * Returns the index of the key that is actively being played.
-     * NOTE: the active key isn't necessarily the strongest key.
+     * Returns the active key.
      */
     public Key getActiveKey() {
         return this._activeKey;
     }
 
     /**
-     * Sets the active key field to the key given.
+     * Set the active key.
+     * Triggers flag for active key change.
      * @param       newActiveKey Key; new active key.
      */
     public void setActiveKey(Key newActiveKey) {
         this._activeKey = newActiveKey;
+        _activeKeyHasChanged = true;
     }
 
     /**
@@ -313,15 +296,15 @@ public class KeyFinder {
     }
 
     /**
-     * Return the number of seconds an active note can remain in the list.
-     * @return      int; noteTimerLength
+     * Get the length of the note timer.
+     * @return      int; number of seconds.
      */
     public int getNoteTimerLength() {
         return _noteTimerLength;
     }
 
     /**
-     * Set the number of seconds an active note can remain in the list.
+     * Set the length of the note timer.
      * @param       seconds int; number of seconds.
      */
     public void setNoteTimerLength(int seconds) {
@@ -329,57 +312,71 @@ public class KeyFinder {
     }
 
     /**
-     * Flag for when a note is removed from the active note list.
+     * Check if note has been removed.
      * @return      boolean; true if note has been removed.
      */
-    public boolean noteHasBeenRemoved() {
+    public boolean getNoteHasBeenRemoved() {
         return _noteHasBeenRemoved;
     }
 
     /**
      * Reset the flag for note being removed.
+     * @param       status boolean; if note has been removed.
      */
-    public void resetNoteHasBeenRemoved() {
-        _noteHasBeenRemoved = false;
+    public void setNoteHasBeenRemoved(boolean status) {
+        _noteHasBeenRemoved = status;
     }
 
     /**
-     * Get the last note that has been removed from active note list.
-     * @return      Note; last note removed from active note list.
+     * Get the last removed note.
+     * @return      Note; last removed note.
      */
     public Note getRemovedNote() {
         return _removedNote;
     }
-    
-    public void setKeyTimerLength(int seconds) {
-        _keyTimerLength = seconds;
-    }
-    
-    public boolean activeKeyHasBeenUpdated() {
-        return _activeKeyHasBeenUpdated;
-    }
-    
-    public void resetKeyHasBeenChanged() {
-        _activeKeyHasBeenUpdated = false;
-    }
 
+    /**
+     * Get the length of the key timer.
+     * @return      int; number of seconds.
+     */
     public int getKeyTimerLength() {
         return _keyTimerLength;
     }
 
     /**
-     * UNUSED FUNCTION (I THINK)
-     * Flag for when a note is removed from the active note list.
-     * @return      boolean; true if note has been removed.
+     * Set the length of the key timer.
+     * @param       seconds int; number of seconds.
      */
-    public void setNoteHasBeenRemoved(boolean bool) {
-        _noteHasBeenRemoved = bool;
+    public void setKeyTimerLength(int seconds) {
+        _keyTimerLength = seconds;
     }
 
+    /**
+     * Check if active key has changed.
+     * @return      boolean; true if active key has changed.
+     */
+    public boolean getActiveKeyHasChanged() {
+        return _activeKeyHasChanged;
+    }
+
+    /**
+     * Set active key change flag.
+     * @param       status boolean; true if active key has changed.
+     */
+    public void setActiveKeyHasChanged(boolean status) {
+        _activeKeyHasChanged = status;
+    }
+
+    /**
+     * Cancel all the key timers.
+     * Function used when key has been changed to prevent bug.
+     * @param       ignoreKey Key; key that does not require cancelling.
+     */
     public void cancelAllKeyTimersExcept(Key ignoreKey) {
         Key curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = getAllKeys().getMajorKeyAtIndex(i);
+            // Only contender keys will have an active timer.
             if (curKey.isContender()) {
                 curKey.cancelKeyTimer();
                 curKey.setIsContender(false);

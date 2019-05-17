@@ -116,8 +116,8 @@ public class Note {
         return _timerIsActive;
     }
 
-    public void setTimerIsInactive() {
-        _timerIsActive = false;
+    public void setTimerIsActive(boolean status) {
+        _timerIsActive = status;
     }
 
     /**
@@ -127,13 +127,15 @@ public class Note {
      */
     public void startNoteTimer(KeyFinder keyFinder, int seconds) {
         // If there is already an active timer.
-        if (isTimerActive()) {
+        if (_noteTimerTask != null) {
             _noteTimerTask.cancel();
         }
         _timer = new Timer();
         // Schedule the removal of note for EXPIRATION_TIME length
         _noteTimerTask = new NoteTimerTask(keyFinder, this);
         _timer.schedule(_noteTimerTask, seconds * 1000);
+        setTimerIsActive(true);
+
     }
 
     /**
@@ -142,7 +144,9 @@ public class Note {
      * @see #restartTimer
      */
     public void cancelNoteTimer() {
-        _noteTimerTask.cancel();
+        if (_noteTimerTask != null) {
+            _noteTimerTask.cancel();
+        }
     }
 
     /**

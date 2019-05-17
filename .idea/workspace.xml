@@ -7,11 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,22 +35,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="323" column="30" selection-start-line="323" selection-start-column="30" selection-end-line="323" selection-end-column="30" />
+            <state relative-caret-position="323">
+              <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3530#3531#0" expanded="true" />
                 <element signature="e#3591#3592#0" expanded="true" />
+                <element signature="e#5697#5698#0" expanded="true" />
+                <element signature="e#5730#5731#0" expanded="true" />
+                <element signature="e#8968#8969#0" expanded="true" />
+                <element signature="e#9016#9017#0" expanded="true" />
+                <element signature="e#9441#9442#0" expanded="true" />
+                <element signature="e#9479#9480#0" expanded="true" />
+                <element signature="e#13411#13412#0" expanded="true" />
+                <element signature="e#13450#13451#0" expanded="true" />
+                <element signature="e#13641#13642#0" expanded="true" />
+                <element signature="e#13683#13684#0" expanded="true" />
+                <element signature="e#13868#13869#0" expanded="true" />
+                <element signature="e#13910#13911#0" expanded="true" />
+                <element signature="e#14017#14018#0" expanded="true" />
+                <element signature="e#14060#14061#0" expanded="true" />
+                <element signature="e#14249#14250#0" expanded="true" />
+                <element signature="e#14284#14285#0" expanded="true" />
+                <element signature="e#10171#10172#0" expanded="true" />
+                <element signature="e#10209#10210#0" expanded="true" />
+                <element signature="e#10190#10191#0" expanded="true" />
+                <element signature="e#10231#10232#0" expanded="true" />
+                <element signature="e#10379#10380#0" expanded="true" />
+                <element signature="e#10422#10423#0" expanded="true" />
+                <element signature="e#10603#10604#0" expanded="true" />
+                <element signature="e#10648#10649#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2690">
-              <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+            <state relative-caret-position="-2223">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,13 +112,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="128" column="47" selection-start-line="128" selection-start-column="47" selection-end-line="128" selection-end-column="47" />
+            <state relative-caret-position="578">
+              <caret line="136" column="31" lean-forward="true" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3359#3360#0" expanded="true" />
+                <element signature="e#3397#3398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="442">
+              <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,9 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>keyCenterName</find>
-      <find>MusicTheoryResources</find>
-      <find>_timer</find>
       <find>EXPIRED_TIME</find>
       <find>that represents</find>
       <find>_allNotes</find>
@@ -164,6 +185,9 @@
       <find>removeNote</find>
       <find>removeNoteFromList</find>
       <find>_keys</find>
+      <find>cancel</find>
+      <find>cancelNote</find>
+      <find>noteTimer</find>
     </findStrings>
     <replaceStrings>
       <replace>NOTE_NAME</replace>
@@ -210,16 +234,16 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerClass.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Note.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/source.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Test.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Note.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
@@ -286,7 +310,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -333,22 +357,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="720" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.27147487" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.27125505" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="2" visible="true" weight="0.32766616" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32766616" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.8543517" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.94671404" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.46522412" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -465,33 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="128" column="47" selection-start-line="128" selection-start-column="47" selection-end-line="128" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
@@ -516,24 +513,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="323" column="30" selection-start-line="323" selection-start-column="30" selection-end-line="323" selection-end-column="30" />
+        <state relative-caret-position="-2223">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3530#3531#0" expanded="true" />
-            <element signature="e#3591#3592#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2690">
-          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+        <state relative-caret-position="323">
+          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#3591#3592#0" expanded="true" />
+            <element signature="e#5697#5698#0" expanded="true" />
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
+            <element signature="e#9441#9442#0" expanded="true" />
+            <element signature="e#9479#9480#0" expanded="true" />
+            <element signature="e#13411#13412#0" expanded="true" />
+            <element signature="e#13450#13451#0" expanded="true" />
+            <element signature="e#13641#13642#0" expanded="true" />
+            <element signature="e#13683#13684#0" expanded="true" />
+            <element signature="e#13868#13869#0" expanded="true" />
+            <element signature="e#13910#13911#0" expanded="true" />
+            <element signature="e#14017#14018#0" expanded="true" />
+            <element signature="e#14060#14061#0" expanded="true" />
+            <element signature="e#14249#14250#0" expanded="true" />
+            <element signature="e#14284#14285#0" expanded="true" />
+            <element signature="e#10171#10172#0" expanded="true" />
+            <element signature="e#10209#10210#0" expanded="true" />
+            <element signature="e#10190#10191#0" expanded="true" />
+            <element signature="e#10231#10232#0" expanded="true" />
+            <element signature="e#10379#10380#0" expanded="true" />
+            <element signature="e#10422#10423#0" expanded="true" />
+            <element signature="e#10603#10604#0" expanded="true" />
+            <element signature="e#10648#10649#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="136" column="31" lean-forward="true" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3359#3360#0" expanded="true" />
+            <element signature="e#3397#3398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -601,6 +651,17 @@
         </settings>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">
