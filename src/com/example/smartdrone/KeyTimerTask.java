@@ -10,19 +10,25 @@ import java.util.Timer;
  *   2. Have max strength (can be same as other inactive keys) for VARIABLE amount of time.
  */
 public class KeyTimerTask extends TimerTask {
+    /**
+     * KeyFinder object. Deals with active notes.
+     */
     private KeyFinder _keyFinder;
+
+    /**
+     * Key to monitor.
+     */
     private Key _toMonitor;
-    private Timer _timer;
+
 
     public KeyTimerTask(KeyFinder keyFinder, Key toMonitor) {
         _keyFinder = keyFinder;
         _toMonitor = toMonitor;
-        _timer = toMonitor.getTimer();
     }
     @Override
     public void run() {
         _keyFinder.setActiveKey(_toMonitor);
         _toMonitor.setIsContender(false);
-        _keyFinder.cancelAllKeyTimersExcept(_toMonitor);
+        _keyFinder.cancelAllKeyTimers();
     }
 }
