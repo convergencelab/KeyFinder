@@ -205,12 +205,12 @@ public class KeyFinder {
     private int findMaxStrength() {
         int maxStrength = 0;
         Key curKey;
-        // For each int in array.
+        // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = this._allKeys.getMajorKeyAtIndex(i);
             // If it's greater than current max.
             if (curKey.getStrength() > maxStrength) {
-                // Max becomes current keys strength.
+                // Update max.
                 maxStrength = curKey.getStrength();
             }
         }
@@ -372,7 +372,7 @@ public class KeyFinder {
      * Function used when key has been changed to prevent bug.
      * @param       ignoreKey Key; key that does not require cancelling.
      */
-    public void cancelAllKeyTimersExcept(Key ignoreKey) {
+    public void cancelAllKeyTimers() {
         Key curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = getAllKeys().getMajorKeyAtIndex(i);

@@ -5,27 +5,24 @@ import java.util.*;
 public class Key {
     /**
      * Index of the key center.
-     * The number of semitones offset from 'C'.
-     * Used for array lookup.
+     * Ordered from 'C' to 'B' (ascending).
      * (0 = 'C'; 1 = 'C#'; 2 = 'D'; ...)
      */
     private int _ix;
 
     /**
-     * The name of  key center.
+     * Name of key center.
      */
     private String _name;
 
     /**
-     * A set that contains all note objects corresponding to the key.
-     * Useful for checking if a note is found in the key; O(1) lookup time.
+     * Set that contains all note objects corresponding to the key.
      */
     private Set<Note> _notes;
 
     /**
-     * An int that represents the strength of the key in regards to the active notes list.
-     * The keys strength is incremented when one of its notes is added to the list.
-     * and reduced when its note is removed from the queue.
+     * Strength of key.
+     * Strength gets one point for every corresponding note that is active.
      */
     private int _strength;
 
@@ -40,6 +37,9 @@ public class Key {
      */
     private KeyTimerTask _keyTimerTask;
 
+    /**
+     * Flag for active key contender.
+     */
     private boolean _isContender;
 
     /**
@@ -48,19 +48,15 @@ public class Key {
      * @param       allNotes NoteCollection; contains every note object.
      */
     public Key(int keyCenterIx, NoteCollection allNotes) {
-
-        // TODO: Error check for falsely given notes
-
-        // Initialize key center.
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE[this._ix];
         this._notes = new HashSet<>();
         this._strength = 0;
         this._isContender = false;
-        // Set up for target note index.
+        // Current note variables.
         int offset;
         int curNoteIx;
-        // Get each note of the key.
+        // Get each note of key.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
             offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
             curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
@@ -70,15 +66,15 @@ public class Key {
     }
 
     /**
-     * Returns the index of the key center.
-     * @return      int; index of the key center.
+     * Returns index of key center.
+     * @return      int; index of key center.
      */
     public int getIx() {
         return this._ix;
     }
 
     /**
-     * Returns the note representing the key center.
+     * Returns name of key center.
      * @return      String; name of key center.
      */
     public String getName() {
@@ -86,7 +82,7 @@ public class Key {
     }
 
     /**
-     * Returns the set of all notes in the key.
+     * Returns set of all notes in key.
      * @return      Set; all note objects in key.
      */
     public Set<Note> getNotes() {
@@ -94,7 +90,7 @@ public class Key {
     }
 
     /**
-     * Returns an int representing the strength value of the key.
+     * Returns strength of key.
      * @return      int; strength of key.
      */
     public int getStrength() {
@@ -110,14 +106,14 @@ public class Key {
     }
 
     /**
-     * Increase the keys strength by 1.
+     * Increase key strength by 1.
      */
     public void incrementStrength() {
         this._strength++;
     }
 
     /**
-     * Reduce the keys strength by 1.
+     * Reduce key strength by 1.
      */
     public void decrementStrength() {
         this._strength--;
@@ -125,35 +121,43 @@ public class Key {
 
     /**
      * Starts a background thread to set contender key as new active key.
-     * @param       keyFinder KeyFinder; object that contains all active notes.
+     * @param       keyFinder KeyFinder; object containing all active notes.
      * @param       seconds int; length of timer.
      */
     public void startKeyTimer(KeyFinder keyFinder, int seconds) {
         _timer = new Timer();
-        // Schedule the monitor timer for the key.
+        // Schedule timer task for key.
         _keyTimerTask = new KeyTimerTask(keyFinder, this);
         _timer.schedule(_keyTimerTask, seconds * 1000);
     }
 
     /**
-     * Terminates the removal task of Note.
+     * Terminates key timer task.
      * Used when key is no longer a contender.
      */
     public void cancelKeyTimer() {
         _keyTimerTask.cancel();
     }
 
+    /**
+     * Return contender flag.
+     * @return      boolean; true if contender.
+     */
     public boolean isContender() {
         return _isContender;
     }
 
+    /**
+     * Set contender flag.
+     * @param       status boolean; true if contender.
+     */
     public void setIsContender(boolean status) {
         _isContender = status;
     }
 
     /**
      * Construct and return a string containing all notes found in the key.
-     * NOTE: Since a HashSet is used to store the notes, the notes are unordered.
+     * NOTE: Since a HashSet is used to store note objects, notes may appear unordered.
      * @return      string; *key name* : *notes in key*
      */
     public String toString() {

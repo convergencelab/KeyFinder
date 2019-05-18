@@ -15,25 +15,25 @@ import java.util.Timer;
 public class Note {
     /**
      * The number of semitones offset from 'C'.
-     * Used for array lookup.
+     * Ordered from 'C' to 'B' (ascending).
      * (0 = 'C'; 1 = 'C#'; 2 = 'D'; ...)
      */
     private int _ix;
 
     /**
-     * The letter that represents the name of the note (eg: 'C', 'Gb', 'A#').
+     * Name of note.
      */
     private String _name;
 
     /**
-     * An int representing the octave of the note.
+     * Octave of note.
      *   NOTE:: Currently this field is inactive, but may be used in later development.
      */
     private int _octave;
 
     /**
-     * Timer object that keeps track of the number of seconds a
-     * note object is in the List since being played.
+     * Timer object that keeps track of the seconds
+     * since an active note has been played.
      */
     private Timer _timer;
 
@@ -43,54 +43,50 @@ public class Note {
      */
     private NoteTimerTask _noteTimerTask;
 
-    private boolean _timerIsActive;
-
     /**
-     * Constructs a new Note based on the index; octave is set to -1.
-     * @param       noteIx int; the index of the note.
+     * Constructs new note based on the index given; octave is set to -1.
+     * @param       noteIx int; index of the note.
      * @see #_ix
      */
     public Note(int noteIx) {
         this._ix = noteIx;
         this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
         this._octave = -1;
-        this._timerIsActive = false;
     }
 
     /**
-     * Constructs a new Note based on the index and octave.
+     * Constructs new note based on the index and octave given.
      *   NOTE:: Currently this constructor is inactive, but may be used in later development.
-     * @param       noteIx int; the index of the note.
-     * @param       octave int; the octave of the note.
+     * @param       noteIx int; index of note.
+     * @param       octave int; octave of note.
      * @see #_ix
      */
     public Note(int noteIx, int octave) {
         this._ix = noteIx;
         this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
         this._octave = octave;
-        this._timerIsActive = false;
     }
 
     /**
-     * Return the index of the note.
-     * @return      int; the index of the note.
+     * Returns index of note.
+     * @return      int; index of note.
      */
     public int getIx() {
         return this._ix;
     }
 
     /**
-     * Returns the name of the note.
-     * @return      String; the name of the note.
+     * Returns name of note.
+     * @return      String; name of note.
      */
     public String getName() {
         return this._name;
     }
 
     /**
-     * Returns the octave of the note.
+     * Returns octave of note.
      *   NOTE:: Currently this method is inactive, but may be used in later development.
-     * @return      int; the octave of the note.
+     * @return      int; octave of note.
      */
     public int getOctave() {
         return this._octave;
@@ -105,67 +101,39 @@ public class Note {
     }
 
     /**
-     * Returns NoteTimerTask object.
-     * @return      NoteTimerTask; timertask object for note.
-     */
-    public NoteTimerTask getNoteTimerTask() {
-        return this._noteTimerTask;
-    }
-
-    public boolean isTimerActive() {
-        return _timerIsActive;
-    }
-
-    public void setTimerIsActive(boolean status) {
-        _timerIsActive = status;
-    }
-
-    /**
      * Starts a background thread to remove Note object from list after it has become inactive.
-     * @param       keyFinder KeyFinder; object that contains all active notes.
-     * @seconds     seconds int; length of timer.
+     * @param       keyFinder KeyFinder; object containing all active notes.
+     * @param       seconds int; length of timer.
      */
     public void startNoteTimer(KeyFinder keyFinder, int seconds) {
-        // If there is already an active timer.
+        // If timer task exists.
         if (_noteTimerTask != null) {
             _noteTimerTask.cancel();
         }
-        _timer = new Timer();
+        _timer = new Timer(); //TODO see if this can be moved
         // Schedule the removal of note for EXPIRATION_TIME length
         _noteTimerTask = new NoteTimerTask(keyFinder, this);
         _timer.schedule(_noteTimerTask, seconds * 1000);
-        setTimerIsActive(true);
-
     }
 
     /**
      * Terminates the removal task of Note.
      * Used when a Note is played while in List.
-     * @see #restartTimer
      */
     public void cancelNoteTimer() {
+        // If timer task exists.
         if (_noteTimerTask != null) {
             _noteTimerTask.cancel();
         }
     }
 
     /**
-     * Restarts the timer on the notes removal task.
-     * Used to ensure an active note isn't removed from the List.
-     * @param       keyFinder KeyFinder; object that contains all active notes.
-     */
-    public void restartTimer(KeyFinder keyFinder) {
-        cancelNoteTimer();
-        startNoteTimer(keyFinder, keyFinder.getNoteTimerLength());
-    }
-
-    /**
-     * Notes are equal if they share the same offset from 'C'.
+     * Notes are equal if they share the same ix.
      * This is to deal with enharmonic spelling ('C#' == 'Db').
      * This application only creates one object for each note;
      * Key objects contain pointers to these objects.
      * @param       other Object; Note object to compare.
-     * @return      true if the notes share the same note index; false otherwise.
+     * @return      boolean; true if notes share the same note index.
      */
     @Override
     public boolean equals(Object other) {
@@ -177,6 +145,7 @@ public class Note {
         if (other == null) {
             return false;
         }
+        // Is instance of
         if (other instanceof Note) {
             Note test = (Note) other;
             return test.getIx() == this.getIx();
@@ -192,7 +161,7 @@ public class Note {
     }
 
     /**
-     * Returns a string representing the name and the octave of the note.
+     * Returns a string with name of note.
      * @return      String; name of note.
      */
     public String toString() {
