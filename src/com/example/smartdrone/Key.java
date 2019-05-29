@@ -136,7 +136,9 @@ public class Key {
      * Used when key is no longer a contender.
      */
     public void cancelKeyTimer() {
-        _keyTimerTask.cancel();
+        if (_keyTimerTask != null) {
+            _keyTimerTask.cancel();
+        }
     }
 
     /**
@@ -154,6 +156,7 @@ public class Key {
     public void setIsContender(boolean status) {
         _isContender = status;
     }
+
 
     /**
      * Construct and return a string containing all notes found in the key.
