@@ -368,9 +368,27 @@ public class KeyFinder {
     }
 
     /**
+     * Clears all active notes and resets all key strengths.
+     */
+    public void cleanse() {
+        // Cancel all active timers.
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            _allKeys.getMajorKeyAtIndex(i).cancelKeyTimer();
+            _allNotes.getNoteAtIndex(i).cancelNoteTimer();
+        }
+        // Remove each note from list. Function takes care of managing key strengths.
+        while (!_activeNotes.isEmpty()) {
+            removeNoteFromList(_activeNotes.peekFirst());
+        }
+        // DEBUG
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            System.out.println(_allKeys.getMajorKeyAtIndex(i).getStrength());
+        }
+    }
+
+    /**
      * Cancel all the key timers.
      * Function used when key has been changed to prevent bug.
-     * @param       ignoreKey Key; key that does not require cancelling.
      */
     public void cancelAllKeyTimers() {
         Key curKey;
