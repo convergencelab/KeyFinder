@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,17 +30,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="381" column="27" selection-start-line="381" selection-start-column="27" selection-end-line="381" selection-end-column="27" />
+            <state relative-caret-position="4811">
+              <caret line="374" column="46" selection-start-line="374" selection-start-column="46" selection-end-line="374" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#10396#10397#0" expanded="true" />
                 <element signature="e#10437#10438#0" expanded="true" />
                 <element signature="e#10821#10822#0" expanded="true" />
                 <element signature="e#10866#10867#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+              <folding>
+                <element signature="e#690#691#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#965#966#0" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,10 +76,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="2125">
               <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
               <folding>
+                <element signature="e#3732#3733#0" expanded="true" />
                 <element signature="e#3767#3768#0" expanded="true" />
+                <element signature="e#3915#3916#0" expanded="true" />
                 <element signature="e#3952#3953#0" expanded="true" />
               </folding>
             </state>
@@ -94,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
+            <state relative-caret-position="2618">
               <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -220,6 +235,7 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" />
       </list>
     </option>
   </component>
@@ -228,37 +244,22 @@
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="drone_app_plusplus_java" type="b2602c69:ProjectViewProjectNode" />
               <item name="drone_app_plusplus_java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drone_app_plusplus_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drone_app_plusplus_java" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drone_app_plusplus_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drone_app_plusplus_java" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drone_app_plusplus_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drone_app_plusplus_java" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="drone_app_plusplus_java_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drone_app_plusplus_java" type="b2602c69:ProjectViewProjectNode" />
@@ -279,7 +280,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,11 +345,11 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.29068825" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.29554656" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32766616" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.3268206" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3285968" />
@@ -480,6 +480,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+          <folding>
+            <element signature="e#3732#3733#0" expanded="true" />
+            <element signature="e#3767#3768#0" expanded="true" />
+            <element signature="e#3915#3916#0" expanded="true" />
+            <element signature="e#3952#3953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -491,6 +504,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4805#4806#0" expanded="true" />
+            <element signature="e#4837#4838#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -511,39 +536,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4805#4806#0" expanded="true" />
-            <element signature="e#4837#4838#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
-          <folding>
-            <element signature="e#3767#3768#0" expanded="true" />
-            <element signature="e#3952#3953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="381" column="27" selection-start-line="381" selection-start-column="27" selection-end-line="381" selection-end-column="27" />
+        <state relative-caret-position="4811">
+          <caret line="374" column="46" selection-start-line="374" selection-start-column="46" selection-end-line="374" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#10396#10397#0" expanded="true" />
             <element signature="e#10437#10438#0" expanded="true" />
             <element signature="e#10821#10822#0" expanded="true" />
             <element signature="e#10866#10867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <folding>
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
           </folding>
         </state>
       </provider>
