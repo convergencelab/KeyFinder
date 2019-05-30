@@ -22,20 +22,12 @@ public class Voicing {
 
     /**
      * Constructor.
-     * @param       voiceIxs; voices in voicing.
      * @param       name; name of voicing.
+     * @param       voiceIxs; voices in voicing.
      */
-    public Voicing(int[] voiceIxs, String name) {
-        this.voiceIxs = voiceIxs;
+    public Voicing(String name, int[] voiceIxs) {
         this.name = name;
-    }
-
-    /**
-     * Get all voices.
-     * @return      int[]; voices in voicing.
-     */
-    public int[] getVoiceIxs() {
-        return voiceIxs;
+        this.voiceIxs = voiceIxs;
     }
 
     /**
@@ -46,7 +38,11 @@ public class Voicing {
         return name;
     }
 
-
-
-    // todo: keep going with voicing.
+    /**
+     * Get all voices.
+     * @return      int[]; voices in voicing.
+     */
+    public int[] getVoiceIxs() {
+        return voiceIxs;
+    }
 }
