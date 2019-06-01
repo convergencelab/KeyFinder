@@ -1,8 +1,6 @@
 package com.example.smartdrone;
 
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Determine which key has the strongest relationship to the notes being received.
