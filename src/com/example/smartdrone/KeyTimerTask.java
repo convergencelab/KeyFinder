@@ -1,7 +1,6 @@
 package com.example.smartdrone;
 
 import java.util.TimerTask;
-import java.util.Timer;
 
 /**
  * Timer used to determine key changes from the user.

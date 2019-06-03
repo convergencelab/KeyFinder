@@ -1,8 +1,6 @@
 package com.example.smartdrone;
 
 
-import java.util.LinkedList;
-
 /**
  * (*Note and voice may be used interchangeably, though a voice refers to a specific note and octave
  * pertaining to a chord/voice.)
@@ -27,6 +25,12 @@ public class Voicing {
      */
     public Voicing(String name, int[] voiceIxs) {
         this.name = name;
+
+        //todo exception handling for null voices given
+        if (voiceIxs.length == 0) {
+            System.out.println("Error: no voices given.");
+            return;
+        }
         this.voiceIxs = voiceIxs;
     }
 
@@ -35,7 +39,7 @@ public class Voicing {
      * @return      String; name of voicing.
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -43,6 +47,6 @@ public class Voicing {
      * @return      int[]; voices in voicing.
      */
     public int[] getVoiceIxs() {
-        return voiceIxs;
+        return this.voiceIxs;
     }
 }

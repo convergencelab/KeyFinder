@@ -1,8 +1,6 @@
 package com.example.smartdrone;
 
-import javax.naming.Name;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 public class VoicingCollection {
@@ -25,6 +23,7 @@ public class VoicingCollection {
      * @return      boolean; true if voicing with same name not already in collection.
      */
     public boolean addVoicing(String name, int[] voiceIxs) {
+        // todo error check instead
         // Map already has voicing matching parameter name.
         if (voicingCatalogue.containsKey(name)) {
             return false;
@@ -42,8 +41,9 @@ public class VoicingCollection {
      */
     public Voicing getVoicing(String targetVoicingName) {
         // Voicing not in collection.
-        if (voicingCatalogue.containsKey(targetVoicingName)) {
-            // Put exception handler here.
+        if (!voicingCatalogue.containsKey(targetVoicingName)) {
+            //todo error check instead
+            System.out.println("Voicing not found");
             return null;
         }
         return voicingCatalogue.get(targetVoicingName);
