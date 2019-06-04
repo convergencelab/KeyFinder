@@ -34,6 +34,17 @@ public class Voicing {
         this.voiceIxs = voiceIxs;
     }
 
+    public Voicing(int[] voiceIxs) {
+        this.name = null;
+
+        //todo exception handling for null voices given
+        if (voiceIxs.length == 0) {
+            System.out.println("Error: no voices given.");
+            return;
+        }
+        this.voiceIxs = voiceIxs;
+    }
+
     /**
      * Get voicing name.
      * @return      String; name of voicing.

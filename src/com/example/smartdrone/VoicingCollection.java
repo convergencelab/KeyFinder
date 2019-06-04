@@ -24,6 +24,9 @@ public class VoicingCollection {
      */
     public boolean addVoicing(String name, int[] voiceIxs) {
         // todo error check instead
+        if (name == null) {
+            return false;
+        }
         // Map already has voicing matching parameter name.
         if (voicingCatalogue.containsKey(name)) {
             return false;
