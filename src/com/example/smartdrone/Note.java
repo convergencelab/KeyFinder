@@ -50,7 +50,7 @@ public class Note {
      */
     public Note(int noteIx) {
         this._ix = noteIx;
-        this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[noteIx];
         this._octave = -1;
     }
 
@@ -63,7 +63,7 @@ public class Note {
      */
     public Note(int noteIx, int octave) {
         this._ix = noteIx;
-        this._name = MusicTheory.CHROMATIC_SCALE[noteIx];
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[noteIx];
         this._octave = octave;
     }
 
