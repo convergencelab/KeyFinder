@@ -2,11 +2,14 @@ package com.example.smartdrone;
 
 public class source {
     public static void main(String[] args) {
-        for (int i = 0; i < 12; i++) {
-            System.out.println(MusicTheory.CHROMATIC_SCALE_SHARP[i]);
-        }
-        for (int i = 0; i < 12; i++) {
-            System.out.println(MusicTheory.CHROMATIC_SCALE_FLAT[i]);
+        // Testing note array construction.
+        KeyFinder kf = new KeyFinder();
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            Key curKey = kf.getAllKeys().getMajorKeyAtIndex(i);
+            System.out.println("\n" + curKey.getName() + ": ");
+            for (Note n : curKey.getNotes()) {
+                System.out.print(n + " ");
+            }
         }
     }
 }

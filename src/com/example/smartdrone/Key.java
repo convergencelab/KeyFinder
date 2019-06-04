@@ -16,9 +16,9 @@ public class Key {
     private String _name;
 
     /**
-     * Set that contains all note objects corresponding to the key.
+     * Array containing all note objects corresponding to the key.
      */
-    private Set<Note> _notes;
+    private Note[] _notes;
 
     /**
      * Strength of key.
@@ -50,18 +50,17 @@ public class Key {
     public Key(int keyCenterIx, NoteCollection allNotes) {
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
-        this._notes = new HashSet<>();
+        this._notes = new Note[7];
         this._strength = 0;
         this._isContender = false;
-        // Current note variables.
+
         int offset;
         int curNoteIx;
         // Get each note of key.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
             offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
             curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-            // Add note object to set.
-            _notes.add(allNotes.getNoteAtIndex(curNoteIx));
+            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
         }
     }
 
@@ -85,7 +84,7 @@ public class Key {
      * Returns set of all notes in key.
      * @return      Set; all note objects in key.
      */
-    public Set<Note> getNotes() {
+    public Note[] getNotes() {
         return this._notes;
     }
 
@@ -167,7 +166,6 @@ public class Key {
         String notes = this._name + ": ";
         // Add each note from the scale to the string
         for (Note note : this._notes) {
-
             notes += note.getName() + " ";
         }
         return notes;
