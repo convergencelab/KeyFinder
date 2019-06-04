@@ -66,6 +66,16 @@ public class MusicTheory {
             "B"
     };
 
+    final static String[] MAJOR_MODE_NAMES = {
+            "Ionian",
+            "Dorian",
+            "Phrygian",
+            "Lydian",
+            "Mixolydian",
+            "Aeolian",
+            "Locrian"
+    };
+
     /**
      * Total number of unique tones in western music.
      */
