@@ -9,6 +9,8 @@ import java.util.LinkedList;
  * the active key will be chosen at random.
  */
 public class KeyFinder {
+    private ScaleTemplateCollection _allScaleTemplates;
+
     /**
      * Collection of all notes;
      * ie: Chromatic Scale
@@ -68,8 +70,9 @@ public class KeyFinder {
     public KeyFinder() {
         _activeNotes = new LinkedList<>();
         _allKeys = new KeyCollection();
-        _activeKey = null;
         _allNotes = _allKeys.getAllNotes();
+        _allScaleTemplates = new ScaleTemplateCollection();
+        _activeKey = null;
         _noteTimerLength = 2;
         _keyTimerLength = 2;
         _noteHasBeenRemoved = false;
@@ -398,4 +401,9 @@ public class KeyFinder {
             }
         }
     }
+
+    public ScaleTemplateCollection getAllScaleTemplates() {
+        return _allScaleTemplates;
+    }
+
 }

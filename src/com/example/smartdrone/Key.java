@@ -156,7 +156,6 @@ public class Key {
         _isContender = status;
     }
 
-
     /**
      * Construct and return a string containing all notes found in the key.
      * NOTE: Since a HashSet is used to store note objects, notes may appear unordered.
