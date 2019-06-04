@@ -102,7 +102,7 @@ public class KeyFinder {
         // If note in list.
         if (activeNotesContain(targetNote)) {
             // Do nothing.
-            // App restarts timer.
+            // Android app restarts timer.
             return;
         }
         // If note not in list.
@@ -378,10 +378,9 @@ public class KeyFinder {
         while (!_activeNotes.isEmpty()) {
             removeNoteFromList(_activeNotes.peekFirst());
         }
-        // DEBUG
-        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            System.out.println(_allKeys.getMajorKeyAtIndex(i).getStrength());
-        }
+        _activeKey = null;
+        _noteHasBeenRemoved = false;
+        _activeKeyHasChanged = false;
     }
 
     /**
