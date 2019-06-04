@@ -21,7 +21,7 @@ public class Test {
 
 
             // Forgotten code
-            /* System.out.println(MusicTheory.CHROMATIC_SCALE[i] + "(" + i + "): " +
+            /* System.out.println(MusicTheory.CHROMATIC_SCALE_SHARP[i] + "(" + i + "): " +
                     keyFinder.getAllKeys().getMajorKeys()[i].getStrength()); */
 
             // System.out.printf("[%d]")
@@ -40,7 +40,7 @@ public class Test {
         int userNote = in.nextInt();
         // Take user input
         while (userNote != 99) {
-            System.out.println("Testing note " + MusicTheory.CHROMATIC_SCALE[userNote] + ":");
+            System.out.println("Testing note " + MusicTheory.CHROMATIC_SCALE_SHARP[userNote] + ":");
             kf.incrementKeysWithNote(new Note(userNote));
             printKeyStrengths(kf);
             System.out.print("Enter note: ");
@@ -62,12 +62,12 @@ public class Test {
         int userNote = in.nextInt();
         // Take user input
         while (userNote != 99) {
-            System.out.println("Incrementing note " + MusicTheory.CHROMATIC_SCALE[userNote] + ":");
+            System.out.println("Incrementing note " + MusicTheory.CHROMATIC_SCALE_SHARP[userNote] + ":");
             kf.incrementKeysWithNote(new Note(userNote));
             printKeyStrengths(kf);
             System.out.print("Enter note: ");
             userNote = in.nextInt();
-            System.out.println("Decrementing note " + MusicTheory.CHROMATIC_SCALE[userNote] + ":");
+            System.out.println("Decrementing note " + MusicTheory.CHROMATIC_SCALE_SHARP[userNote] + ":");
             kf.decrementKeysWithNote(new Note(userNote));
             printKeyStrengths(kf);
             System.out.print("Enter note: ");
@@ -108,14 +108,14 @@ public class Test {
         int curNoteIx = in.nextInt();
         while(curNoteIx != 99) {
             // Add note.
-            System.out.println("Adding Note '" + MusicTheory.CHROMATIC_SCALE[curNoteIx] +
+            System.out.println("Adding Note '" + MusicTheory.CHROMATIC_SCALE_SHARP[curNoteIx] +
                     "' to list.");
             kf.addNoteToList(new Note(curNoteIx));
             printNoteList(kf.getActiveNotes());
             // Remove note.
             System.out.println("Enter a note.");
             curNoteIx = in.nextInt();
-            System.out.println("Removing Note '" + MusicTheory.CHROMATIC_SCALE[curNoteIx] +
+            System.out.println("Removing Note '" + MusicTheory.CHROMATIC_SCALE_SHARP[curNoteIx] +
                     "' from list.");
             kf.removeNoteFromList(new Note(curNoteIx));
             printNoteList(kf.getActiveNotes());

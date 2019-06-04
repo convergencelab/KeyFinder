@@ -49,7 +49,7 @@ public class Key {
      */
     public Key(int keyCenterIx, NoteCollection allNotes) {
         this._ix = keyCenterIx;
-        this._name = MusicTheory.CHROMATIC_SCALE[this._ix];
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
         this._notes = new HashSet<>();
         this._strength = 0;
         this._isContender = false;

@@ -6,6 +6,16 @@ package com.example.smartdrone;
  */
 
 public class MusicTheory {
+    /**
+     * Unicode for sharp sign.
+     */
+    final static char SHARP = '\u266F';
+
+    /**
+     * Unicode for flat sign.
+     */
+    final static char FLAT = '\u266d';
+
 
     /**
      * Intervals that make up the major scale.
@@ -26,7 +36,35 @@ public class MusicTheory {
     /**
      * Names of all 12 tones used in western music.
      */
-    final static String[] CHROMATIC_SCALE = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+    final static String[] CHROMATIC_SCALE_SHARP = {
+            "C",
+            "C" + SHARP,
+            "D",
+            "D" + SHARP,
+            "E",
+            "F",
+            "F" + SHARP,
+            "G",
+            "G" + SHARP,
+            "A",
+            "A" + SHARP,
+            "B"
+    };
+
+    final static String[] CHROMATIC_SCALE_FLAT = {
+            "C",
+            "D" + FLAT,
+            "D",
+            "E" + FLAT,
+            "E",
+            "F",
+            "G" + FLAT,
+            "G",
+            "A" + FLAT,
+            "A",
+            "B" + FLAT,
+            "B"
+    };
 
     /**
      * Total number of unique tones in western music.
