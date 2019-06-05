@@ -7,7 +7,8 @@ public class ScaleTemplateCollection {
     private ScaleTemplate[] _allScaleTemplates;
 
     /**
-     * Constructor
+     * Constructor.
+     * Generate scale template for all 7 modes.
      */
     public ScaleTemplateCollection() {
         _allScaleTemplates = new ScaleTemplate[7];
@@ -17,6 +18,12 @@ public class ScaleTemplateCollection {
         }
     }
 
+    /**
+     * Generate intervals for mode pertaining to given index.
+     * @param       modeIx int; index of mode (0 = Ionian; 1 = Dorian; 2 = Phrygian; etc ...).
+     *                     *** EVEN THOUGH MUSIC THEORY USES 1 BASED INDEXING (1 = Ionian; 2 = Dorian; etc ...)
+     * @return      int[]; intervals of mode.
+     */
     private int[] getIntervalsForMode(int modeIx) {
         int offset = MusicTheory.MAJOR_SCALE_SEQUENCE[modeIx];
         int[] scaleIxs = new int[7];
@@ -29,6 +36,16 @@ public class ScaleTemplateCollection {
             scaleIxs[i] = curInterval;
         }
         return scaleIxs;
+    }
+
+    /**
+     * Return scale template for given mode ix.
+     * @param       modeIx int; index of mode (0 = Ionian; 1 = Dorian; 2 = Phrygian; etc ...).
+     *                     *** EVEN THOUGH MUSIC THEORY USES 1 BASED INDEXING (1 = Ionian; 2 = Dorian; etc ...)
+     * @return      int[]; intervals of mode.
+     */
+    public ScaleTemplate getScaleTemplateForMode(int modeIx) {
+        return _allScaleTemplates[modeIx];
     }
 
     public String toString() {

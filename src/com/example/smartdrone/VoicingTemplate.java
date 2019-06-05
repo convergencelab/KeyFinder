@@ -19,7 +19,7 @@ public class VoicingTemplate {
     /**
      * Scale degrees in voicing template.
      */
-    private int[] scaleDegrees;
+    private int[] chordTones;
 
     //todo Complete inversions when the time comes.
     /**
@@ -28,15 +28,21 @@ public class VoicingTemplate {
     private int[][] inversions;
 
     /**
+     * Container for all scale templates.
+     */
+    private ScaleTemplateCollection scaleTemplateCollection;
+
+    /**
      * Constructor.
      * Gets scale degrees as array with one based indexing, but converts it to zero based indexing.
      * @param       name String; name of voicing template.
-     * @param       scaleDegrees int[]; scale degrees.
+     * @param       chordTones int[]; scale degrees.
      */
-    public VoicingTemplate(String name, int[] scaleDegrees) {
+    public VoicingTemplate(String name, int[] chordTones) {
         this.name = name;
-        this.scaleDegrees = getAsZeroBasedIndexing(scaleDegrees);
-        this.inversions = getInversions(scaleDegrees);
+        this.chordTones = getAsZeroBasedIndexing(chordTones);
+        this.inversions = getInversions(chordTones);
+        this.scaleTemplateCollection = new ScaleTemplateCollection();
     }
 
     /**
@@ -55,20 +61,20 @@ public class VoicingTemplate {
     //todo fix: doesn't invert properly
     /**
      * Constructs all the inversions for voicing template.
-     * @param       scaleDegrees int[]; degrees of voicing template.
+     * @param       chordTones int[]; degrees of voicing template.
      * @return      int[][]; inversions of voicing template.
      */
-    private int[][] getInversions(int[] scaleDegrees) {
-        int numDegrees = scaleDegrees.length;
+    private int[][] getInversions(int[] chordTones) {
+        int numDegrees = chordTones.length;
         int[][] inversions = new int[numDegrees][numDegrees];
         // Template is same as root inversion.
-        inversions[0] = scaleDegrees;
+        inversions[0] = chordTones;
         // For each inversion.
         for (int i = 1; i < numDegrees; i++) {
             int[] curInversion = inversions[i];
             // For each note in inversion.
             for (int j = 0; j < numDegrees; j++) {
-                curInversion[j] = scaleDegrees[(j + i) % numDegrees];
+                curInversion[j] = chordTones[(j + i) % numDegrees];
                 // Proper octave.
                 if (j + i >= numDegrees) {
                     curInversion[j] += 7;
@@ -90,8 +96,8 @@ public class VoicingTemplate {
      * Get scale degrees of voicing template.
      * @return      int[]; scale degrees of voicing template.
      */
-    public int[] getScaleDegrees() {
-        return scaleDegrees;
+    public int[] getchordTones() {
+        return chordTones;
     }
 
     /**
@@ -104,13 +110,25 @@ public class VoicingTemplate {
     }
 
     /**
+     * Return number of chord tones in voicing template.
+     * @return      int; num chord tones.
+     */
+    public int size() {
+        return chordTones.length;
+    }
+
+    public Voicing generateVoicing(Key key, int mode, int octave) {
+        return new Voicing(this, key, mode, octave, scaleTemplateCollection);
+    }
+
+    /**
      * Prints as one based indexing. Be warned.
      * @return      String; name followed by scale degrees with.
      */
     @Override
     public String toString() {
         String str = name + " ";
-        for (int degree : scaleDegrees) {
+        for (int degree : chordTones) {
             // Convert to one based indexing
             str += degree + 1 + " ";
         }
