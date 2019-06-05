@@ -71,7 +71,6 @@ public class KeyFinder {
         _activeNotes = new LinkedList<>();
         _allKeys = new KeyCollection();
         _allNotes = _allKeys.getAllNotes();
-        _allScaleTemplates = new ScaleTemplateCollection();
         _activeKey = null;
         _noteTimerLength = 2;
         _keyTimerLength = 2;

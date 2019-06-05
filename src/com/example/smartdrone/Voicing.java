@@ -18,6 +18,7 @@ public class Voicing {
      */
     private String name;
 
+    //todo make new constructor. accepts params 1) voicing template; 2) mode; 3) octave
     /**
      * Constructor.
      * @param       name; name of voicing.

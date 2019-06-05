@@ -11,7 +11,8 @@ public class source {
 //                System.out.print(n + " ");
 //            }
 //        }
-        KeyFinder kf = new KeyFinder();
-        System.out.println(kf.getAllScaleTemplates().toString());
+        int[] x = { 1, 3, 5};
+        VoicingTemplate vt = new VoicingTemplate("bob", x);
+        System.out.println(vt);
     }
 }
