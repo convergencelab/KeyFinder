@@ -21,10 +21,11 @@ public class VoicingTemplate {
      */
     private int[] scaleDegrees;
 
+    //todo Complete inversions when the time comes.
     /**
      * Inversions of chord.
      */
-    private int[] inversions;
+    private int[][] inversions;
 
     /**
      * Constructor.
@@ -35,6 +36,7 @@ public class VoicingTemplate {
     public VoicingTemplate(String name, int[] scaleDegrees) {
         this.name = name;
         this.scaleDegrees = getAsZeroBasedIndexing(scaleDegrees);
+        this.inversions = getInversions(scaleDegrees);
     }
 
     /**
@@ -50,7 +52,31 @@ public class VoicingTemplate {
         return zeroBasedArr;
     }
 
-//    private int[] buildInversions()
+    //todo fix: doesn't invert properly
+    /**
+     * Constructs all the inversions for voicing template.
+     * @param       scaleDegrees int[]; degrees of voicing template.
+     * @return      int[][]; inversions of voicing template.
+     */
+    private int[][] getInversions(int[] scaleDegrees) {
+        int numDegrees = scaleDegrees.length;
+        int[][] inversions = new int[numDegrees][numDegrees];
+        // Template is same as root inversion.
+        inversions[0] = scaleDegrees;
+        // For each inversion.
+        for (int i = 1; i < numDegrees; i++) {
+            int[] curInversion = inversions[i];
+            // For each note in inversion.
+            for (int j = 0; j < numDegrees; j++) {
+                curInversion[j] = scaleDegrees[(j + i) % numDegrees];
+                // Proper octave.
+                if (j + i >= numDegrees) {
+                    curInversion[j] += 7;
+                }
+            }
+        }
+        return inversions;
+    }
 
     /**
      * Get name of voicing template.
@@ -66,6 +92,15 @@ public class VoicingTemplate {
      */
     public int[] getScaleDegrees() {
         return scaleDegrees;
+    }
+
+    /**
+     * Returns inversion matching parameter.
+     * @param       inversionNum int; number of inversion.
+     * @return      int[];  scale degrees of inversion.
+     */
+    public int[] getInversion(int inversionNum) {
+        return inversions[inversionNum];
     }
 
     /**

@@ -11,8 +11,14 @@ public class source {
 //                System.out.print(n + " ");
 //            }
 //        }
-        int[] x = { 1, 3, 5};
+        int[] x = { 1, 5, 7, 10};
         VoicingTemplate vt = new VoicingTemplate("bob", x);
-        System.out.println(vt);
+        for (int i = 0; i < vt.getScaleDegrees().length; i++) {
+            int[] curInv = vt.getInversion(i);
+            for (int j : curInv) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
     }
 }
