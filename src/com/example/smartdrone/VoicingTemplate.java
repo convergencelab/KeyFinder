@@ -96,8 +96,8 @@ public class VoicingTemplate {
      * Get scale degrees of voicing template.
      * @return      int[]; scale degrees of voicing template.
      */
-    public int[] getchordTones() {
-        return chordTones;
+    public int getchordTone(int ix) {
+        return chordTones[ix];
     }
 
     /**
