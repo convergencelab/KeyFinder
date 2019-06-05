@@ -16,7 +16,6 @@ public class MusicTheory {
      */
     final static char FLAT = '\u266d';
 
-
     /**
      * Intervals that make up the major scale.
      * Each number can be viewed as the semitone offset from the root.
@@ -64,6 +63,16 @@ public class MusicTheory {
             "A",
             "B" + FLAT,
             "B"
+    };
+
+    final static String[] MAJOR_MODE_NAMES = {
+            "Ionian",
+            "Dorian",
+            "Phrygian",
+            "Lydian",
+            "Mixolydian",
+            "Aeolian",
+            "Locrian"
     };
 
     /**

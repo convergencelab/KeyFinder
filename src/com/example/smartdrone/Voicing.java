@@ -14,43 +14,25 @@ public class Voicing {
     private int[] voiceIxs;
 
     /**
-     * Name of voicing.
+     * Construct voicing.
+     * @param voicingTemplate
+     * @param key
+     * @param mode
+     * @param octave
+     * @param scaleTemplateCollection
      */
-    private String name;
-
-    /**
-     * Constructor.
-     * @param       name; name of voicing.
-     * @param       voiceIxs; voices in voicing.
-     */
-    public Voicing(String name, int[] voiceIxs) {
-        this.name = name;
-
-        //todo exception handling for null voices given
-        if (voiceIxs.length == 0) {
-            System.out.println("Error: no voices given.");
-            return;
+    public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave,
+                   ScaleTemplateCollection scaleTemplateCollection) {
+        voiceIxs = new int[voicingTemplate.size()];
+        int root =
+                ((key.getIx() + mode) % MusicTheory.TOTAL_NOTES) + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
+        // Construct voicing
+        for (int i = 0; i < voicingTemplate.size(); i++) {
+            voiceIxs[i] = root + scaleTemplateCollection
+                    .getScaleTemplateForMode(mode)
+                    .getIntervals()[voicingTemplate
+                    .getchordTones()[i]]; //todo refactor big scary line
         }
-        this.voiceIxs = voiceIxs;
-    }
-
-    public Voicing(int[] voiceIxs) {
-        this.name = null;
-
-        //todo exception handling for null voices given
-        if (voiceIxs.length == 0) {
-            System.out.println("Error: no voices given.");
-            return;
-        }
-        this.voiceIxs = voiceIxs;
-    }
-
-    /**
-     * Get voicing name.
-     * @return      String; name of voicing.
-     */
-    public String getName() {
-        return this.name;
     }
 
     /**
@@ -59,5 +41,19 @@ public class Voicing {
      */
     public int[] getVoiceIxs() {
         return this.voiceIxs;
+    }
+
+    /**
+     * Generates string with all note names and values.
+     * @return
+     */
+    @Override
+    public String toString() {
+        String str = "";
+        // Add each note name and midi key to string.
+        for (int i = 0; i < voiceIxs.length; i++) {
+            str += MusicTheory.CHROMATIC_SCALE_SHARP[(voiceIxs[i]) % 12] + " : " + voiceIxs[i] + '\n';
+        }
+        return str;
     }
 }
