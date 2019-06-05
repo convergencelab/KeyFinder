@@ -27,11 +27,11 @@ public class Voicing {
         int root =
                 ((key.getIx() + mode) % MusicTheory.TOTAL_NOTES) + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
         // Construct voicing
+        ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
-            voiceIxs[i] = root + scaleTemplateCollection
-                    .getScaleTemplateForMode(mode)
-                    .getIntervals()[voicingTemplate
-                    .getchordTones()[i]]; //todo refactor big scary line
+            int octaveAdjustment = voicingTemplate.getchordTones()[i] / 7;
+            voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getchordTones()[i] % 7]; //todo refactor big scary line
+            voiceIxs[i] += octaveAdjustment * 12;
         }
     }
 

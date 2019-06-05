@@ -24,7 +24,7 @@ public class source {
         KeyFinder kf = new KeyFinder();
 
         VoicingTemplateCollection vtc = new VoicingTemplateCollection();
-        int[] x = { 1, 3, 4, 7};
+        int[] x = { 1, 5, 10 };
         vtc.addVoicingTemplate("bob", x);
         VoicingTemplate vt = vtc.getVoicingTemplate("bob");
         Voicing v = vt.generateVoicing(kf.getAllKeys().getMajorKeyAtIndex(2), 2, 1);
