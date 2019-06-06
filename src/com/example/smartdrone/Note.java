@@ -110,7 +110,7 @@ public class Note {
         if (_noteTimerTask != null) {
             _noteTimerTask.cancel();
         }
-        _timer = new Timer(); //TODO see if this can be moved
+        _timer = new Timer("Note Timer"); //TODO see if this can be moved
         // Schedule the removal of note for EXPIRATION_TIME length
         _noteTimerTask = new NoteTimerTask(keyFinder, this);
         _timer.schedule(_noteTimerTask, seconds * 1000);
