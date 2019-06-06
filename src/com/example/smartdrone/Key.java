@@ -124,7 +124,7 @@ public class Key {
      * @param       seconds int; length of timer.
      */
     public void startKeyTimer(KeyFinder keyFinder, int seconds) {
-        _timer = new Timer();
+        _timer = new Timer("Key Timer");
         // Schedule timer task for key.
         _keyTimerTask = new KeyTimerTask(keyFinder, this);
         _timer.schedule(_keyTimerTask, seconds * 1000);
