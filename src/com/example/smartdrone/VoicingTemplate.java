@@ -117,8 +117,8 @@ public class VoicingTemplate {
         return chordTones.length;
     }
 
-    public Voicing generateVoicing(Key key, int mode, int octave) {
-        return new Voicing(this, key, mode, octave, scaleTemplateCollection);
+    public Voicing generateVoicing(Key key, int mode, int octave, boolean bassNote) {
+        return new Voicing(this, key, mode, octave, bassNote, scaleTemplateCollection);
     }
 
     /**
