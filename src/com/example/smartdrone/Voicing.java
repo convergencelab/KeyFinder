@@ -19,14 +19,21 @@ public class Voicing {
      * @param key
      * @param mode
      * @param octave
+     * @param hasBassNote
      * @param scaleTemplateCollection
      */
-    public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave,
+    public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave, boolean hasBassNote,
                    ScaleTemplateCollection scaleTemplateCollection) {
-        voiceIxs = new int[voicingTemplate.size()];
         int root =
                 ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)
                         + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
+        if (hasBassNote) {
+            voiceIxs = new int[voicingTemplate.size() + 1]; // make room for bass note
+            voiceIxs[voiceIxs.length - 1] = root - 12; // put bass note at end of array
+        }
+        else {
+            voiceIxs = new int[voicingTemplate.size()];
+        }
         // Construct voicing
         ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
@@ -34,6 +41,7 @@ public class Voicing {
             voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getchordTone(i) % 7]; //todo refactor big scary line
             voiceIxs[i] += octaveAdjustment * 12;
         }
+
     }
 
     /**

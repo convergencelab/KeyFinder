@@ -27,7 +27,7 @@ public class source {
         int[] x = { 1, 5, 10 };
         vtc.addVoicingTemplate("bob", x);
         VoicingTemplate vt = vtc.getVoicingTemplate("bob");
-        Voicing v = vt.generateVoicing(kf.getAllKeys().getMajorKeyAtIndex(2), 2, 1);
+        Voicing v = vt.generateVoicing(kf.getAllKeys().getMajorKeyAtIndex(2), 2, 1, true);
         System.out.println(v);
     }
 }
