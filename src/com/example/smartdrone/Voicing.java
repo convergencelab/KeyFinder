@@ -25,7 +25,8 @@ public class Voicing {
                    ScaleTemplateCollection scaleTemplateCollection) {
         voiceIxs = new int[voicingTemplate.size()];
         int root =
-                ((key.getIx() + mode) % MusicTheory.TOTAL_NOTES) + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
+                ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)
+                        + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
         // Construct voicing
         ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
