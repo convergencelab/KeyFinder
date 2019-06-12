@@ -37,8 +37,8 @@ public class Voicing {
         // Construct voicing
         ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
-            int octaveAdjustment = voicingTemplate.getchordTone(i) / 7;
-            voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getchordTone(i) % 7]; //todo refactor big scary line
+            int octaveAdjustment = voicingTemplate.getChordTone(i) / 7;
+            voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
             voiceIxs[i] += octaveAdjustment * 12;
         }
 
