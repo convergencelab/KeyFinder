@@ -65,6 +65,28 @@ public class Key {
     }
 
     /**
+     * Constructs a container of all the notes in the key based on the key center given.
+     * @param       keyCenterIx int; index of the key center.
+     */
+    public Key(int keyCenterIx) {
+        this._ix = keyCenterIx;
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
+        this._notes = new Note[7];
+        this._strength = 0;
+        this._isContender = false;
+
+        NoteCollection allNotes = new NoteCollection();
+        int offset;
+        int curNoteIx;
+        // Get each note of key.
+        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
+            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
+            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
+        }
+    }
+
+    /**
      * Returns index of key center.
      * @return      int; index of key center.
      */
