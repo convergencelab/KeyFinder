@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/source.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/source.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,20 +57,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
-              <folding>
-                <element signature="e#1872#1873#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/source.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="90" selection-start-line="29" selection-start-column="90" selection-end-line="29" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/source.java">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
+            <state relative-caret-position="68">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -81,36 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="125" column="64" lean-forward="true" selection-start-line="125" selection-start-column="64" selection-end-line="125" selection-end-column="64" />
-              <folding>
-                <element signature="e#3176#3177#0" expanded="true" />
-                <element signature="e#3203#3204#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplateCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="e#1817#1818#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#763#764#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="91" selection-start-line="5" selection-start-column="91" selection-end-line="5" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -218,9 +193,9 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Note.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/source.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" />
       </list>
     </option>
   </component>
@@ -237,6 +212,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,8 +254,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,18 +321,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.36194333" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.36842105" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32612056" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32504147" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3285968" />
@@ -509,7 +483,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplateCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#1817#1818#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#763#764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -537,30 +530,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplateCollection.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/source.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#1817#1818#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="493">
+          <caret line="29" column="90" selection-start-line="29" selection-start-column="90" selection-end-line="29" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="125" column="64" lean-forward="true" selection-start-line="125" selection-start-column="64" selection-end-line="125" selection-end-column="64" />
+        <state relative-caret-position="85">
+          <caret line="5" column="91" selection-start-line="5" selection-start-column="91" selection-end-line="5" selection-end-column="91" />
           <folding>
             <element signature="e#3176#3177#0" expanded="true" />
             <element signature="e#3203#3204#0" expanded="true" />
@@ -570,18 +550,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="87" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
-          <folding>
-            <element signature="e#1872#1873#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/source.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>

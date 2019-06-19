@@ -4,11 +4,6 @@ package com.example.smartdrone;
  * Distinction between voicing templates and voicings:
  * Voicing templates contain indices that represent the scale degrees of a chord.
  * Voicing's, on the other hand, contain the actual midi keys mapped to notes (semi-tones).
- *
- * This class also follows the music theory convention of indexing starting at one.
- * 1 -> First scale degree; 3 -> Third scale degree; 5 -> Fifth scale degree; etc ...
- *     (translated to Voicing: *assume C major*)
- * 1 -> 0 or 'C';           3 -> 4 or 'E';           5 -> 7 or 'G';           etc ...
  */
 public class VoicingTemplate {
     /**
@@ -34,28 +29,15 @@ public class VoicingTemplate {
 
     /**
      * Constructor.
-     * Gets scale degrees as array with one based indexing, but converts it to zero based indexing.
+     * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
      * @param       name String; name of voicing template.
      * @param       chordTones int[]; scale degrees.
      */
     public VoicingTemplate(String name, int[] chordTones) {
         this.name = name;
-        this.chordTones = getAsZeroBasedIndexing(chordTones);
+        this.chordTones = chordTones;
         this.inversions = getInversions(chordTones);
         this.scaleTemplateCollection = new ScaleTemplateCollection();
-    }
-
-    /**
-     * Takes array with indexing that starts with one, and returns a copy of array with indexing that starts at 0.
-     * @param       toModify int[]; array with one based indexing.
-     * @return      int[]; copy of array with zero based indexing.
-     */
-    private int[] getAsZeroBasedIndexing(int[] toModify) {
-        int[] zeroBasedArr = new int[toModify.length];
-        for (int i = 0; i < toModify.length; i++) {
-            zeroBasedArr[i] = toModify[i] - 1;
-        }
-        return zeroBasedArr;
     }
 
     //todo fix: doesn't invert properly
@@ -96,7 +78,7 @@ public class VoicingTemplate {
      * Get scale degrees of voicing template.
      * @return      int[]; scale degrees of voicing template.
      */
-    public int getchordTone(int ix) {
+    public int getChordTone(int ix) {
         return chordTones[ix];
     }
 
@@ -122,7 +104,7 @@ public class VoicingTemplate {
     }
 
     /**
-     * Prints as one based indexing. Be warned.
+     * Prints out name and chord tones.
      * @return      String; name followed by scale degrees with.
      */
     @Override
@@ -130,7 +112,7 @@ public class VoicingTemplate {
         String str = name + " ";
         for (int degree : chordTones) {
             // Convert to one based indexing
-            str += degree + 1 + " ";
+            str += degree + " ";
         }
         return str;
     }
