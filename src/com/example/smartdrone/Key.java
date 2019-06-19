@@ -1,6 +1,6 @@
 package com.example.smartdrone;
 
-import java.util.*;
+import java.util.Timer;
 
 public class Key {
     /**
@@ -50,7 +50,7 @@ public class Key {
     public Key(int keyCenterIx, NoteCollection allNotes) {
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
-        this._notes = new Note[7];
+        this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
         this._strength = 0;
         this._isContender = false;
 
@@ -71,18 +71,17 @@ public class Key {
     public Key(int keyCenterIx) {
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
-        this._notes = new Note[7];
+        this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
         this._strength = 0;
         this._isContender = false;
 
-        NoteCollection allNotes = new NoteCollection();
         int offset;
         int curNoteIx;
         // Get each note of key.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
             offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
             curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
+            _notes[i] = new Note(curNoteIx);
         }
     }
 
