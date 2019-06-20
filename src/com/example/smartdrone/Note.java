@@ -85,11 +85,41 @@ public class Note {
     }
 
     /**
-     * Returns name of note.
+     * Returns name of note; defaults to using sharp spelling.
      * @return      String; name of note.
      */
     public String getName() {
         return this._name;
+    }
+
+    /**
+     * Returns name of note with spelling based on code given.
+     * @param       spellingCode int; note spelling code.
+     * @return      String; name of note.
+     */
+    public String getName(int spellingCode) {
+        if (spellingCode == MusicTheory.SHARP_SPELLING_CODE) {
+            return getNameSharp();
+        }
+        else {
+            return getNameFlat();
+        }
+    }
+
+    /**
+     * Return name of note with flat enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameFlat() {
+        return MusicTheory.CHROMATIC_SCALE_FLAT[this.getIx()];
+    }
+
+    /**
+     * Returns name of name with sharp enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameSharp() {
+        return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
     }
 
     /**
