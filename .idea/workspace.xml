@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Key.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Note.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Note.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="514">
+              <caret line="108" column="5" lean-forward="true" selection-start-line="94" selection-end-line="108" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2694#2695#0" expanded="true" />
@@ -43,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+            <state relative-caret-position="884">
+              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,20 +61,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/NoteCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="136">
+              <caret line="100" column="26" lean-forward="true" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+              <folding>
+                <element signature="e#2884#2885#0" expanded="true" />
+                <element signature="e#2917#2918#0" expanded="true" />
+                <element signature="e#3076#3077#0" expanded="true" />
+                <element signature="e#3145#3146#0" expanded="true" />
+                <element signature="e#3299#3300#0" expanded="true" />
+                <element signature="e#3369#3370#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -234,7 +230,6 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ChordGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/source.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Testing/NoteTests.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Testing/NoteTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Testing/com/example/smartdrone/Testing/NoteTestShow.java" />
@@ -243,6 +238,7 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/NoteTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/NoteTestexample.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
       </list>
     </option>
   </component>
@@ -265,6 +261,22 @@
             <path>
               <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
               <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="KeyFinderTests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="KeyFinderTests" type="462c0819:PsiDirectoryNode" />
+              <item name="smartdrone" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
@@ -432,9 +444,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NoteTest_cTest3 - 2019.06.20 at 08h 44m 17s.xml">
-      <configuration name="NoteTest.cTest3" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="NoteTest_cSharpTest1 - 2019.06.20 at 08h 47m 07s.xml">
       <configuration name="NoteTest.cSharpTest1" configurationId="JUnit" />
     </history-entry>
@@ -461,6 +470,9 @@
     </history-entry>
     <history-entry file="NoteTest_cSharpTest2 - 2019.06.20 at 08h 56m 37s.xml">
       <configuration name="NoteTest.cSharpTest2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NoteTest_bTest1 - 2019.06.20 at 08h 58m 02s.xml">
+      <configuration name="NoteTest.bTest1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -657,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/source.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -730,20 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2694#2695#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
-            <element signature="e#2917#2918#0" expanded="true" />
-            <element signature="e#2987#2988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/NoteTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -758,12 +749,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/test/drone_app_plusplus_java/com/example/smartdrone/NoteTest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+        <state relative-caret-position="884">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="108" column="5" lean-forward="true" selection-start-line="94" selection-end-line="108" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#2763#2764#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
+            <element signature="e#2987#2988#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="100" column="26" lean-forward="true" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+          <folding>
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
+            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3145#3146#0" expanded="true" />
+            <element signature="e#3299#3300#0" expanded="true" />
+            <element signature="e#3369#3370#0" expanded="true" />
           </folding>
         </state>
       </provider>

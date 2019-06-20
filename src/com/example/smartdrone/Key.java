@@ -102,6 +102,22 @@ public class Key {
     }
 
     /**
+     * Return name of note with flat enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameFlat() {
+        return MusicTheory.CHROMATIC_SCALE_FLAT[this.getIx()];
+    }
+
+    /**
+     * Returns name of name with sharp enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameSharp() {
+        return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
+    }
+
+    /**
      * Returns set of all notes in key.
      * @return      Set; all note objects in key.
      */
