@@ -78,12 +78,22 @@ public class KeyFinder {
         _activeKeyHasChanged = false;
     }
 
+    //todo old code: method replaced by
     /**
      * Get object that contains all note objects.
      * @return      NoteCollection; object with all note objects.
      */
     public NoteCollection getAllNotes() {
         return _allNotes;
+    }
+
+    /**
+     * Get already constructed note at given index.
+     * @param       ix int; index of target note.
+     * @return      Note; target note.
+     */
+    public Note getNote(int ix) {
+        return _allNotes.getNoteAtIndex(ix);
     }
 
     /**

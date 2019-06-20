@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -105,11 +105,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="395">
+              <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+              <folding>
+                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2333#2334#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -222,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ScaleCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplates.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplate.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ScaleTemplateCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" />
@@ -239,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/NoteTestexample.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/NoteTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
       </list>
     </option>
   </component>
@@ -277,6 +281,19 @@
               <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
               <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
               <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KeyFinder" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="drone_app_plusplus_java_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KeyFinder" type="b2602c69:ProjectViewProjectNode" />
@@ -493,7 +510,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.38168558" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.38168558" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -690,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -791,6 +801,17 @@
             <element signature="e#3145#3146#0" expanded="true" />
             <element signature="e#3299#3300#0" expanded="true" />
             <element signature="e#3369#3370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+          <folding>
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2333#2334#0" expanded="true" />
           </folding>
         </state>
       </provider>
