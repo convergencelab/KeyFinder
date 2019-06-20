@@ -33,6 +33,16 @@ public class MusicTheory {
     final static int[] MAJOR_TRAID_SEQUENCE    = { 0, 4, 7 };
 
     /**
+     * Values correspond to whether or not a key should have sharp spelling.
+     * true  = sharp
+     * false = flat
+     */
+    final static boolean[] keySpelling = {
+         /* C     Db     D     Eb     E     F      Gb     G     Ab     A     Bb     B   */
+            true, false, true, false, true, false, false, true, false, true, false, true
+    };
+
+    /**
      * Names of all 12 tones used in western music.
      */
     final static String[] CHROMATIC_SCALE_SHARP = {
