@@ -32,14 +32,27 @@ public class MusicTheory {
      */
     final static int[] MAJOR_TRAID_SEQUENCE    = { 0, 4, 7 };
 
+    final static int SHARP_SPELLING_CODE = 1;
+    final static int FLAT_SPELLING_CODE = 0;
+
     /**
      * Values correspond to whether or not a key should have sharp spelling.
      * true  = sharp
      * false = flat
      */
-    final static boolean[] keySpelling = {
-         /* C     Db     D     Eb     E     F      Gb     G     Ab     A     Bb     B   */
-            true, false, true, false, true, false, false, true, false, true, false, true
+    final static int[] SPELLING_CODE = {
+            SHARP_SPELLING_CODE, // C
+            FLAT_SPELLING_CODE,  // Db
+            SHARP_SPELLING_CODE, // D
+            FLAT_SPELLING_CODE,  // Eb
+            SHARP_SPELLING_CODE, // E
+            FLAT_SPELLING_CODE,  // F
+            FLAT_SPELLING_CODE,  // Gb
+            SHARP_SPELLING_CODE, // G
+            FLAT_SPELLING_CODE,  // Ab
+            SHARP_SPELLING_CODE, // A
+            FLAT_SPELLING_CODE,  // Bb
+            SHARP_SPELLING_CODE, // B
     };
 
     /**

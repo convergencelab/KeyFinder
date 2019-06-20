@@ -69,7 +69,6 @@ public class KeyFinder {
      */
     public KeyFinder() {
         _activeNotes = new LinkedList<>();
-//        _allNotes = _allKeys.getAllNotes();
         _allNotes = new NoteCollection();
         _allKeys = new KeyCollection(_allNotes);
         _activeKey = null;
@@ -79,15 +78,6 @@ public class KeyFinder {
         _activeKeyHasChanged = false;
     }
 
-    //todo old code: method replaced by getNote
-    /**
-     * Get object that contains all note objects.
-     * @return      NoteCollection; object with all note objects.
-     */
-    public NoteCollection getAllNotes() {
-        return _allNotes;
-    }
-
     /**
      * Get already constructed note at given index.
      * Index of -1 returns null.
@@ -95,9 +85,6 @@ public class KeyFinder {
      * @return      Note; target note.
      */
     public Note getNote(int ix) {
-        if (ix == -1) {
-            return null;
-        }
         return _allNotes.getNoteAtIndex(ix);
     }
 
@@ -115,7 +102,6 @@ public class KeyFinder {
      * @param       targetNote Note; note to be added to active notes.
      */
     public void addNoteToList(Note targetNote) {
-        // System.out.println("*Adding note: " + targetNote.getName() + "*"); // DEBUG STATEMENT
         // If note in list.
         if (activeNotesContain(targetNote)) {
             // Do nothing.

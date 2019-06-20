@@ -43,6 +43,12 @@ public class Key {
     private boolean _isContender;
 
     /**
+     * Code represents how the notes should be spelled; sharp or flat.
+     * 1 = sharp; 2 = flat.
+     */
+    private int _spellingCode;
+
+    /**
      * Constructs a container of all the notes in the key based on the key center given.
      * @param       keyCenterIx int; index of the key center.
      * @param       allNotes NoteCollection; contains every note object.
@@ -53,6 +59,7 @@ public class Key {
         this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
         this._strength = 0;
         this._isContender = false;
+        this._spellingCode = MusicTheory.SPELLING_CODE[keyCenterIx];
 
         int offset;
         int curNoteIx;
@@ -69,20 +76,7 @@ public class Key {
      * @param       keyCenterIx int; index of the key center.
      */
     public Key(int keyCenterIx) {
-        this._ix = keyCenterIx;
-        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
-        this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
-        this._strength = 0;
-        this._isContender = false;
-
-        int offset;
-        int curNoteIx;
-        // Get each note of key.
-        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-            _notes[i] = new Note(curNoteIx);
-        }
+        this(keyCenterIx, new NoteCollection());
     }
 
     /**
