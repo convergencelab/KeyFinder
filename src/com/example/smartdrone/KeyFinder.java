@@ -69,8 +69,9 @@ public class KeyFinder {
      */
     public KeyFinder() {
         _activeNotes = new LinkedList<>();
-        _allKeys = new KeyCollection();
-        _allNotes = _allKeys.getAllNotes();
+//        _allNotes = _allKeys.getAllNotes();
+        _allNotes = new NoteCollection();
+        _allKeys = new KeyCollection(_allNotes);
         _activeKey = null;
         _noteTimerLength = 2;
         _keyTimerLength = 2;
