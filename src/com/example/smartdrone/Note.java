@@ -85,11 +85,25 @@ public class Note {
     }
 
     /**
-     * Returns name of note.
+     * Returns name of note; defaults to using sharp spelling.
      * @return      String; name of note.
      */
     public String getName() {
         return this._name;
+    }
+
+    /**
+     * Returns name of note with spelling based on code given.
+     * @param       spellingCode int; note spelling code.
+     * @return      String; name of note.
+     */
+    public String getName(int spellingCode) {
+        if (spellingCode == MusicTheory.SHARP_SPELLING_CODE) {
+            return getNameSharp();
+        }
+        else {
+            return getNameFlat();
+        }
     }
 
     /**

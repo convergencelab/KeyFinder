@@ -20,7 +20,18 @@ public class KeyTest {
 
         Assert.assertEquals(defKey.getIx(), otherKey.getIx());
         Assert.assertEquals(defKey.getName(), otherKey.getName());
-        Assert.assertEquals(defKey.getNotes().length, otherKey.getNotes().length);
+    }
+
+    @Test
+    public void spellingCode() {
+        Key key = new Key(0);
+        Assert.assertEquals(key.getSpellingCode(), MusicTheory.SHARP_SPELLING_CODE);
+
+        key = new Key(1);
+        Assert.assertEquals(key.getSpellingCode(), MusicTheory.FLAT_SPELLING_CODE);
+
+        key = new Key(11);
+        Assert.assertEquals(key.getSpellingCode(), MusicTheory.SHARP_SPELLING_CODE);
     }
 
 }

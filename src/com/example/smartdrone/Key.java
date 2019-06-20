@@ -51,24 +51,25 @@ public class Key {
     /**
      * Constructs a container of all the notes in the key based on the key center given.
      * @param       keyCenterIx int; index of the key center.
-     * @param       allNotes NoteCollection; contains every note object.
+     * @param       noteCollection NoteCollection; contains every note object.
      */
-    public Key(int keyCenterIx, NoteCollection allNotes) {
+    public Key(int keyCenterIx, NoteCollection noteCollection) {
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
         this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
         this._strength = 0;
         this._isContender = false;
         this._spellingCode = MusicTheory.SPELLING_CODE[keyCenterIx];
+        inflateKeyNotes(noteCollection);
 
-        int offset;
-        int curNoteIx;
-        // Get each note of key.
-        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
-        }
+//        int offset;
+//        int curNoteIx;
+//        // Get each note of key.
+//        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+//            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
+//            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
+//            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
+//        }
     }
 
     /**
@@ -76,7 +77,7 @@ public class Key {
      * @param       keyCenterIx int; index of the key center.
      */
     public Key(int keyCenterIx) {
-        this(keyCenterIx, new NoteCollection());
+        this(keyCenterIx, null);
     }
 
     /**
@@ -111,12 +112,22 @@ public class Key {
         return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
     }
 
+    //todo old code: convert to method getDegree()
+//    /**
+//     * Returns set of all notes in key.
+//     * @return      Set; all note objects in key.
+//     */
+//    public Note[] getNotes() {
+//        return this._notes;
+//    }
+
     /**
-     * Returns set of all notes in key.
-     * @return      Set; all note objects in key.
+     * Return note from key based on scale degree.
+     * @param       scaleDegree int; degree of scale. (base zero indexing, where traditional music theory uses base one indexing.)
+     * @return      Note; corresponding note to scale degree.
      */
-    public Note[] getNotes() {
-        return this._notes;
+    public Note getDegree(int scaleDegree) {
+        return this._notes[scaleDegree];
     }
 
     /**
@@ -199,5 +210,34 @@ public class Key {
             notes += note.getName() + " ";
         }
         return notes;
+    }
+
+    public int getSpellingCode() {
+        return _spellingCode;
+    }
+
+    /**
+     * Fill key object with corresponding notes.
+     * @param       noteCollection NoteCollection; collection of already constructed notes.
+     */
+    private void inflateKeyNotes(NoteCollection noteCollection) {
+        int offset;
+        int curNoteIx;
+        // Construct from note collection.
+        if (noteCollection != null) {
+            for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+                offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
+                curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
+                _notes[i] = noteCollection.getNoteAtIndex(curNoteIx);
+            }
+        }
+        // Construct only notes needed.
+        else {
+            for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+                offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
+                curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
+                _notes[i] = new Note(curNoteIx);
+            }
+        }
     }
 }
