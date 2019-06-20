@@ -93,6 +93,22 @@ public class Note {
     }
 
     /**
+     * Return name of note with flat enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameFlat() {
+        return MusicTheory.CHROMATIC_SCALE_FLAT[this.getIx()];
+    }
+
+    /**
+     * Returns name of name with sharp enharmonic spelling.
+     * @return      String; name of note.
+     */
+    public String getNameSharp() {
+        return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
+    }
+
+    /**
      * Returns octave of note.
      * @return      int; octave of note.
      */
