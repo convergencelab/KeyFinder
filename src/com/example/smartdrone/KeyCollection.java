@@ -20,11 +20,25 @@ public class KeyCollection {
     private NoteCollection _allNotes;
 
     /**
-     * Constructor.
+     * Default constructor.
      * Constructs all 12 key objects and all 12 note objects.
      */
     public KeyCollection() {
         _allNotes = new NoteCollection();
+        // For each key.
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) { // TOTAL_NOTES = 12
+            // Construct key.
+            _majorKeys[i] = new Key(i, _allNotes);
+        }
+    }
+
+    /**
+     * Constructor.
+     * Constructs all 12 key objects and all 12 note objects.
+     * @param noteCollection
+     */
+    public KeyCollection(NoteCollection noteCollection) {
+        _allNotes = noteCollection;
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) { // TOTAL_NOTES = 12
             // Construct key.

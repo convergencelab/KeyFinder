@@ -50,28 +50,37 @@ public class Note {
      */
     public Note(int noteIx) {
         this._ix = noteIx;
-        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[noteIx];
-        this._octave = -1;
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[getIx()];
+        this._octave = noteIx / MusicTheory.TOTAL_NOTES;
     }
 
     /**
      * Constructs new note based on the index and octave given.
-     *   NOTE:: Currently this constructor is inactive, but may be used in later development.
      * @param       noteIx int; index of note.
      * @param       octave int; octave of note.
      * @see #_ix
      */
     public Note(int noteIx, int octave) {
         this._ix = noteIx;
-        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[noteIx];
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[getIx()];
         this._octave = octave;
     }
 
     /**
      * Returns index of note.
+     * No greater than 12.
      * @return      int; index of note.
      */
     public int getIx() {
+        return this._ix % 12;
+    }
+
+    /**
+     * Returns raw index of note.
+     * Can be greater than 12.
+     * @return      int; raw index of note.
+     */
+    public int getRawIx() {
         return this._ix;
     }
 
@@ -85,7 +94,6 @@ public class Note {
 
     /**
      * Returns octave of note.
-     *   NOTE:: Currently this method is inactive, but may be used in later development.
      * @return      int; octave of note.
      */
     public int getOctave() {
@@ -165,6 +173,6 @@ public class Note {
      * @return      String; name of note.
      */
     public String toString() {
-        return getName();
+        return _name + " " + getRawIx();
     }
 }

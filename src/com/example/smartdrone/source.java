@@ -20,14 +20,27 @@ public class source {
 //            }
 //            System.out.println();
 //        }
+//
+//        KeyFinder kf = new KeyFinder();
+//
+//        VoicingTemplateCollection vtc = new VoicingTemplateCollection();
+//        int[] x = { 1, 5, 10 };
+//        vtc.addVoicingTemplate("bob", x);
+//        VoicingTemplate vt = vtc.getVoicingTemplate("bob");
+//        Voicing v = vt.generateVoicing(kf.getAllKeys().getMajorKeyAtIndex(2), 2, 1, true);
+//        System.out.println(v);
 
-        KeyFinder kf = new KeyFinder();
+        Note note = new Note(36);
+        System.out.println(note);
+        System.out.println(note.getOctave());
 
-        VoicingTemplateCollection vtc = new VoicingTemplateCollection();
-        int[] x = { 1, 5, 10 };
-        vtc.addVoicingTemplate("bob", x);
-        VoicingTemplate vt = vtc.getVoicingTemplate("bob");
-        Voicing v = vt.generateVoicing(kf.getAllKeys().getMajorKeyAtIndex(2), 2, 1, true);
-        System.out.println(v);
+        note = new Note(35);
+        System.out.println(note);
+        System.out.println(note.getOctave());
+
+        note = new Note(37);
+        System.out.println(note);
+        System.out.println(note.getOctave());
+
     }
 }
