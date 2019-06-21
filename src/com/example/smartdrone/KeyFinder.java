@@ -69,13 +69,13 @@ public class KeyFinder {
     private boolean _activeKeyHasChanged;
 
     /**
-     *
+     * Array stores the scheduled removal of notes.
+     * Index with null means there is no scheduled removal.
      */
     private ScheduledFuture<?>[] _noteSchedules; //todo experimental code
 
-    // todo experimental line of code
     /**
-     *
+     * Thread pool for scheduling removal of notes.
      */
     private ScheduledThreadPoolExecutor _noteTimerPool;
 
@@ -92,9 +92,9 @@ public class KeyFinder {
         _noteHasBeenRemoved = false;
         _activeKeyHasChanged = false;
 
-        _noteTimerPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo experimental code
-        _noteTimerPool.setRemoveOnCancelPolicy(true); //todo experimental code
-        _noteSchedules = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES]; //todo experimental code
+        _noteTimerPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo can this be replaced by a lower integer?
+        _noteTimerPool.setRemoveOnCancelPolicy(true); //todo: not exactly sure what this should be but it seems to work
+        _noteSchedules = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
     }
 
     /**
@@ -110,7 +110,8 @@ public class KeyFinder {
     /**
      * Returns the List of active notes.
      * @return      LinkedList; all active notes.
-     * @deprecated use {@link #getActiveNotesString()} instead.
+     *
+     * @deprecated list should not be accessed directly outside of KeyFinder class.
      */
     @Deprecated
     public LinkedList<Note> getActiveNotes() {
@@ -152,8 +153,7 @@ public class KeyFinder {
     }
 
     /**
-     * Add note from key finder to list.
-     * This will use already constructed notes.
+     * Make call to method with Note parameter.
      * @param       ix int; index of note.
      */
     public void addNoteToList(int ix) {
@@ -173,7 +173,7 @@ public class KeyFinder {
         // Remove note from _activeNotes.
         else {
             this._activeNotes.remove(targetNote);
-            targetNote.cancelNoteTimer();
+//            targetNote.cancelNoteTimer(); //todo: Will it break?
             // Flag note removed. Used for debugging.
             _noteHasBeenRemoved = true;
             _removedNote = targetNote;
@@ -185,6 +185,14 @@ public class KeyFinder {
     }
 
     /**
+     * Make call to method with Note parameter.
+     * @param       noteIx int; index of note to remove.
+     */
+    public void removeNoteFromList(int noteIx) {
+        removeNoteFromList(_allNotes.getNoteAtIndex(noteIx));
+    }
+
+    /**
      * Check if active note list contains target note.
      * @param       targetNote Note; note to check.
      * @return      boolean; true if active note list contains target note.
@@ -193,6 +201,11 @@ public class KeyFinder {
         return this._activeNotes.contains(targetNote);
     }
 
+    /**
+     * Make call to method with Note parameter.
+     * @param       targetIx int; index of target note.
+     * @return      boolean; true if list contains note.
+     */
     public boolean activeNotesContain(int targetIx) {
         return activeNotesContain(getNote(targetIx));
     }
@@ -425,7 +438,10 @@ public class KeyFinder {
         // Cancel all active timers.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             _allKeys.getMajorKeyAtIndex(i).cancelKeyTimer();
-            _allNotes.getNoteAtIndex(i).cancelNoteTimer();
+//            _allNotes.getNoteAtIndex(i).cancelNoteTimer();
+            if (noteIsScheduled(i)) {
+                cancelNoteRemoval(i);
+            }
         }
         // Remove each note from list. Function takes care of managing key strengths.
         while (!_activeNotes.isEmpty()) {

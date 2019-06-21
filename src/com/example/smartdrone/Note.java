@@ -35,12 +35,14 @@ public class Note {
      * Timer object that keeps track of the seconds
      * since an active note has been played.
      */
+    @Deprecated
     private Timer _timer;
 
     /**
      * TimerTask to remove a note if it becomes inactive;
      * timer reaches the expiration time.
      */
+    @Deprecated
     private NoteTimerTask _noteTimerTask;
 
     /**
@@ -134,6 +136,7 @@ public class Note {
      * Returns Timer object.
      * @return      Timer; timer object for note.
      */
+    @Deprecated
     public Timer getTimer() {
         return this._timer;
     }
@@ -143,6 +146,7 @@ public class Note {
      * @param       keyFinder KeyFinder; object containing all active notes.
      * @param       seconds int; length of timer.
      */
+    @Deprecated
     public void startNoteTimer(KeyFinder keyFinder, int seconds) {
         // If timer task exists.
         if (_noteTimerTask != null) {
@@ -158,6 +162,7 @@ public class Note {
      * Terminates the removal task of Note.
      * Used when a Note is played while in List.
      */
+    @Deprecated
     public void cancelNoteTimer() {
         // If timer task exists.
         if (_noteTimerTask != null) {
