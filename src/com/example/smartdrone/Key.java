@@ -61,15 +61,6 @@ public class Key {
         this._isContender = false;
         this._spellingCode = MusicTheory.SPELLING_CODE[keyCenterIx];
         inflateKeyNotes(noteCollection);
-
-//        int offset;
-//        int curNoteIx;
-//        // Get each note of key.
-//        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-//            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-//            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-//            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
-//        }
     }
 
     /**
@@ -111,15 +102,6 @@ public class Key {
     public String getNameSharp() {
         return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
     }
-
-    //todo old code: convert to method getDegree()
-//    /**
-//     * Returns set of all notes in key.
-//     * @return      Set; all note objects in key.
-//     */
-//    public Note[] getNotes() {
-//        return this._notes;
-//    }
 
     /**
      * Return note from key based on scale degree.

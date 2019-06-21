@@ -1,6 +1,10 @@
 package com.example.smartdrone;
 
 import java.util.LinkedList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Determine which key has the strongest relationship to the notes being received.
@@ -65,6 +69,17 @@ public class KeyFinder {
     private boolean _activeKeyHasChanged;
 
     /**
+     *
+     */
+    private ScheduledFuture<?>[] _noteSchedules; //todo experimental code
+
+    // todo experimental line of code
+    /**
+     *
+     */
+    private ScheduledThreadPoolExecutor _noteTimerPool;
+
+    /**
      * Constructor.
      */
     public KeyFinder() {
@@ -72,10 +87,14 @@ public class KeyFinder {
         _allNotes = new NoteCollection();
         _allKeys = new KeyCollection(_allNotes);
         _activeKey = null;
-        _noteTimerLength = 2;
-        _keyTimerLength = 2;
+        _noteTimerLength = 2; //todo refactor: replace with constant
+        _keyTimerLength = 2; //todo refactor: replace with constant
         _noteHasBeenRemoved = false;
         _activeKeyHasChanged = false;
+
+        _noteTimerPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo experimental code
+        _noteTimerPool.setRemoveOnCancelPolicy(true); //todo experimental code
+        _noteSchedules = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES]; //todo experimental code
     }
 
     /**
@@ -106,6 +125,9 @@ public class KeyFinder {
         if (activeNotesContain(targetNote)) {
             // Do nothing.
             // Android app restarts timer.
+            // Could remove it and add it back,
+            // But that would only slightly improve readability for programmer,
+            // and create more operations for the application.
             return;
         }
         // If note not in list.
@@ -116,6 +138,15 @@ public class KeyFinder {
             updateMaxStrength();
             updateContenderKeys();
         }
+    }
+
+    /**
+     * Add note from key finder to list.
+     * This will use already constructed notes.
+     * @param       ix int; index of note.
+     */
+    public void addNoteToList(int ix) {
+        addNoteToList(_allNotes.getNoteAtIndex(ix));
     }
 
     /**
@@ -143,9 +174,9 @@ public class KeyFinder {
     }
 
     /**
-     * Check if active notes list contains target note.
+     * Check if active note list contains target note.
      * @param       targetNote Note; note to check.
-     * @return      boolean; true if active notes contains target note.
+     * @return      boolean; true if active note list contains target note.
      */
     private boolean activeNotesContain(Note targetNote) {
         return this._activeNotes.contains(targetNote);
@@ -406,4 +437,24 @@ public class KeyFinder {
         return _allScaleTemplates;
     }
 
+    //todo experimental function
+    public void scheduleNoteRemoval(Note toSchedule) {
+        Runnable noteRemoval = new Runnable() {
+            @Override
+            public void run() {
+                _activeNotes.remove(toSchedule);
+            }
+        };
+        _noteSchedules[toSchedule.getIx()] = _noteTimerPool.schedule(noteRemoval, 2, TimeUnit.SECONDS);
+    }
+
+    //todo experimental code
+    public void cancelNoteRemoval(Note toCancel) {
+        _noteSchedules[toCancel.getIx()].cancel(false); //todo false seems best, but should try true just to be sure
+        _noteSchedules[toCancel.getIx()] = null; //todo check if this line should be here
+    }
+
+    public ScheduledThreadPoolExecutor getNoteTimerPool() {
+        return _noteTimerPool;
+    }
 }
