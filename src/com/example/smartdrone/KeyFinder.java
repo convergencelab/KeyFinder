@@ -263,6 +263,10 @@ public class KeyFinder {
         return this._activeKey;
     }
 
+    public Key getMajorKey(int ix) {
+        return _allKeys.getMajorKeyAtIndex(ix);
+    }
+
     /**
      * Set the active key.
      * Triggers flag for active key change.
@@ -448,13 +452,33 @@ public class KeyFinder {
         _noteSchedules[toSchedule.getIx()] = _noteTimerPool.schedule(noteRemoval, 2, TimeUnit.SECONDS);
     }
 
+    public void scheduleNoteRemoval(int ix) {
+        scheduleNoteRemoval(_allNotes.getNoteAtIndex(ix));
+    }
+
+    public void cancelNoteRemoval(int ix) {
+        cancelNoteRemoval(_allNotes.getNoteAtIndex(ix));
+    }
+
     //todo experimental code
     public void cancelNoteRemoval(Note toCancel) {
-        _noteSchedules[toCancel.getIx()].cancel(false); //todo false seems best, but should try true just to be sure
+        _noteSchedules[toCancel.getIx()].cancel(true); //todo false seems best, but should try true just to be sure
         _noteSchedules[toCancel.getIx()] = null; //todo check if this line should be here
     }
 
     public ScheduledThreadPoolExecutor getNoteTimerPool() {
         return _noteTimerPool;
+    }
+
+    public boolean noteIsScheduled(Note note) {
+        // Removal is scheduled.
+        if (_noteSchedules[note.getIx()] != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean noteIsScheduled(int ix) {
+        return noteIsScheduled(_allNotes.getNoteAtIndex(ix));
     }
 }

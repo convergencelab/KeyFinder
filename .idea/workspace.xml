@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/Key.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/KeyFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/smartdrone/KeyFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -100,18 +97,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="457" column="30" lean-forward="true" selection-start-line="457" selection-start-column="30" selection-end-line="457" selection-end-column="30" />
+            <state relative-caret-position="412">
+              <caret line="459" column="56" lean-forward="true" selection-start-line="459" selection-start-column="56" selection-end-line="459" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2431#2432#0" expanded="true" />
                 <element signature="e#2482#2483#0" expanded="true" />
                 <element signature="e#4114#4115#0" expanded="true" />
                 <element signature="e#4173#4174#0" expanded="true" />
+                <element signature="e#8014#8015#0" expanded="true" />
+                <element signature="e#8065#8066#0" expanded="true" />
                 <element signature="e#13021#13022#0" expanded="true" />
                 <element signature="e#13084#13085#0" expanded="true" />
+                <element signature="e#13861#13862#0" expanded="true" />
+                <element signature="e#13898#13899#0" expanded="true" />
+                <element signature="e#13975#13976#0" expanded="true" />
+                <element signature="e#14010#14011#0" expanded="true" />
                 <element signature="e#14050#14051#0" expanded="true" />
                 <element signature="e#14086#14087#0" expanded="true" />
+                <element signature="e#14228#14229#0" expanded="true" />
+                <element signature="e#14260#14261#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,8 +125,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+            <state relative-caret-position="820">
+              <caret line="154" column="71" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -395,7 +400,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.KeyFinderTest.activeThreadCount1">
+  <component name="RunManager" selected="JUnit.KeyFinderTest.keyFinderNoteIo">
     <configuration name="KeyFinderTest.activeThreadCount1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
@@ -412,7 +417,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeyFinderTest.addNoteToKeyFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KeyFinderTest.keyFinderNoteIo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
@@ -422,7 +427,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.smartdrone" />
       <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyFinderTest" />
-      <option name="METHOD_NAME" value="addNoteToKeyFinder" />
+      <option name="METHOD_NAME" value="keyFinderNoteIo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeyFinderTest.noteIsScheduled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="drone_app_plusplus_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.smartdrone.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
+      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyFinderTest" />
+      <option name="METHOD_NAME" value="noteIsScheduled" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeyFinderTest.noteIsScheduledThreadCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="drone_app_plusplus_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.smartdrone.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
+      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyFinderTest" />
+      <option name="METHOD_NAME" value="noteIsScheduledThreadCount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -444,44 +481,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeyFinderTest.testKeyFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="drone_app_plusplus_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.smartdrone.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
-      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyFinderTest" />
-      <option name="METHOD_NAME" value="testKeyFinder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KeyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="drone_app_plusplus_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.smartdrone.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
-      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KeyFinderTest.keyFinderNoteIo" />
+        <item itemvalue="JUnit.KeyFinderTest.noteIsScheduledThreadCount" />
+        <item itemvalue="JUnit.KeyFinderTest.noteIsScheduled" />
         <item itemvalue="JUnit.KeyFinderTest.activeThreadCount1" />
         <item itemvalue="JUnit.KeyFinderTest.scheduleNoteRemoval" />
-        <item itemvalue="JUnit.KeyFinderTest.addNoteToKeyFinder" />
-        <item itemvalue="JUnit.KeyFinderTest.testKeyFinder" />
-        <item itemvalue="JUnit.KeyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -499,35 +505,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KeyTest_defConstructorWorks - 2019.06.20 at 15h 03m 39s.xml">
-      <configuration name="KeyTest.defConstructorWorks" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 11m 15s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyTest_spellingCode - 2019.06.20 at 15h 44m 51s.xml">
-      <configuration name="KeyTest.spellingCode" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 11m 26s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyTest_defConstructorWorks - 2019.06.20 at 15h 55m 37s.xml">
-      <configuration name="KeyTest.defConstructorWorks" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 12m 03s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyTest_defConstructorWorks - 2019.06.20 at 15h 57m 03s.xml">
-      <configuration name="KeyTest.defConstructorWorks" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 12m 19s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyTest - 2019.06.20 at 15h 57m 10s.xml">
-      <configuration name="KeyTest" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 12m 32s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyFinderTest_testKeyFinder - 2019.06.21 at 09h 29m 33s.xml">
-      <configuration name="KeyFinderTest.testKeyFinder" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 12m 43s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyFinderTest_testKeyFinder - 2019.06.21 at 09h 41m 41s.xml">
-      <configuration name="KeyFinderTest.testKeyFinder" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 12m 56s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyFinderTest_addNoteToKeyFinder - 2019.06.21 at 09h 43m 13s.xml">
-      <configuration name="KeyFinderTest.addNoteToKeyFinder" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_noteIsScheduledThreadCount - 2019.06.21 at 10h 13m 04s.xml">
+      <configuration name="KeyFinderTest.noteIsScheduledThreadCount" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyFinderTest_scheduleNoteRemoval - 2019.06.21 at 09h 45m 39s.xml">
-      <configuration name="KeyFinderTest.scheduleNoteRemoval" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_keyFinderNoteIo - 2019.06.21 at 10h 17m 42s.xml">
+      <configuration name="KeyFinderTest.keyFinderNoteIo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KeyFinderTest_scheduleNoteRemoval - 2019.06.21 at 09h 47m 02s.xml">
-      <configuration name="KeyFinderTest.scheduleNoteRemoval" configurationId="JUnit" />
+    <history-entry file="KeyFinderTest_keyFinderNoteIo - 2019.06.21 at 10h 18m 19s.xml">
+      <configuration name="KeyFinderTest.keyFinderNoteIo" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -852,26 +858,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="457" column="30" lean-forward="true" selection-start-line="457" selection-start-column="30" selection-end-line="457" selection-end-column="30" />
+        <state relative-caret-position="412">
+          <caret line="459" column="56" lean-forward="true" selection-start-line="459" selection-start-column="56" selection-end-line="459" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2431#2432#0" expanded="true" />
             <element signature="e#2482#2483#0" expanded="true" />
             <element signature="e#4114#4115#0" expanded="true" />
             <element signature="e#4173#4174#0" expanded="true" />
+            <element signature="e#8014#8015#0" expanded="true" />
+            <element signature="e#8065#8066#0" expanded="true" />
             <element signature="e#13021#13022#0" expanded="true" />
             <element signature="e#13084#13085#0" expanded="true" />
+            <element signature="e#13861#13862#0" expanded="true" />
+            <element signature="e#13898#13899#0" expanded="true" />
+            <element signature="e#13975#13976#0" expanded="true" />
+            <element signature="e#14010#14011#0" expanded="true" />
             <element signature="e#14050#14051#0" expanded="true" />
             <element signature="e#14086#14087#0" expanded="true" />
+            <element signature="e#14228#14229#0" expanded="true" />
+            <element signature="e#14260#14261#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+        <state relative-caret-position="820">
+          <caret line="154" column="71" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
