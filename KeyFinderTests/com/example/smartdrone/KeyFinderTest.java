@@ -3,15 +3,13 @@ package com.example.smartdrone;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class KeyFinderTest {
 
     @Test
     public void addNoteToKeyFinder() {
         KeyFinder keyFinder = new KeyFinder();
         keyFinder.addNoteToList(0);
-        Assert.assertTrue(keyFinder.getActiveNotes().contains(keyFinder.getNote(0)));
+        Assert.assertTrue(keyFinder.activeNotesContain(0));
     }
 
     @Test
@@ -24,11 +22,11 @@ public class KeyFinderTest {
         // Schedule removal
         keyFinder.scheduleNoteRemoval(curNote);
         // Note is still in list.
-        Assert.assertTrue(keyFinder.getActiveNotes().contains(keyFinder.getNote(0)));
+        Assert.assertTrue(keyFinder.activeNotesContain(0));
 
         Thread.sleep(2500);
 
-        Assert.assertFalse(keyFinder.getActiveNotes().contains(keyFinder.getNote(0)));
+        Assert.assertFalse(keyFinder.activeNotesContain(0));
     }
 
     @Test
@@ -41,16 +39,16 @@ public class KeyFinderTest {
         // Schedule removal
         keyFinder.scheduleNoteRemoval(curNote);
         // Note is still in list.
-        Assert.assertTrue(keyFinder.getActiveNotes().contains(keyFinder.getNote(0)));
+        Assert.assertTrue(keyFinder.activeNotesContain(0));
         // Should be one active thread.
-        Assert.assertEquals(keyFinder.getNoteTimerPool().getActiveCount(), 1);
+        Assert.assertEquals(keyFinder.getNoteThreadCount(), 1);
 
         Thread.sleep(2500);
 
         // List should not contain note anymore.
-        Assert.assertFalse(keyFinder.getActiveNotes().contains(keyFinder.getNote(0)));
+        Assert.assertFalse(keyFinder.activeNotesContain(0));
         // Should be no active threads.
-        Assert.assertEquals(keyFinder.getNoteTimerPool().getActiveCount(), 0);
+        Assert.assertEquals(keyFinder.getNoteThreadCount(), 0);
     }
 
     @Test
@@ -83,19 +81,19 @@ public class KeyFinderTest {
         // Should be scheduled
         Assert.assertTrue(kf.noteIsScheduled(curNote));
         // Should be one.
-        Assert.assertEquals(1, kf.getNoteTimerPool().getActiveCount());
+        Assert.assertEquals(1, kf.getNoteThreadCount());
 
         // Cancel note removal
         kf.cancelNoteRemoval(curNote);
         // Should not be scheduled anymore.
         Assert.assertFalse(kf.noteIsScheduled(curNote));
         try {
-            Thread.sleep(0);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         // Should be 0.
-        Assert.assertEquals(0, kf.getNoteTimerPool().getActiveCount());
+        Assert.assertEquals(0, kf.getNoteThreadCount());
     }
 
     @Test
@@ -123,7 +121,7 @@ public class KeyFinderTest {
         kf.addNoteToList(11); // B
 
         // Active key should be null.
-        Assert.assertEquals(null, kf.getActiveKey());
+        Assert.assertNull(kf.getActiveKey());
 
         // Wait for active key delay.
         try {
@@ -149,9 +147,44 @@ public class KeyFinderTest {
         }
 
         // Active notes should be empty.
-        Assert.assertEquals(0, kf.getActiveNotes().size());
+        Assert.assertEquals(0, kf.getActiveNoteListSize());
 
         // Should have 0 active threads.
-        Assert.assertEquals(0, kf.getNoteTimerPool().getActiveCount());
+        Assert.assertEquals(0, kf.getNoteThreadCount());
+    }
+
+    @Test
+    public void activeThreadTest() {
+        KeyFinder kf = new KeyFinder();
+        for (int i = 0; i < 10; i++) {
+            if (kf.noteIsScheduled(0)) {
+                kf.cancelNoteRemoval(0);
+            }
+
+            // Wait 25 millis.
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Add note to list.
+            kf.addNoteToList(0);
+
+            // Schedule timer.
+            kf.scheduleNoteRemoval(0);
+
+            System.out.println(kf.getNoteThreadCount());
+
+            // Wait 25 millis.
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(kf.getNoteThreadCount());
+        }
+        System.out.println(kf.getNoteThreadCount());
     }
 }

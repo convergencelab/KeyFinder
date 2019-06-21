@@ -110,9 +110,20 @@ public class KeyFinder {
     /**
      * Returns the List of active notes.
      * @return      LinkedList; all active notes.
+     * @deprecated use {@link #getActiveNotesString()} instead.
      */
+    @Deprecated
     public LinkedList<Note> getActiveNotes() {
         return this._activeNotes;
+    }
+
+    /**
+     * Gets string of active notes.
+     * User should not be able to access the list directly.
+     * @return      String; string of active notes.
+     */
+    public String getActiveNotesString() {
+        return _activeNotes.toString();
     }
 
     /**
@@ -178,8 +189,12 @@ public class KeyFinder {
      * @param       targetNote Note; note to check.
      * @return      boolean; true if active note list contains target note.
      */
-    private boolean activeNotesContain(Note targetNote) {
+    public boolean activeNotesContain(Note targetNote) {
         return this._activeNotes.contains(targetNote);
+    }
+
+    public boolean activeNotesContain(int targetIx) {
+        return activeNotesContain(getNote(targetIx));
     }
 
     /**
@@ -446,7 +461,8 @@ public class KeyFinder {
         Runnable noteRemoval = new Runnable() {
             @Override
             public void run() {
-                _activeNotes.remove(toSchedule);
+                removeNoteFromList(toSchedule);
+//                _activeNotes.remove(toSchedule); why u so dumb
             }
         };
         _noteSchedules[toSchedule.getIx()] = _noteTimerPool.schedule(noteRemoval, 2, TimeUnit.SECONDS);
@@ -460,14 +476,17 @@ public class KeyFinder {
         cancelNoteRemoval(_allNotes.getNoteAtIndex(ix));
     }
 
-    //todo experimental code
     public void cancelNoteRemoval(Note toCancel) {
-        _noteSchedules[toCancel.getIx()].cancel(true); //todo false seems best, but should try true just to be sure
-        _noteSchedules[toCancel.getIx()] = null; //todo check if this line should be here
+        _noteSchedules[toCancel.getIx()].cancel(true);
+        _noteSchedules[toCancel.getIx()] = null;
     }
 
-    public ScheduledThreadPoolExecutor getNoteTimerPool() {
-        return _noteTimerPool;
+    /**
+     * Get number of current active note threads.
+     * @return      int; number of current active note treads.
+     */
+    public int getNoteThreadCount() {
+        return _noteTimerPool.getActiveCount();
     }
 
     public boolean noteIsScheduled(Note note) {
@@ -480,5 +499,9 @@ public class KeyFinder {
 
     public boolean noteIsScheduled(int ix) {
         return noteIsScheduled(_allNotes.getNoteAtIndex(ix));
+    }
+
+    public int getActiveNoteListSize() {
+        return _activeNotes.size();
     }
 }
