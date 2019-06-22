@@ -101,17 +101,6 @@ public class KeyFinder {
     private ScheduledThreadPoolExecutor _keyTaskPool;
 
     /**
-     * Status of contender for active key.
-     */
-    private boolean[] _isContender;
-
-    /**
-     * Strength of key in relation to active note list.
-     * Strength is incremented by one for every active note found in key.
-     */
-    private int[] _keyStrengths;
-
-    /**
      * Constructor.
      */
     public KeyFinder() {
@@ -126,16 +115,16 @@ public class KeyFinder {
         _noteHasBeenRemoved = false;
         _activeKeyHasChanged = false;
 
-        _noteTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo can this be replaced by a lower integer?
+        //todo should turn pools into just single thread.
+
+        _noteTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(1); //todo can this be replaced by a lower integer?
         _noteTaskPool.setRemoveOnCancelPolicy(true); //todo: not exactly sure what this should be but it seems to work
         _scheduledNoteTasks = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
 
-        _keyTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(7); // todo: extract constant. 7 should be most timers running at one time.
+        _keyTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(1); // todo: extract constant. 7 should be most timers running at one time.
         _keyTaskPool.setRemoveOnCancelPolicy(true);
         _scheduledKeyTasks = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
 
-        _isContender = new boolean[MusicTheory.TOTAL_NOTES];
-        _keyStrengths = new int[MusicTheory.TOTAL_NOTES];
     }
 
     /**
@@ -214,7 +203,6 @@ public class KeyFinder {
             // Add to list.
             this._activeNotes.add(targetNote);
             incrementKeysWithNote(targetNote);
-//            updateMaxStrength();
             _maxStrength = findMaxStrength();
             updateContenderKeys();
         }
@@ -241,12 +229,9 @@ public class KeyFinder {
         // Remove note from _activeNotes.
         else {
             this._activeNotes.remove(targetNote);
-            // Flag note removed. Used for debugging.
             _noteHasBeenRemoved = true;
             _removedNote = targetNote;
-            // Decrement strength of all keys containing this note.
             decrementKeysWithNote(targetNote);
-//            updateMaxStrength();
             _maxStrength = findMaxStrength();
             updateContenderKeys();
         }
@@ -284,14 +269,10 @@ public class KeyFinder {
      * @param       target Note; target note.
      */
     private void incrementKeysWithNote(Note target) {
-        int curKeyOffset;
         int targetNoteIx = target.getIx();
-        // For each key that contains note.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            curKeyOffset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
-            // Increment keys strength.
-            _allKeys.getMajorKeyAtIndex(
-                    (targetNoteIx + curKeyOffset) % MusicTheory.TOTAL_NOTES).incrementStrength(); // TOTAL_NOTES = 12
+            int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES;
+            _allKeys.getMajorKeyAtIndex(curKeyIx).incrementStrength(); // TOTAL_NOTES = 12
         }
     }
 
@@ -300,65 +281,11 @@ public class KeyFinder {
      * @param       target Note; target note.
      */
     private void decrementKeysWithNote(Note target) {
-        int curKeyOffset;
         int targetNoteIx = target.getIx();
-        // For each key that contains note.
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            curKeyOffset = MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i];
-            // Decrement keys strength.
-            _allKeys.getMajorKeyAtIndex(
-                    (targetNoteIx + curKeyOffset) % MusicTheory.TOTAL_NOTES).decrementStrength(); // TOTAL_NOTES = 12
+            int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES;
+            _allKeys.getMajorKeyAtIndex(curKeyIx).decrementStrength(); // TOTAL_NOTES = 12
         }
-    }
-
-    /**
-     * Get strength of key.
-     * @param       keyIx int; index of key.
-     * @return      int; strength of key.
-     */
-    private int getKeyStrength(int keyIx) {
-        return _keyStrengths[keyIx];
-    }
-
-    /**
-     * Get strength of key.
-     * @param       key Key; key.
-     * @return      int; strength of key.
-     */
-    private int getKeyStrength(Key key) {
-        return getKeyStrength(key.getIx());
-    }
-
-    /**
-     * Increment strength of key.
-     * @param       keyIx int; index of key to increment.
-     */
-    private void incrementKeyStrength(int keyIx) {
-        _keyStrengths[keyIx]++;
-    }
-
-    /**
-     * Increment strength of key.
-     * @param       toIncrement Key; key to increment.
-     */
-    private void incrementKeyStrength(Key toIncrement) {
-        incrementKeyStrength(toIncrement.getIx());
-    }
-
-    /**
-     * Decrement strength of key.
-     * @param       keyIx int; index of key to decrement.
-     */
-    private void decrementStrength(int keyIx) {
-        _keyStrengths[keyIx]--;
-    }
-
-    /**
-     * Decrement strength of key.
-     * @param       toDecrement Key; key to decrement.
-     */
-    private void decrementStrength(Key toDecrement) {
-        decrementStrength(toDecrement.getIx());
     }
 
     /**
@@ -368,12 +295,9 @@ public class KeyFinder {
     private int findMaxStrength() {
         int maxStrength = 0;
         Key curKey;
-        // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = this._allKeys.getMajorKeyAtIndex(i);
-            // If it's greater than current max.
             if (curKey.getStrength() > maxStrength) {
-                // Update max.
                 maxStrength = curKey.getStrength();
             }
         }
@@ -414,7 +338,7 @@ public class KeyFinder {
         if (_activeKey == null) {
             return 0;
         }
-        return _allKeys.getMajorKeyAtIndex(_activeKey.getIx()).getStrength();
+        return _activeKey.getStrength();
     }
 
     /**
@@ -424,7 +348,6 @@ public class KeyFinder {
         Key curKey;
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-//            curKey = getAllKeys().getMajorKeyAtIndex(i);
             curKey = getMajorKey(i);
             // Don't check active key.
             if (curKey != _activeKey) {
@@ -433,17 +356,13 @@ public class KeyFinder {
 
                 // 1. Key is contender and doesn't meet the requirements.
                 if (curKey.isContender() && !meetsContenderRequirements(curKey)) {
-                    // Cancel timer.
-                    curKey.cancelKeyTimer();
-                    // Not a contender.
-                    curKey.setIsContender(false);
+                    cancelActiveKeyChange(curKey);
+                    curKey.setContenderStatus(false);
                 }
                 // 2. Key is not a contender and meets the requirements.
                 else if (!curKey.isContender() && meetsContenderRequirements(curKey)) {
-                    // Start timer.
-                    curKey.startKeyTimer(this, _keyTimerLength);
-                    // Is a contender.
-                    curKey.setIsContender(true);
+                    scheduleActiveKeyChange(curKey);
+                    curKey.setContenderStatus(true);
                 }
             }
         }
@@ -538,7 +457,9 @@ public class KeyFinder {
     public void cleanse() {
         // Cancel all active timers for Keys and Notes.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            _allKeys.getMajorKeyAtIndex(i).cancelKeyTimer();
+            if (keyChangeIsScheduled(i)) {
+                cancelActiveKeyChange(i);
+            }
             if (noteIsScheduled(i)) {
                 cancelNoteRemoval(i);
             }
@@ -552,6 +473,7 @@ public class KeyFinder {
         _activeKeyHasChanged = false;
     }
 
+
     // todo will have to create new method here; also should be a private function
     /**
      * Cancel all the key timers.
@@ -560,16 +482,14 @@ public class KeyFinder {
     public void cancelAllKeyTimers() {
         Key curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-//            curKey = getAllKeys().getMajorKeyAtIndex(i);
             curKey = getMajorKey(i);
             // Only contender keys will have an active timer.
             if (curKey.isContender()) {
-                curKey.cancelKeyTimer();
-                curKey.setIsContender(false);
+                cancelActiveKeyChange(curKey);
+                curKey.setContenderStatus(false);
             }
         }
     }
-
     /**
      * Schedule removal of note from active note list.
      * @param       toSchedule Note; note to schedule.
@@ -637,6 +557,24 @@ public class KeyFinder {
     }
 
     /**
+     * Check if key change is scheduled.
+     * @param       targetIx int; index of target key.
+     * @return      boolean; true if key change is scheduled.
+     */
+    private boolean keyChangeIsScheduled(int targetIx) {
+        return _scheduledKeyTasks[targetIx] != null;
+    }
+
+    /**
+     * Check if key change is scheduled.
+     * @param       targetKey Key; target key.
+     * @return      boolean; true if key change is scheduled.
+     */
+    private boolean keyChangeIsScheduled(Key targetKey) {
+        return _scheduledKeyTasks[targetKey.getIx()] != null;
+    }
+
+    /**
      * Schedule active key change.
      * @param       toSchedule Key; key to become active key.
      */
@@ -645,9 +583,12 @@ public class KeyFinder {
             @Override
             public void run() {
                 setActiveKey(toSchedule);
+                toSchedule.setContenderStatus(false);
+                cancelAllKeyTimers();
             }
         };
-        _scheduledKeyTasks[toSchedule.getIx()] = _keyTaskPool.schedule(activeKeyChange, _keyTimerLength, TimeUnit.SECONDS);
+        _scheduledKeyTasks[toSchedule.getIx()] =
+                _keyTaskPool.schedule(activeKeyChange, _keyTimerLength, TimeUnit.SECONDS);
     }
 
     /**
@@ -675,40 +616,4 @@ public class KeyFinder {
         _scheduledKeyTasks[keyIx].cancel(true);
         _scheduledKeyTasks[keyIx] = null;
     }
-
-    /**
-     * Check if key is active key contender.
-     * @return      boolean; true if contender.
-     */
-    private boolean isContender(Key toCheck) {
-        return _isContender[toCheck.getIx()];
-    }
-
-    /**
-     * Check if key is active key contender.
-     * @return      boolean; true if contender.
-     */
-    private boolean isContender(int toCheckIx) {
-        return _isContender[toCheckIx];
-    }
-
-    /**
-     * Set status of key contender.
-     * @param       key Key; key to set.
-     * @param       status boolean; true if contender.
-     */
-    private void setContenderStatus(Key key, boolean status) {
-        _isContender[key.getIx()] = status;
-    }
-
-    /**
-     * Set status of key contender.
-     * @param       keyIx int; index of key to set.
-     * @param       status boolean; true if contender.
-     */
-    private void setContenderStatus(int keyIx, boolean status) {
-        _isContender[keyIx] = status;
-    }
-
-
 }

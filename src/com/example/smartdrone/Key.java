@@ -23,9 +23,7 @@ public class Key {
     /**
      * Strength of key.
      * Strength gets one point for every corresponding note that is active.
-     * @deprecated use _keyStrengths in KeyFinder class.
      */
-    @Deprecated
     private int _strength;
 
     /**
@@ -35,17 +33,15 @@ public class Key {
     @Deprecated
     private Timer _timer;
 
-    /**
-     * TimerTask to set the key as new active key.
-     */
-    @Deprecated
-    private KeyTimerTask _keyTimerTask;
+//    /**
+//     * TimerTask to set the key as new active key.
+//     */
+//    @Deprecated
+//    private KeyTimerTask _keyTimerTask;
 
     /**
      * Flag for active key contender.
-     * @deprecated use _isContender in KeyFinder class.
      */
-    @Deprecated
     private boolean _isContender;
 
     /**
@@ -121,10 +117,7 @@ public class Key {
     /**
      * Returns strength of key.
      * @return      int; strength of key.
-     *
-     * @deprecated use getStrength() in KeyFinder class instead.
      */
-    @Deprecated
     public int getStrength() {
         return _strength;
     }
@@ -140,59 +133,50 @@ public class Key {
 
     /**
      * Increase key strength by 1.
-     *
-     * @deprecated use incrementStrength() in KeyFinder class instead.
      */
-    @Deprecated
     public void incrementStrength() {
         this._strength++;
     }
 
     /**
      * Reduce key strength by 1.
-     *
-     * @deprecated use decrementStrength() in KeyFinder class instead.
      */
-    @Deprecated
     public void decrementStrength() {
         this._strength--;
     }
 
-    /**
-     * Starts a background thread to set contender key as new active key.
-     * @param       keyFinder KeyFinder; object containing all active notes.
-     * @param       seconds int; length of timer.
-     *
-     * @deprecated use startKeyTimer() method in KeyFinder class.
-     */
-    @Deprecated
-    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
-        _timer = new Timer("Key Timer");
-        // Schedule timer task for key.
-        _keyTimerTask = new KeyTimerTask(keyFinder, this);
-        _timer.schedule(_keyTimerTask, seconds * 1000);
-    }
+//    /**
+//     * Starts a background thread to set contender key as new active key.
+//     * @param       keyFinder KeyFinder; object containing all active notes.
+//     * @param       seconds int; length of timer.
+//     *
+//     * @deprecated use startKeyTimer() method in KeyFinder class.
+//     */
+//    @Deprecated
+//    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
+//        _timer = new Timer("Key Timer");
+//        // Schedule timer task for key.
+//        _keyTimerTask = new KeyTimerTask(keyFinder, this);
+//        _timer.schedule(_keyTimerTask, seconds * 1000);
+//    }
 
-    /**
-     * Terminates key timer task.
-     * Used when key is no longer a contender.
-     *
-     * @deprecated use cancelActiveKeyChange() method in KeyFinder class instead.
-     */
-    @Deprecated
-    public void cancelKeyTimer() {
-        if (_keyTimerTask != null) {
-            _keyTimerTask.cancel();
-        }
-    }
+//    /**
+//     * Terminates key timer task.
+//     * Used when key is no longer a contender.
+//     *
+//     * @deprecated use cancelActiveKeyChange() method in KeyFinder class instead.
+//     */
+//    @Deprecated
+//    public void cancelKeyTimer() {
+//        if (_keyTimerTask != null) {
+//            _keyTimerTask.cancel();
+//        }
+//    }
 
     /**
      * Return contender flag.
      * @return      boolean; true if contender.
-     *
-     * @deprecated use isContender() method in KeyFinder class instead.
      */
-    @Deprecated
     public boolean isContender() {
         return _isContender;
     }
@@ -200,11 +184,8 @@ public class Key {
     /**
      * Set contender flag.
      * @param       status boolean; true if contender.
-     *
-     * @deprecated use setContenderStatus() method in KeyFinder class instead.
      */
-    @Deprecated
-    public void setIsContender(boolean status) {
+    public void setContenderStatus(boolean status) {
         _isContender = status;
     }
 

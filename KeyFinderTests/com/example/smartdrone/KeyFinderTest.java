@@ -188,9 +188,27 @@ public class KeyFinderTest {
         System.out.println(kf.getNoteThreadCount());
     }
 
-    @Test
-    public void keyStrength1() {
-        KeyFinder kf = new KeyFinder();
-        //todo finish filling out test
-    }
+//    @Test
+//    public void incrementKeysWithNote() {
+//        int[] answerListPre  = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+//        int[] answerListPost = { 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0 };
+//
+//        KeyFinder kf = new KeyFinder();
+//        // Before any notes are added.
+//        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+//            Assert.assertEquals(kf.getKeyStrength(i), answerListPre[i]);
+//        }
+//
+//        // C added.
+//        kf.addNoteToList(0);
+//        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+//            Assert.assertEquals(kf.getKeyStrength(i), answerListPost[i]);
+//        }
+//
+//        kf.removeNoteFromList(0);
+//        // Before any notes are added.
+//        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+//            Assert.assertEquals(kf.getKeyStrength(i), answerListPre[i]);
+//        }
+//    }
 }
