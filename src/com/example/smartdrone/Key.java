@@ -30,12 +30,14 @@ public class Key {
      * Timer object that keeps track of the number of seconds a
      * key object has been a contender as the new active key.
      */
+    @Deprecated
     private Timer _timer;
 
-    /**
-     * TimerTask to set the key as new active key.
-     */
-    private KeyTimerTask _keyTimerTask;
+//    /**
+//     * TimerTask to set the key as new active key.
+//     */
+//    @Deprecated
+//    private KeyTimerTask _keyTimerTask;
 
     /**
      * Flag for active key contender.
@@ -61,15 +63,6 @@ public class Key {
         this._isContender = false;
         this._spellingCode = MusicTheory.SPELLING_CODE[keyCenterIx];
         inflateKeyNotes(noteCollection);
-
-//        int offset;
-//        int curNoteIx;
-//        // Get each note of key.
-//        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-//            offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-//            curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-//            _notes[i] = allNotes.getNoteAtIndex(curNoteIx);
-//        }
     }
 
     /**
@@ -101,7 +94,7 @@ public class Key {
      * @return      String; name of note.
      */
     public String getNameFlat() {
-        return MusicTheory.CHROMATIC_SCALE_FLAT[this.getIx()];
+        return MusicTheory.CHROMATIC_SCALE_FLAT[_ix];
     }
 
     /**
@@ -109,17 +102,8 @@ public class Key {
      * @return      String; name of note.
      */
     public String getNameSharp() {
-        return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
+        return MusicTheory.CHROMATIC_SCALE_SHARP[_ix];
     }
-
-    //todo old code: convert to method getDegree()
-//    /**
-//     * Returns set of all notes in key.
-//     * @return      Set; all note objects in key.
-//     */
-//    public Note[] getNotes() {
-//        return this._notes;
-//    }
 
     /**
      * Return note from key based on scale degree.
@@ -142,6 +126,7 @@ public class Key {
      * Returns Timer object.
      * @return      Timer; timer object for key.
      */
+    @Deprecated
     public Timer getTimer() {
         return this._timer;
     }
@@ -160,27 +145,33 @@ public class Key {
         this._strength--;
     }
 
-    /**
-     * Starts a background thread to set contender key as new active key.
-     * @param       keyFinder KeyFinder; object containing all active notes.
-     * @param       seconds int; length of timer.
-     */
-    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
-        _timer = new Timer("Key Timer");
-        // Schedule timer task for key.
-        _keyTimerTask = new KeyTimerTask(keyFinder, this);
-        _timer.schedule(_keyTimerTask, seconds * 1000);
-    }
+//    /**
+//     * Starts a background thread to set contender key as new active key.
+//     * @param       keyFinder KeyFinder; object containing all active notes.
+//     * @param       seconds int; length of timer.
+//     *
+//     * @deprecated use startKeyTimer() method in KeyFinder class.
+//     */
+//    @Deprecated
+//    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
+//        _timer = new Timer("Key Timer");
+//        // Schedule timer task for key.
+//        _keyTimerTask = new KeyTimerTask(keyFinder, this);
+//        _timer.schedule(_keyTimerTask, seconds * 1000);
+//    }
 
-    /**
-     * Terminates key timer task.
-     * Used when key is no longer a contender.
-     */
-    public void cancelKeyTimer() {
-        if (_keyTimerTask != null) {
-            _keyTimerTask.cancel();
-        }
-    }
+//    /**
+//     * Terminates key timer task.
+//     * Used when key is no longer a contender.
+//     *
+//     * @deprecated use cancelActiveKeyChange() method in KeyFinder class instead.
+//     */
+//    @Deprecated
+//    public void cancelKeyTimer() {
+//        if (_keyTimerTask != null) {
+//            _keyTimerTask.cancel();
+//        }
+//    }
 
     /**
      * Return contender flag.
@@ -194,7 +185,7 @@ public class Key {
      * Set contender flag.
      * @param       status boolean; true if contender.
      */
-    public void setIsContender(boolean status) {
+    public void setContenderStatus(boolean status) {
         _isContender = status;
     }
 

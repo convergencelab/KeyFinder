@@ -8,11 +8,13 @@ import java.util.Timer;
  * Notes that are in the List of active notes can remain in there so
  * long without being played before they are removed from the list.
  */
+@Deprecated
 class NoteTimerTask extends TimerTask {
     private KeyFinder _keyFinder;
     private Note _toRemove;
     private Timer _timer;
 
+    @Deprecated
     public NoteTimerTask(KeyFinder keyFinder, Note toRemove) {
         _keyFinder = keyFinder;
         _toRemove = toRemove;
