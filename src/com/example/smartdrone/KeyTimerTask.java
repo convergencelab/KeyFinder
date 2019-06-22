@@ -8,6 +8,7 @@ import java.util.TimerTask;
  *   1. Have a greater strength than the current active key for VARIABLE amount of time.
  *   2. Have max strength (can be same as other inactive keys) for VARIABLE amount of time.
  */
+@Deprecated
 public class KeyTimerTask extends TimerTask {
     /**
      * KeyFinder object. Deals with active notes.

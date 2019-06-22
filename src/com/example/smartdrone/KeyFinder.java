@@ -13,8 +13,16 @@ import java.util.concurrent.TimeUnit;
  * the active key will be chosen at random.
  */
 public class KeyFinder {
+    /**
+     * Default length of note timer.
+     * Timer removes note from active note list.
+     */
     private static final int DEFAULT_NOTE_TIMER_LEN = 2;
 
+    /**
+     * Default length of key timer.
+     * Timer sets key as active key.
+     */
     private static final int DEFAULT_KEY_TIMER_LEN = 3;
 
     /**
@@ -74,12 +82,34 @@ public class KeyFinder {
      * Array stores the scheduled removal of notes.
      * Index with null means there is no scheduled removal.
      */
-    private ScheduledFuture<?>[] _noteSchedules;
+    private ScheduledFuture<?>[] _scheduledNoteTasks; //todo refactor name to be consistent with key
 
     /**
-     * Thread pool for scheduling removal of notes.
+     * Array stares the scheduled update of active key.
+     * Index with null value means there is no task scheduled.
      */
-    private ScheduledThreadPoolExecutor _noteTimerPool;
+    private ScheduledFuture<?>[] _scheduledKeyTasks;
+
+    /**
+     * Thread pool for note tasks.
+     */
+    private ScheduledThreadPoolExecutor _noteTaskPool;
+
+    /**
+     * Thread pool for key tasks.
+     */
+    private ScheduledThreadPoolExecutor _keyTaskPool;
+
+    /**
+     * Status of contender for active key.
+     */
+    private boolean[] _isContender;
+
+    /**
+     * Strength of key in relation to active note list.
+     * Strength is incremented by one for every active note found in key.
+     */
+    private int[] _keyStrengths;
 
     /**
      * Constructor.
@@ -96,9 +126,16 @@ public class KeyFinder {
         _noteHasBeenRemoved = false;
         _activeKeyHasChanged = false;
 
-        _noteTimerPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo can this be replaced by a lower integer?
-        _noteTimerPool.setRemoveOnCancelPolicy(true); //todo: not exactly sure what this should be but it seems to work
-        _noteSchedules = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
+        _noteTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(MusicTheory.TOTAL_NOTES); //todo can this be replaced by a lower integer?
+        _noteTaskPool.setRemoveOnCancelPolicy(true); //todo: not exactly sure what this should be but it seems to work
+        _scheduledNoteTasks = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
+
+        _keyTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(7); // todo: extract constant. 7 should be most timers running at one time.
+        _keyTaskPool.setRemoveOnCancelPolicy(true);
+        _scheduledKeyTasks = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
+
+        _isContender = new boolean[MusicTheory.TOTAL_NOTES];
+        _keyStrengths = new int[MusicTheory.TOTAL_NOTES];
     }
 
     /**
@@ -272,6 +309,56 @@ public class KeyFinder {
             _allKeys.getMajorKeyAtIndex(
                     (targetNoteIx + curKeyOffset) % MusicTheory.TOTAL_NOTES).decrementStrength(); // TOTAL_NOTES = 12
         }
+    }
+
+    /**
+     * Get strength of key.
+     * @param       keyIx int; index of key.
+     * @return      int; strength of key.
+     */
+    private int getKeyStrength(int keyIx) {
+        return _keyStrengths[keyIx];
+    }
+
+    /**
+     * Get strength of key.
+     * @param       key Key; key.
+     * @return      int; strength of key.
+     */
+    private int getKeyStrength(Key key) {
+        return getKeyStrength(key.getIx());
+    }
+
+    /**
+     * Increment strength of key.
+     * @param       keyIx int; index of key to increment.
+     */
+    private void incrementKeyStrength(int keyIx) {
+        _keyStrengths[keyIx]++;
+    }
+
+    /**
+     * Increment strength of key.
+     * @param       toIncrement Key; key to increment.
+     */
+    private void incrementKeyStrength(Key toIncrement) {
+        incrementKeyStrength(toIncrement.getIx());
+    }
+
+    /**
+     * Decrement strength of key.
+     * @param       keyIx int; index of key to decrement.
+     */
+    private void decrementStrength(int keyIx) {
+        _keyStrengths[keyIx]--;
+    }
+
+    /**
+     * Decrement strength of key.
+     * @param       toDecrement Key; key to decrement.
+     */
+    private void decrementStrength(Key toDecrement) {
+        decrementStrength(toDecrement.getIx());
     }
 
     /**
@@ -493,7 +580,7 @@ public class KeyFinder {
                 removeNoteFromList(toSchedule);
             }
         };
-        _noteSchedules[toSchedule.getIx()] = _noteTimerPool.schedule(noteRemoval, 2, TimeUnit.SECONDS); //todo fix has hardcoded value
+        _scheduledNoteTasks[toSchedule.getIx()] = _noteTaskPool.schedule(noteRemoval, _noteTimerLength, TimeUnit.SECONDS);
     }
 
     /**
@@ -509,8 +596,8 @@ public class KeyFinder {
      * @param       toCancel Note; note to cancel.
      */
     public void cancelNoteRemoval(Note toCancel) {
-        _noteSchedules[toCancel.getIx()].cancel(true);
-        _noteSchedules[toCancel.getIx()] = null;
+        _scheduledNoteTasks[toCancel.getIx()].cancel(true);
+        _scheduledNoteTasks[toCancel.getIx()] = null;
     }
 
     /**
@@ -526,7 +613,7 @@ public class KeyFinder {
      * @return      int; number of current active note treads.
      */
     public int getNoteThreadCount() {
-        return _noteTimerPool.getActiveCount();
+        return _noteTaskPool.getActiveCount();
     }
 
     /**
@@ -536,7 +623,7 @@ public class KeyFinder {
      */
     public boolean noteIsScheduled(Note targetNote) {
         // Removal is scheduled.
-        return _noteSchedules[targetNote.getIx()] != null;
+        return _scheduledNoteTasks[targetNote.getIx()] != null;
     }
 
     /**

@@ -23,23 +23,29 @@ public class Key {
     /**
      * Strength of key.
      * Strength gets one point for every corresponding note that is active.
+     * @deprecated use _keyStrengths in KeyFinder class.
      */
+    @Deprecated
     private int _strength;
 
     /**
      * Timer object that keeps track of the number of seconds a
      * key object has been a contender as the new active key.
      */
+    @Deprecated
     private Timer _timer;
 
     /**
      * TimerTask to set the key as new active key.
      */
+    @Deprecated
     private KeyTimerTask _keyTimerTask;
 
     /**
      * Flag for active key contender.
+     * @deprecated use _isContender in KeyFinder class.
      */
+    @Deprecated
     private boolean _isContender;
 
     /**
@@ -92,7 +98,7 @@ public class Key {
      * @return      String; name of note.
      */
     public String getNameFlat() {
-        return MusicTheory.CHROMATIC_SCALE_FLAT[this.getIx()];
+        return MusicTheory.CHROMATIC_SCALE_FLAT[_ix];
     }
 
     /**
@@ -100,7 +106,7 @@ public class Key {
      * @return      String; name of note.
      */
     public String getNameSharp() {
-        return MusicTheory.CHROMATIC_SCALE_SHARP[this.getIx()];
+        return MusicTheory.CHROMATIC_SCALE_SHARP[_ix];
     }
 
     /**
@@ -115,7 +121,10 @@ public class Key {
     /**
      * Returns strength of key.
      * @return      int; strength of key.
+     *
+     * @deprecated use getStrength() in KeyFinder class instead.
      */
+    @Deprecated
     public int getStrength() {
         return _strength;
     }
@@ -124,20 +133,27 @@ public class Key {
      * Returns Timer object.
      * @return      Timer; timer object for key.
      */
+    @Deprecated
     public Timer getTimer() {
         return this._timer;
     }
 
     /**
      * Increase key strength by 1.
+     *
+     * @deprecated use incrementStrength() in KeyFinder class instead.
      */
+    @Deprecated
     public void incrementStrength() {
         this._strength++;
     }
 
     /**
      * Reduce key strength by 1.
+     *
+     * @deprecated use decrementStrength() in KeyFinder class instead.
      */
+    @Deprecated
     public void decrementStrength() {
         this._strength--;
     }
@@ -147,6 +163,7 @@ public class Key {
      * @param       keyFinder KeyFinder; object containing all active notes.
      * @param       seconds int; length of timer.
      */
+    @Deprecated
     public void startKeyTimer(KeyFinder keyFinder, int seconds) {
         _timer = new Timer("Key Timer");
         // Schedule timer task for key.
@@ -158,6 +175,7 @@ public class Key {
      * Terminates key timer task.
      * Used when key is no longer a contender.
      */
+    @Deprecated
     public void cancelKeyTimer() {
         if (_keyTimerTask != null) {
             _keyTimerTask.cancel();
@@ -168,6 +186,7 @@ public class Key {
      * Return contender flag.
      * @return      boolean; true if contender.
      */
+    @Deprecated
     public boolean isContender() {
         return _isContender;
     }
@@ -176,6 +195,7 @@ public class Key {
      * Set contender flag.
      * @param       status boolean; true if contender.
      */
+    @Deprecated
     public void setIsContender(boolean status) {
         _isContender = status;
     }
