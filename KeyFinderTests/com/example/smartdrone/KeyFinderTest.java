@@ -187,4 +187,10 @@ public class KeyFinderTest {
         }
         System.out.println(kf.getNoteThreadCount());
     }
+
+    @Test
+    public void keyStrength1() {
+        KeyFinder kf = new KeyFinder();
+        //todo finish filling out test
+    }
 }

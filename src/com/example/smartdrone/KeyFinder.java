@@ -82,7 +82,7 @@ public class KeyFinder {
      * Array stores the scheduled removal of notes.
      * Index with null means there is no scheduled removal.
      */
-    private ScheduledFuture<?>[] _scheduledNoteTasks; //todo refactor name to be consistent with key
+    private ScheduledFuture<?>[] _scheduledNoteTasks;
 
     /**
      * Array stares the scheduled update of active key.
@@ -552,6 +552,7 @@ public class KeyFinder {
         _activeKeyHasChanged = false;
     }
 
+    // todo will have to create new method here; also should be a private function
     /**
      * Cancel all the key timers.
      * Function used when key has been changed to prevent bug.
@@ -634,4 +635,80 @@ public class KeyFinder {
     public boolean noteIsScheduled(int targetIx) {
         return noteIsScheduled(_allNotes.getNoteAtIndex(targetIx));
     }
+
+    /**
+     * Schedule active key change.
+     * @param       toSchedule Key; key to become active key.
+     */
+    private void scheduleActiveKeyChange(Key toSchedule) {
+        Runnable activeKeyChange = new Runnable() {
+            @Override
+            public void run() {
+                setActiveKey(toSchedule);
+            }
+        };
+        _scheduledKeyTasks[toSchedule.getIx()] = _keyTaskPool.schedule(activeKeyChange, _keyTimerLength, TimeUnit.SECONDS);
+    }
+
+    /**
+     * Schedule active key change.
+     * @param       keyIx int; index of key to become active key.
+     */
+    private void scheduleActiveKeyChange(int keyIx) {
+        scheduleActiveKeyChange(_allKeys.getMajorKeyAtIndex(keyIx));
+    }
+
+    /**
+     * Cancel scheduled change of active key.
+     * @param       toCancel Key; key to cancel.
+     */
+    private void cancelActiveKeyChange(Key toCancel) {
+        _scheduledKeyTasks[toCancel.getIx()].cancel(true);
+        _scheduledKeyTasks[toCancel.getIx()] = null;
+    }
+
+    /**
+     * Cancel scheduled change of active key.
+     * @param       keyIx int; index of key to cancel.
+     */
+    private void cancelActiveKeyChange(int keyIx) {
+        _scheduledKeyTasks[keyIx].cancel(true);
+        _scheduledKeyTasks[keyIx] = null;
+    }
+
+    /**
+     * Check if key is active key contender.
+     * @return      boolean; true if contender.
+     */
+    private boolean isContender(Key toCheck) {
+        return _isContender[toCheck.getIx()];
+    }
+
+    /**
+     * Check if key is active key contender.
+     * @return      boolean; true if contender.
+     */
+    private boolean isContender(int toCheckIx) {
+        return _isContender[toCheckIx];
+    }
+
+    /**
+     * Set status of key contender.
+     * @param       key Key; key to set.
+     * @param       status boolean; true if contender.
+     */
+    private void setContenderStatus(Key key, boolean status) {
+        _isContender[key.getIx()] = status;
+    }
+
+    /**
+     * Set status of key contender.
+     * @param       keyIx int; index of key to set.
+     * @param       status boolean; true if contender.
+     */
+    private void setContenderStatus(int keyIx, boolean status) {
+        _isContender[keyIx] = status;
+    }
+
+
 }

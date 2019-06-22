@@ -162,6 +162,8 @@ public class Key {
      * Starts a background thread to set contender key as new active key.
      * @param       keyFinder KeyFinder; object containing all active notes.
      * @param       seconds int; length of timer.
+     *
+     * @deprecated use startKeyTimer() method in KeyFinder class.
      */
     @Deprecated
     public void startKeyTimer(KeyFinder keyFinder, int seconds) {
@@ -174,6 +176,8 @@ public class Key {
     /**
      * Terminates key timer task.
      * Used when key is no longer a contender.
+     *
+     * @deprecated use cancelActiveKeyChange() method in KeyFinder class instead.
      */
     @Deprecated
     public void cancelKeyTimer() {
@@ -185,6 +189,8 @@ public class Key {
     /**
      * Return contender flag.
      * @return      boolean; true if contender.
+     *
+     * @deprecated use isContender() method in KeyFinder class instead.
      */
     @Deprecated
     public boolean isContender() {
@@ -194,6 +200,8 @@ public class Key {
     /**
      * Set contender flag.
      * @param       status boolean; true if contender.
+     *
+     * @deprecated use setContenderStatus() method in KeyFinder class instead.
      */
     @Deprecated
     public void setIsContender(boolean status) {
