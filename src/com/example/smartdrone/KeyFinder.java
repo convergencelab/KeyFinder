@@ -356,7 +356,9 @@ public class KeyFinder {
 
                 // 1. Key is contender and doesn't meet the requirements.
                 if (curKey.isContender() && !meetsContenderRequirements(curKey)) {
-                    cancelActiveKeyChange(curKey);
+                    if (keyChangeIsScheduled(curKey)) {
+                        cancelActiveKeyChange(curKey);
+                    }
                     curKey.setContenderStatus(false);
                 }
                 // 2. Key is not a contender and meets the requirements.
