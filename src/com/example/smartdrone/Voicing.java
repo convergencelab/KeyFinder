@@ -11,7 +11,13 @@ public class Voicing {
     /**
      * Indices that represent each individual voice.
      */
+    @Deprecated
     private int[] voiceIxs;
+
+    /**
+     * Notes representing each voice in the voicing.
+     */
+    private Note[] voices;
 
     /**
      * Construct voicing.
@@ -22,6 +28,7 @@ public class Voicing {
      * @param hasBassNote
      * @param scaleTemplateCollection
      */
+    @Deprecated
     public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave, boolean hasBassNote,
                    ScaleTemplateCollection scaleTemplateCollection) {
         int root =
@@ -41,6 +48,15 @@ public class Voicing {
             voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
             voiceIxs[i] += octaveAdjustment * 12;
         }
+    }
+
+    /**
+     * Constructor.
+     * @param voices
+     * @param key
+     * @param mode
+     */
+    public Voicing(Note[] voices, Key key, int mode) {
 
     }
 
@@ -48,6 +64,7 @@ public class Voicing {
      * Get all voices.
      * @return      int[]; voices in voicing.
      */
+    @Deprecated
     public int[] getVoiceIxs() {
         return this.voiceIxs;
     }
