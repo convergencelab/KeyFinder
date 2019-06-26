@@ -1,6 +1,6 @@
 package com.example.smartdrone;
 
-public class ScaleTemplate {
+public class ModeTemplate {
     /**
      * Name of scale.
      */
@@ -16,7 +16,7 @@ public class ScaleTemplate {
      * @param       name String; name of scale.
      * @param       intervals int[]; intervals in scale.
      */
-    public ScaleTemplate(String name, int[] intervals) {
+    public ModeTemplate(String name, int[] intervals) {
         _name = name;
         _intervals = intervals;
     }

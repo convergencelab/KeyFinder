@@ -41,7 +41,7 @@ public class ChordGenerator {
      * Container of all scale templates.
      * Contains templates for all 7 major modes.
      */
-    private ScaleTemplateCollection _scaleTemplateCollection;
+    private ModeTemplateCollection _modeTemplateCollection;
 
     /**
      * Current voicing template.
@@ -84,7 +84,7 @@ public class ChordGenerator {
      * @param       lowerBoundBass int; lowest value for bass note.
      */
     public ChordGenerator(int lowerBoundChord, int lowerBoundBass) {
-        _scaleTemplateCollection = new ScaleTemplateCollection();
+        _modeTemplateCollection = new ModeTemplateCollection();
         _keyCollection = new KeyCollection();
         _bassCode = BASS_ROOT;
 

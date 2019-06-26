@@ -17,7 +17,17 @@ public class Voicing {
     /**
      * Notes representing each voice in the voicing.
      */
-    private Note[] voices;
+    private Note[] _voices;
+
+    /**
+     * Key that the voicing is in.
+     */
+    private Key _key;
+
+    /**
+     * Mode that the voicing is in.
+     */
+    private ModeTemplate _mode;
 
     /**
      * Construct voicing.
@@ -26,11 +36,11 @@ public class Voicing {
      * @param mode
      * @param octave
      * @param hasBassNote
-     * @param scaleTemplateCollection
+     * @param modeTemplateCollection
      */
     @Deprecated
     public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave, boolean hasBassNote,
-                   ScaleTemplateCollection scaleTemplateCollection) {
+                   ModeTemplateCollection modeTemplateCollection) {
         int root =
                 ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)
                         + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
@@ -42,10 +52,10 @@ public class Voicing {
             voiceIxs = new int[voicingTemplate.size()];
         }
         // Construct voicing
-        ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
+        ModeTemplate modeTemplate = modeTemplateCollection.getModeTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
             int octaveAdjustment = voicingTemplate.getChordTone(i) / 7;
-            voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
+            voiceIxs[i] = root + modeTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
             voiceIxs[i] += octaveAdjustment * 12;
         }
     }

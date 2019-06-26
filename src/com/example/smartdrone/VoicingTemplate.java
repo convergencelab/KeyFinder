@@ -25,7 +25,7 @@ public class VoicingTemplate {
     /**
      * Container for all scale templates.
      */
-    private ScaleTemplateCollection scaleTemplateCollection;
+    private ModeTemplateCollection modeTemplateCollection;
 
     /**
      * Constructor.
@@ -37,7 +37,7 @@ public class VoicingTemplate {
         this.name = name;
         this.chordTones = chordTones;
         this.inversions = getInversions(chordTones);
-        this.scaleTemplateCollection = new ScaleTemplateCollection();
+        this.modeTemplateCollection = new ModeTemplateCollection();
     }
 
     //todo fix: doesn't invert properly
@@ -100,7 +100,7 @@ public class VoicingTemplate {
     }
 
     public Voicing generateVoicing(Key key, int mode, int octave, boolean bassNote) {
-        return new Voicing(this, key, mode, octave, bassNote, scaleTemplateCollection);
+        return new Voicing(this, key, mode, octave, bassNote, modeTemplateCollection);
     }
 
     /**

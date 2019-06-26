@@ -1,19 +1,19 @@
 package com.example.smartdrone;
 
-public class ScaleTemplateCollection {
+public class ModeTemplateCollection {
     /**
      * Array of scale templates.
      */
-    private ScaleTemplate[] _allScaleTemplates;
+    private ModeTemplate[] _allModeTemplates;
 
     /**
      * Constructor.
      * Generate scale template for all 7 modes.
      */
-    public ScaleTemplateCollection() {
-        _allScaleTemplates = new ScaleTemplate[7];
+    public ModeTemplateCollection() {
+        _allModeTemplates = new ModeTemplate[7];
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-            _allScaleTemplates[i] = new ScaleTemplate(
+            _allModeTemplates[i] = new ModeTemplate(
                     MusicTheory.MAJOR_MODE_NAMES[i], getIntervalsForMode(i));
         }
     }
@@ -44,13 +44,13 @@ public class ScaleTemplateCollection {
      *                     *** EVEN THOUGH MUSIC THEORY USES 1 BASED INDEXING (1 = Ionian; 2 = Dorian; etc ...)
      * @return      int[]; intervals of mode.
      */
-    public ScaleTemplate getScaleTemplateForMode(int modeIx) {
-        return _allScaleTemplates[modeIx];
+    public ModeTemplate getModeTemplateForMode(int modeIx) {
+        return _allModeTemplates[modeIx];
     }
 
     public String toString() {
         String str = "";
-        for (ScaleTemplate st : _allScaleTemplates) {
+        for (ModeTemplate st : _allModeTemplates) {
             str += st.toString() + '\n';
         }
         return str;
