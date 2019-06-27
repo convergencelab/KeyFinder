@@ -15,19 +15,9 @@ public class Voicing {
     private int[] voiceIxs;
 
     /**
-     * Notes representing each voice in the voicing.
+     * Notes in voicing.
      */
     private Note[] _voices;
-
-    /**
-     * Key that the voicing is in.
-     */
-    private Key _key;
-
-    /**
-     * Mode that the voicing is in.
-     */
-    private ModeTemplate _mode;
 
     /**
      * Construct voicing.
@@ -62,12 +52,10 @@ public class Voicing {
 
     /**
      * Constructor.
-     * @param voices
-     * @param key
-     * @param mode
+     * @param       voices Note[]; notes in the voicing.
      */
-    public Voicing(Note[] voices, Key key, int mode) {
-
+    public Voicing(Note[] voices) {
+        _voices = voices;
     }
 
     /**
@@ -79,6 +67,35 @@ public class Voicing {
         return this.voiceIxs;
     }
 
+    //todo
+    // addVoice()
+    // removeVoice()
+
+    /**
+     * Return voice in chord.
+     *
+     * Function returns single note instead of array to be consistent with other classes in library.
+     * Example usage:
+     *     for (int i = 0; i < exampleVoicing.numVoices(); i++) {
+     *         someFunction(exampleVoicing.getVoice(i);
+     *     }
+     *
+     * @param       ix int; index of voice array.
+     * @return      Note; note at index.
+     */
+    public Note getVoice(int ix) {
+        return _voices[ix];
+    }
+
+    /**
+     * Return the number of voices in the voicing.
+     * @return      int; number of voices.
+     */
+    public int numVoices() {
+        return _voices.length;
+    }
+
+    //todo refactor method
     /**
      * Generates string with all note names and values.
      * @return
