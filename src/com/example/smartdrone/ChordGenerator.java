@@ -4,12 +4,12 @@ public class ChordGenerator {
     /**
      * Default lower bound for bass note in chord.
      */
-    private static final int LOWER_BOUND_BASS_DEFAULT = 24; //todo check smartdrone code if right
+    private static final int LOWER_BOUND_BASS_DEFAULT = 36; //todo check smartdrone code if right
 
     /**
      * Default lower bound for chord voices in chord.
      */
-    private static final int LOWER_BOUND_CHORD_DEFAULT = 36; //todo check smartdrone code if right
+    private static final int LOWER_BOUND_CHORD_DEFAULT = 48; //todo check smartdrone code if right
 
     /**
      * No note in bass.
@@ -18,6 +18,7 @@ public class ChordGenerator {
 
     /**
      * Play root in bass.
+     * If no parameter given when generating voicing's, this will be the default.
      */
     static final int BASS_ROOT = 1;
 
@@ -49,6 +50,16 @@ public class ChordGenerator {
     private VoicingTemplate _curVoicingTemplate;
 
     /**
+     * Current mode.
+     */
+    private ModeTemplate _curMode;
+
+    /**
+     * Current key.
+     */
+    private Key _curKey;
+
+    /**
      * Current voicing.
      */
     private Voicing _curVoicing;
@@ -70,11 +81,10 @@ public class ChordGenerator {
 
     /**
      * Default constructor.
-     * Uses default bounds.
+     * Uses default lower bounds.
      */
     public ChordGenerator() {
         this(LOWER_BOUND_CHORD_DEFAULT, LOWER_BOUND_BASS_DEFAULT);
-        //todo comeback here plz
     }
 
     /**
@@ -90,5 +100,11 @@ public class ChordGenerator {
 
         _lowerBoundChord = lowerBoundChord;
         _lowerBoundBass = lowerBoundBass;
+
+        _curVoicingTemplate = null;
+        _curMode = _modeTemplateCollection.getModeTemplateForMode(0);
+        _curKey = _keyCollection.getMajorKeyAtIndex(0);
     }
+
+
 }

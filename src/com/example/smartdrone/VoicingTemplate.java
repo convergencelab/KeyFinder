@@ -34,6 +34,18 @@ public class VoicingTemplate {
     /**
      * Constructor.
      * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
+     * @param       chordTones int[]; scale degrees.
+     */
+    public VoicingTemplate(int[] chordTones) {
+        this.name = null;
+        this.chordTones = chordTones;
+        this.inversions = getInversions(chordTones);
+        this.modeTemplateCollection = new ModeTemplateCollection();
+    }
+
+    /**
+     * Constructor.
+     * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
      * @param       name String; name of voicing template.
      * @param       chordTones int[]; scale degrees.
      */
