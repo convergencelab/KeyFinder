@@ -14,7 +14,7 @@ package com.example.smartdrone;
  * The reason for tones is to differentiate between bass tones and chord tones.
  * Bass tones can be played much lower than chord tones can be played, so it is important to differentiate between them.
  */
-public class ScaleDegree {
+public class Tone {
     /**
      * Code representing tone as a bass tone.
      */
@@ -40,7 +40,7 @@ public class ScaleDegree {
      * @param       degree int; the index of the scale/key/mode.
      * @param       code int; code denoting whether tone is a bass tone or chord tone.
      */
-    public ScaleDegree(int degree, int code) {
+    public Tone(int degree, int code) {
         _degree = degree;
         _code = code;
     }
@@ -55,7 +55,7 @@ public class ScaleDegree {
 
     /**
      * Get code of tone.
-     * @return      int; code of tone.  
+     * @return      int; code of tone.
      */
     public int getCode() {
         return _code;
