@@ -108,6 +108,13 @@ public class HarmonyGenerator {
     }
 
     //todo method may be unnecessary, create overloaded constructor with int[] as parameters.
+
+    /**
+     * Makes VoicingTemplate from given indices.
+     * @param       bassToneIxs int[]; indices of bass tones.
+     * @param       chordToneIxs int[]; indices of chord tones.
+     * @return      VoicingTemplate; template made from given indices.
+     */
     public VoicingTemplate generateVoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
 
         Tone[] bassTones = new Tone[bassToneIxs.length];
@@ -122,21 +129,6 @@ public class HarmonyGenerator {
         }
 
         return new VoicingTemplate(bassTones, chordTones);
-
-        // Find size and construct array of tones.
-//        int numVoices = bassToneIxs.length + chordToneIxs.length;
-//        if (bassCode == BASS_ROOT || bassCode == BASS_FIFTH) {
-//            numVoices += 1;
-//        }
-//        else if (bassCode == BASS_ROOT_FIFTH) {
-//            numVoices += 2;
-//        }
-//        numVoices += chordToneIxs.length;
-//        Tone[] chordTones = new Tone[numVoices];
-//        int i = 0;
-//        for (int b = i; b < bassToneIxs.length; b++) {
-//
-//        }
     }
 
     /**
@@ -146,7 +138,63 @@ public class HarmonyGenerator {
      * @param key
      * @return
      */
-//    public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, Key key) {
-//
-//    }
+    public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, Key key) {
+
+    }
+
+    public VoicingTemplate getVoicingTemplate() {
+        return _curVoicingTemplate;
+    }
+
+    public void setVoicingTemplate(VoicingTemplate template) {
+        this._curVoicingTemplate = template;
+    }
+
+    public ModeTemplate getMode() {
+        return _curMode;
+    }
+
+    public void setMode(ModeTemplate mode) {
+        this._curMode = mode;
+    }
+
+    public void setMode(int modeIx) {
+        this._curMode = _modeTemplateCollection.getModeTemplateForMode(modeIx);
+    }
+
+    public Key getKey() {
+        return _curKey;
+    }
+
+    public void setKey(Key key) {
+        this._curKey = key;
+    }
+
+    public void setKey(int keyIx) {
+        this._curKey = _keyCollection.getMajorKeyAtIndex(keyIx);
+    }
+
+    public Voicing getVoicing() {
+        return _curVoicing;
+    }
+
+    public void setCurVoicing(Voicing voicing) {
+        this._curVoicing = voicing;
+    }
+
+    public int getLowerBoundBass() {
+        return _lowerBoundBass;
+    }
+
+    public void setLowerBoundBass(int lowerBound) {
+        this._lowerBoundBass = lowerBound;
+    }
+
+    public int getLowerBoundChord() {
+        return _lowerBoundChord;
+    }
+
+    public void setLowerBoundChord(int lowerBound) {
+        this._lowerBoundChord = lowerBound;
+    }
 }
