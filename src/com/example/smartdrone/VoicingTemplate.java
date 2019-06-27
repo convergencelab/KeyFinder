@@ -13,6 +13,16 @@ public class VoicingTemplate {
      */
     private String _name;
 
+    /**
+     * Combines bass tones and chord tones into one array.
+     */
+    private Tone[] _templateTonesRefac;
+
+    /**
+     * Stores array of bass tones.
+     */
+    private Tone[] _bassTonesRefac;
+
     //todo refactor name when int[] chordTones is removed.
     /**
      * Stores array of chord tones.
@@ -44,10 +54,11 @@ public class VoicingTemplate {
     /**
      * Constructor.
      * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
-     * @param       chordTones Tone[]; scale degrees.
+     * @param       bassTones Tone[]; tones for bass.
+     * @param       chordTones Tone[]; tones for chord.
      */
-    public VoicingTemplate(Tone[] chordTones) {
-        this(null, chordTones);
+    public VoicingTemplate(Tone[] bassTones, Tone[] chordTones) {
+        this(null, bassTones, chordTones);
     }
 
     /**
@@ -56,9 +67,23 @@ public class VoicingTemplate {
      * @param       name String; name of voicing template.
      * @param       chordTones Tone[]; scale degrees.
      */
-    public VoicingTemplate(String name, Tone[] chordTones) {
+    public VoicingTemplate(String name, Tone[] bassTones, Tone[] chordTones) {
         _name = name;
+        _bassTonesRefac = bassTones;
         _chordTonesRefac = chordTones;
+
+        _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
+        int i = 0;
+        // Add all bass tones.
+        for (Tone curTone : bassTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
+        // Add all chord tones.
+        for (Tone curTone : chordTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
     }
 
     /**
@@ -101,20 +126,28 @@ public class VoicingTemplate {
     }
 
     /**
-     * Get tone from template.
-     * @param       ix int; index of tone.
-     * @return      Tone; tone.
+     * Get all template tones.
+     * @return      Tone[]; template tones.
      */
-    public Tone getChordToneRefac(int ix) {
-        return _chordTonesRefac[ix];
+    public Tone[] getTemplateTones() {
+        return _templateTonesRefac;
     }
 
     /**
-     * Return number of voices in template; size.
-     * @return      int; number of voices in template.
+     * Get all bass tones.
+     * @return      Tone[]; bass tones.
      */
-    public int numVoices() {
-        return _chordTonesRefac.length;
+    public Tone[] getBassTones() {
+        return _bassTonesRefac;
+    }
+
+    //todo will have to be careful about this method. the name chordTones is deceptive, it doesn't actually include bass tones
+    /**
+     * Get all chord tones.
+     * @return      Tone[]; chord tones.
+     */
+    public Tone[] getChordTones() {
+        return _chordTonesRefac;
     }
 
     /**
@@ -186,11 +219,10 @@ public class VoicingTemplate {
      */
     @Override
     public String toString() {
-        String str = _name + " ";
-        for (int degree : chordTones) {
-            // Convert to one based indexing
-            str += degree + " ";
+        String templateStr = "";
+        for (Tone curTone : _templateTonesRefac) {
+            templateStr += curTone.toString() + '\n';
         }
-        return str;
+        return templateStr;
     }
 }

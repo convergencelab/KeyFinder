@@ -9,15 +9,23 @@ package com.example.smartdrone;
  */
 public class Voicing {
     /**
+     * Notes in voicing.
+     */
+    private Note[] _voices;
+
+    /**
      * Indices that represent each individual voice.
      */
     @Deprecated
     private int[] voiceIxs;
 
     /**
-     * Notes in voicing.
+     * Constructor.
+     * @param       voices Note[]; notes in the voicing.
      */
-    private Note[] _voices;
+    public Voicing(Note[] voices) {
+        _voices = voices;
+    }
 
     /**
      * Construct voicing.
@@ -51,14 +59,6 @@ public class Voicing {
     }
 
     /**
-     * Constructor.
-     * @param       voices Note[]; notes in the voicing.
-     */
-    public Voicing(Note[] voices) {
-        _voices = voices;
-    }
-
-    /**
      * Get all voices.
      * @return      int[]; voices in voicing.
      */
@@ -73,8 +73,8 @@ public class Voicing {
 
     /**
      * Return voice in chord.
-     *
      * Function returns single note instead of array to be consistent with other classes in library.
+     *
      * Example usage:
      *     for (int i = 0; i < exampleVoicing.numVoices(); i++) {
      *         someFunction(exampleVoicing.getVoice(i);

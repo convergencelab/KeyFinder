@@ -18,12 +18,17 @@ public class Tone {
     /**
      * Code representing tone as a bass tone.
      */
-    private static final int TONE_BASS = 0;
+    public static final int TONE_BASS = 0;
 
     /**
      * Code representing tone as a chord tone.
      */
-    private static final int TONE_CHORD = 1;
+    public static final int TONE_CHORD = 1;
+
+    private static final String[] TONE_NAMES = {
+            "Bass",
+            "Chord"
+    };
 
     /**
      * Degree in scale.
@@ -59,5 +64,10 @@ public class Tone {
      */
     public int getCode() {
         return _code;
+    }
+
+    @Override
+    public String toString() {
+        return TONE_NAMES[_code] + " " + Integer.toString(_degree);
     }
 }
