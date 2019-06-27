@@ -19,12 +19,16 @@ public class VoicingTemplate {
     //todo Complete inversions when the time comes.
     /**
      * Inversions of chord.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     private int[][] inversions;
 
     /**
      * Container for all scale templates.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     private ModeTemplateCollection modeTemplateCollection;
 
     /**
@@ -45,7 +49,9 @@ public class VoicingTemplate {
      * Constructs all the inversions for voicing template.
      * @param       chordTones int[]; degrees of voicing template.
      * @return      int[][]; inversions of voicing template.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     private int[][] getInversions(int[] chordTones) {
         int numDegrees = chordTones.length;
         int[][] inversions = new int[numDegrees][numDegrees];
@@ -86,7 +92,9 @@ public class VoicingTemplate {
      * Returns inversion matching parameter.
      * @param       inversionNum int; number of inversion.
      * @return      int[];  scale degrees of inversion.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     public int[] getInversion(int inversionNum) {
         return inversions[inversionNum];
     }
