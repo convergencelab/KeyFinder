@@ -139,7 +139,7 @@ public class HarmonyGenerator {
      * @return
      */
     public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, Key key) {
-
+        return null; //todo for now
     }
 
     public VoicingTemplate getVoicingTemplate() {
