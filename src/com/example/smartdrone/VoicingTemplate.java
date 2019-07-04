@@ -6,46 +6,157 @@ package com.example.smartdrone;
  * Voicing's, on the other hand, contain the actual midi keys mapped to notes (semi-tones).
  */
 public class VoicingTemplate {
+    //todo refactor; use underscore for private variable names
+
     /**
      * Name of voicing template.
      */
-    private String name;
+    private String _name;
+
+    /**
+     * Combines bass tones and chord tones into one array.
+     */
+    private Tone[] _templateTonesRefac;
+
+    /**
+     * Stores array of bass tones.
+     */
+    private Tone[] _bassTonesRefac;
+
+    //todo refactor name when int[] chordTones is removed.
+    /**
+     * Stores array of chord tones.
+     */
+    private Tone[] _chordTonesRefac;
 
     /**
      * Scale degrees in voicing template.
+     *
      */
+    @Deprecated
     private int[] chordTones;
 
     //todo Complete inversions when the time comes.
     /**
      * Inversions of chord.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     private int[][] inversions;
 
     /**
      * Container for all scale templates.
+     * @deprecated moved to ChordGenerator class.
      */
-    private ScaleTemplateCollection scaleTemplateCollection;
+    @Deprecated
+    private ModeTemplateCollection modeTemplateCollection;
+
+    /**
+     * Constructor.
+     * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
+     * @param       bassTones Tone[]; tones for bass.
+     * @param       chordTones Tone[]; tones for chord.
+     */
+    public VoicingTemplate(Tone[] bassTones, Tone[] chordTones) {
+        this(null, bassTones, chordTones);
+    }
+
+    /**
+     * Constructor.
+     * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
+     * @param       name String; name of voicing template.
+     * @param       chordTones Tone[]; scale degrees.
+     */
+    public VoicingTemplate(String name, Tone[] bassTones, Tone[] chordTones) {
+        _name = name;
+        _bassTonesRefac = bassTones;
+        _chordTonesRefac = chordTones;
+
+        _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
+        int i = 0;
+        // Add all bass tones.
+        for (Tone curTone : bassTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
+        // Add all chord tones.
+        for (Tone curTone : chordTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
+    }
+
+    /**
+     * Constructor.
+     * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
+     * @param       chordTones int[]; scale degrees.
+     *
+     * @deprecated use Tone objects instead of int[]
+     */
+    @Deprecated
+    public VoicingTemplate(int[] chordTones) {
+        _name = null;
+        this.chordTones = chordTones;
+        this.inversions = getInversions(chordTones);
+        this.modeTemplateCollection = new ModeTemplateCollection();
+    }
 
     /**
      * Constructor.
      * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
      * @param       name String; name of voicing template.
      * @param       chordTones int[]; scale degrees.
+     *
+     * @deprecated use Tone objects instead of int[]
      */
+    @Deprecated
     public VoicingTemplate(String name, int[] chordTones) {
-        this.name = name;
+        _name = name;
         this.chordTones = chordTones;
         this.inversions = getInversions(chordTones);
-        this.scaleTemplateCollection = new ScaleTemplateCollection();
+        this.modeTemplateCollection = new ModeTemplateCollection();
     }
 
-    //todo fix: doesn't invert properly
+    /**
+     * Get name of voicing template.
+     * @return      String; name of voicing template.
+     */
+    public String getName() {
+        return _name;
+    }
+
+    /**
+     * Get all template tones.
+     * @return      Tone[]; template tones.
+     */
+    public Tone[] getTemplateTones() {
+        return _templateTonesRefac;
+    }
+
+    /**
+     * Get all bass tones.
+     * @return      Tone[]; bass tones.
+     */
+    public Tone[] getBassTones() {
+        return _bassTonesRefac;
+    }
+
+    //todo will have to be careful about this method. the name chordTones is deceptive, it doesn't actually include bass tones
+    /**
+     * Get all chord tones.
+     * @return      Tone[]; chord tones.
+     */
+    public Tone[] getChordTones() {
+        return _chordTonesRefac;
+    }
+
     /**
      * Constructs all the inversions for voicing template.
      * @param       chordTones int[]; degrees of voicing template.
      * @return      int[][]; inversions of voicing template.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     private int[][] getInversions(int[] chordTones) {
         int numDegrees = chordTones.length;
         int[][] inversions = new int[numDegrees][numDegrees];
@@ -67,17 +178,10 @@ public class VoicingTemplate {
     }
 
     /**
-     * Get name of voicing template.
-     * @return      String; name of voicing template.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
      * Get scale degrees of voicing template.
      * @return      int[]; scale degrees of voicing template.
      */
+    @Deprecated
     public int getChordTone(int ix) {
         return chordTones[ix];
     }
@@ -86,7 +190,9 @@ public class VoicingTemplate {
      * Returns inversion matching parameter.
      * @param       inversionNum int; number of inversion.
      * @return      int[];  scale degrees of inversion.
+     * @deprecated moved to ChordGenerator class.
      */
+    @Deprecated
     public int[] getInversion(int inversionNum) {
         return inversions[inversionNum];
     }
@@ -94,13 +200,17 @@ public class VoicingTemplate {
     /**
      * Return number of chord tones in voicing template.
      * @return      int; num chord tones.
+     *
+     * @deprecated use numVoices() instead
      */
+    @Deprecated
     public int size() {
         return chordTones.length;
     }
 
+    @Deprecated
     public Voicing generateVoicing(Key key, int mode, int octave, boolean bassNote) {
-        return new Voicing(this, key, mode, octave, bassNote, scaleTemplateCollection);
+        return new Voicing(this, key, mode, octave, bassNote, modeTemplateCollection);
     }
 
     /**
@@ -109,11 +219,10 @@ public class VoicingTemplate {
      */
     @Override
     public String toString() {
-        String str = name + " ";
-        for (int degree : chordTones) {
-            // Convert to one based indexing
-            str += degree + " ";
+        String templateStr = "";
+        for (Tone curTone : _templateTonesRefac) {
+            templateStr += curTone.toString() + '\n';
         }
-        return str;
+        return templateStr;
     }
 }

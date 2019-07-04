@@ -9,9 +9,23 @@ package com.example.smartdrone;
  */
 public class Voicing {
     /**
+     * Notes in voicing.
+     */
+    private Note[] _voices;
+
+    /**
      * Indices that represent each individual voice.
      */
+    @Deprecated
     private int[] voiceIxs;
+
+    /**
+     * Constructor.
+     * @param       voices Note[]; notes in the voicing.
+     */
+    public Voicing(Note[] voices) {
+        _voices = voices;
+    }
 
     /**
      * Construct voicing.
@@ -20,10 +34,11 @@ public class Voicing {
      * @param mode
      * @param octave
      * @param hasBassNote
-     * @param scaleTemplateCollection
+     * @param modeTemplateCollection
      */
+    @Deprecated
     public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave, boolean hasBassNote,
-                   ScaleTemplateCollection scaleTemplateCollection) {
+                   ModeTemplateCollection modeTemplateCollection) {
         int root =
                 ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)
                         + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
@@ -35,23 +50,52 @@ public class Voicing {
             voiceIxs = new int[voicingTemplate.size()];
         }
         // Construct voicing
-        ScaleTemplate scaleTemplate = scaleTemplateCollection.getScaleTemplateForMode(mode);
+        ModeTemplate modeTemplate = modeTemplateCollection.getModeTemplateForMode(mode);
         for (int i = 0; i < voicingTemplate.size(); i++) {
             int octaveAdjustment = voicingTemplate.getChordTone(i) / 7;
-            voiceIxs[i] = root + scaleTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
+            voiceIxs[i] = root + modeTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
             voiceIxs[i] += octaveAdjustment * 12;
         }
-
     }
 
     /**
      * Get all voices.
      * @return      int[]; voices in voicing.
      */
+    @Deprecated
     public int[] getVoiceIxs() {
         return this.voiceIxs;
     }
 
+    //todo
+    // addVoice()
+    // removeVoice()
+
+    /**
+     * Return voice in chord.
+     * Function returns single note instead of array to be consistent with other classes in library.
+     *
+     * Example usage:
+     *     for (int i = 0; i < exampleVoicing.numVoices(); i++) {
+     *         someFunction(exampleVoicing.getVoice(i);
+     *     }
+     *
+     * @param       ix int; index of voice array.
+     * @return      Note; note at index.
+     */
+    public Note getVoice(int ix) {
+        return _voices[ix];
+    }
+
+    /**
+     * Return the number of voices in the voicing.
+     * @return      int; number of voices.
+     */
+    public int numVoices() {
+        return _voices.length;
+    }
+
+    //todo refactor method
     /**
      * Generates string with all note names and values.
      * @return

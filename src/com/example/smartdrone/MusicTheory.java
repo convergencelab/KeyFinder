@@ -9,28 +9,28 @@ public class MusicTheory {
     /**
      * Unicode for sharp sign.
      */
-    final static char SHARP = '\u266F';
+    public final static char SHARP = '\u266F';
 
     /**
      * Unicode for flat sign.
      */
-    final static char FLAT = '\u266d';
+    public final static char FLAT = '\u266d';
 
     /**
      * Intervals that make up the major scale.
      * Each number can be viewed as the semitone offset from the root.
      */
-    final static int[] MAJOR_SCALE_SEQUENCE    = { 0, 2, 4, 5, 7, 9, 11};
+    public final static int[] MAJOR_SCALE_SEQUENCE    = { 0, 2, 4, 5, 7, 9, 11};
 
     /**
      * Intervals that make up the phrygian scale.
      */
-    final static int[] PHRYGIAN_SCALE_SEQUENCE = { 0, 1, 3, 5, 7, 8, 10};
+    public final static int[] PHRYGIAN_SCALE_SEQUENCE = { 0, 1, 3, 5, 7, 8, 10};
 
     /**
      * Intervals that make up a major triad.
      */
-    final static int[] MAJOR_TRAID_SEQUENCE    = { 0, 4, 7 };
+    public final static int[] MAJOR_TRAID_SEQUENCE    = { 0, 4, 7 };
 
     final static int SHARP_SPELLING_CODE = 1;
     final static int FLAT_SPELLING_CODE = 0;
@@ -58,7 +58,7 @@ public class MusicTheory {
     /**
      * Names of all 12 tones used in western music.
      */
-    final static String[] CHROMATIC_SCALE_SHARP = {
+    public final static String[] CHROMATIC_SCALE_SHARP = {
             "C",
             "C" + SHARP,
             "D",
@@ -73,7 +73,7 @@ public class MusicTheory {
             "B"
     };
 
-    final static String[] CHROMATIC_SCALE_FLAT = {
+    public final static String[] CHROMATIC_SCALE_FLAT = {
             "C",
             "D" + FLAT,
             "D",
@@ -88,7 +88,7 @@ public class MusicTheory {
             "B"
     };
 
-    final static String[] MAJOR_MODE_NAMES = {
+    public final static String[] MAJOR_MODE_NAMES = {
             "Ionian",
             "Dorian",
             "Phrygian",
@@ -101,11 +101,11 @@ public class MusicTheory {
     /**
      * Total number of unique tones in western music.
      */
-    final static int TOTAL_NOTES = 12;
+    public final static int TOTAL_NOTES = 12;
 
     /**
      * Number of notes in a diatonic scale.
      */
-    final static int DIATONIC_SCALE_SIZE = 7;
+    public final static int DIATONIC_SCALE_SIZE = 7;
 
 }
