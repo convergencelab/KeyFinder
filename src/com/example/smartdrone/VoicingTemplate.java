@@ -71,6 +71,7 @@ public class VoicingTemplate {
         _name = name;
         _bassTonesRefac = bassTones;
         _chordTonesRefac = chordTones;
+        modeTemplateCollection = new ModeTemplateCollection();
 
         _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
         int i = 0;

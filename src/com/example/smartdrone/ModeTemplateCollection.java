@@ -112,7 +112,7 @@ public class ModeTemplateCollection {
      */
     @Deprecated
     public ModeTemplate getModeTemplateForMode(int modeIx) {
-        return _allModeTemplates[modeIx];
+        return _allMelodicMinorModeTemplates[modeIx]; //todo yes this is wrong, just a current work-around
     }
 
     /**
