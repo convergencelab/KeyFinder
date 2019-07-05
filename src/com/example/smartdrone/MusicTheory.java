@@ -94,6 +94,9 @@ public class MusicTheory {
             "B"
     };
 
+    /**
+     * Names of modes in major scale.
+     */
     public final static String[] MAJOR_MODE_NAMES = {
             "Ionian",
             "Dorian",
@@ -102,6 +105,19 @@ public class MusicTheory {
             "Mixolydian",
             "Aeolian",
             "Locrian"
+    };
+
+    /**
+     * Names of modes in melodic minor scale.
+     */
+    public final static String[] MELODIC_MINOR_MODE_NAMES = {
+            "Melodic Minor",
+            "Phrygian Sharp 6",
+            "Lydian Augmented",
+            "Lydian Flat 7",
+            "Mixolydian Flat 6",
+            "Locrian Sharp 2",
+            "Altered"
     };
 
     /**
