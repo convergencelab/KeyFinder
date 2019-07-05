@@ -6,12 +6,15 @@ package com.example.smartdrone;
  */
 public class KeyCollection {
 
+    //todo: 1) switch from Key to Major key; 2) implement Melodic Minor;
+
+
     /**
      * All 12 major key objects.
      * Each object is a set that contains all notes found in the corresponding major scale.
      * The array is ordered from 'C' through 'B' (ascending).
      */
-    private Key[] _majorKeys = new Key[12];
+    private MajorKey[] _majorKeys = new MajorKey[MusicTheory.TOTAL_NOTES];
 
     /**
      * All 12 note objects.
@@ -27,8 +30,9 @@ public class KeyCollection {
         _allNotes = new NoteCollection();
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) { // TOTAL_NOTES = 12
-            // Construct key.
-            _majorKeys[i] = new Key(i, _allNotes);
+            // Construct major keys and melodic minor keys.
+//            _majorKeys[i] = new Key(i, _allNotes);
+            _majorKeys[i] = new MajorKey(i, _allNotes);
         }
     }
 
@@ -42,7 +46,8 @@ public class KeyCollection {
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) { // TOTAL_NOTES = 12
             // Construct key.
-            _majorKeys[i] = new Key(i, _allNotes);
+//            _majorKeys[i] = new Key(i, _allNotes);
+            _majorKeys[i] = new MajorKey(i, _allNotes);
         }
     }
 
@@ -51,7 +56,7 @@ public class KeyCollection {
      * @param       targetKeyIx int; index of target key.
      * @return      Key; corresponding key.
      */
-    public Key getMajorKeyAtIndex(int targetKeyIx) {
+    public MajorKey getMajorKeyAtIndex(int targetKeyIx) {
         return _majorKeys[targetKeyIx];
     }
 

@@ -51,7 +51,7 @@ public class KeyFinder {
     /**
      * The key that has the strongest correlation with the active notes.
      */
-    private Key _activeKey;
+    private AbstractKey _activeKey;
 
     /**
      * Number of seconds for the note timer task.
@@ -260,7 +260,7 @@ public class KeyFinder {
      * @param       keyIx int; index of key.
      * @return      Key; key matching index.
      */
-    public Key getMajorKey(int keyIx) {
+    public MajorKey getMajorKey(int keyIx) {
         return _allKeys.getMajorKeyAtIndex(keyIx);
     }
 
@@ -294,7 +294,7 @@ public class KeyFinder {
      */
     private int findMaxStrength() {
         int maxStrength = 0;
-        Key curKey;
+        AbstractKey curKey; // not sure if this will work
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = this._allKeys.getMajorKeyAtIndex(i);
             if (curKey.getStrength() > maxStrength) {
@@ -315,7 +315,7 @@ public class KeyFinder {
     /**
      * Returns the active key.
      */
-    public Key getActiveKey() {
+    public AbstractKey getActiveKey() {
         return this._activeKey;
     }
 
@@ -324,7 +324,7 @@ public class KeyFinder {
      * Triggers flag for active key change.
      * @param       newActiveKey Key; new active key.
      */
-    public void setActiveKey(Key newActiveKey) {
+    public void setActiveKey(AbstractKey newActiveKey) {
         this._activeKey = newActiveKey;
         _activeKeyHasChanged = true;
     }
@@ -345,7 +345,7 @@ public class KeyFinder {
      * Monitors keys that are in contention for becoming the new active key.
      */
     private void updateContenderKeys() {
-        Key curKey;
+        AbstractKey curKey;
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = getMajorKey(i);
@@ -377,7 +377,7 @@ public class KeyFinder {
      * @param       curKey Key; key to be monitored.
      * @return      boolean; true if key meets requirements.
      */
-    private boolean meetsContenderRequirements(Key curKey) {
+    private boolean meetsContenderRequirements(AbstractKey curKey) {
         return curKey.getStrength() > getActiveKeyStrength() && curKey.getStrength() == _maxStrength;
     }
 
@@ -482,7 +482,7 @@ public class KeyFinder {
      * Function used when key has been changed to prevent bug.
      */
     public void cancelAllKeyTimers() {
-        Key curKey;
+        AbstractKey curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             curKey = getMajorKey(i);
             // Only contender keys will have an active timer.
@@ -569,18 +569,18 @@ public class KeyFinder {
 
     /**
      * Check if key change is scheduled.
-     * @param       targetKey Key; target key.
+     * @param       targetKey AbstractKey; target key.
      * @return      boolean; true if key change is scheduled.
      */
-    private boolean keyChangeIsScheduled(Key targetKey) {
+    private boolean keyChangeIsScheduled(AbstractKey targetKey) {
         return _scheduledKeyTasks[targetKey.getIx()] != null;
     }
 
     /**
      * Schedule active key change.
-     * @param       toSchedule Key; key to become active key.
+     * @param       toSchedule AbstractKey; key to become active key.
      */
-    private void scheduleActiveKeyChange(Key toSchedule) {
+    private void scheduleActiveKeyChange(AbstractKey toSchedule) {
         Runnable activeKeyChange = new Runnable() {
             @Override
             public void run() {
@@ -603,9 +603,9 @@ public class KeyFinder {
 
     /**
      * Cancel scheduled change of active key.
-     * @param       toCancel Key; key to cancel.
+     * @param       toCancel AbstractKey; key to cancel.
      */
-    private void cancelActiveKeyChange(Key toCancel) {
+    private void cancelActiveKeyChange(AbstractKey toCancel) {
         _scheduledKeyTasks[toCancel.getIx()].cancel(true);
         _scheduledKeyTasks[toCancel.getIx()] = null;
     }

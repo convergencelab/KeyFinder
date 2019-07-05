@@ -2,6 +2,7 @@ package com.example.smartdrone;
 
 import java.util.Timer;
 
+@Deprecated
 public class Key {
     /**
      * Index of the key center.
