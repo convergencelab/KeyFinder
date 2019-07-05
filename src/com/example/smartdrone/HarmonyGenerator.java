@@ -11,8 +11,8 @@ public class HarmonyGenerator {
      */
     private static final int LOWER_BOUND_CHORD_DEFAULT = 48; // C4
 
-    private static final int CODE_MAJOR = 0;
-    private static final int CODE_MELODIC_MINOR = 1;
+    public static final int CODE_MAJOR = 0;
+    public static final int CODE_MELODIC_MINOR = 1;
 
     /**
      * No note in bass.

@@ -37,7 +37,7 @@ public class Voicing {
      * @param modeTemplateCollection
      */
     @Deprecated
-    public Voicing(VoicingTemplate voicingTemplate, Key key, int mode, int octave, boolean hasBassNote,
+    public Voicing(VoicingTemplate voicingTemplate, AbstractKey key, int mode, int octave, boolean hasBassNote,
                    ModeTemplateCollection modeTemplateCollection) {
         int root =
                 ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)

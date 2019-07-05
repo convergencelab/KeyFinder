@@ -209,7 +209,7 @@ public class VoicingTemplate {
     }
 
     @Deprecated
-    public Voicing generateVoicing(Key key, int mode, int octave, boolean bassNote) {
+    public Voicing generateVoicing(AbstractKey key, int mode, int octave, boolean bassNote) {
         return new Voicing(this, key, mode, octave, bassNote, modeTemplateCollection);
     }
 

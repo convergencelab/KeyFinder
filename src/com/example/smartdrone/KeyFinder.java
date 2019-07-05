@@ -19,12 +19,12 @@ public class KeyFinder {
     /**
      * Code if major keys are the current active keys.
      */
-    private static final int CODE_MAJOR = 0;
+    public static final int CODE_MAJOR = 0;
 
     /**
      * Code if melodic minor keys are the current active keys.
      */
-    private static final int CODE_MELODIC_MINOR = 1;
+    public static final int CODE_MELODIC_MINOR = 1;
 
     /**
      * Default length of note timer.

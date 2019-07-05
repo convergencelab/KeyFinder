@@ -1,7 +1,7 @@
 package com.example.smartdrone;
 
 //todo refactor name later to just 'Key'
-abstract class AbstractKey {
+public abstract class AbstractKey {
 
     //todo check if it should be protected
     protected abstract void inflateKeyNotes(NoteCollection noteCollection);
