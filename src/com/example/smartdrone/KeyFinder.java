@@ -278,6 +278,10 @@ public class KeyFinder {
         return this._allKeys;
     }
 
+    public AbstractKey getKeyAtIndex(int keyIx) {
+        return _activeKeyList[keyIx];
+    }
+
     /**
      * Returns major key matching given index.
      * @param       keyIx int; index of key.
