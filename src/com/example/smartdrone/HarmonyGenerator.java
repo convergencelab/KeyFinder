@@ -4,12 +4,15 @@ public class HarmonyGenerator {
     /**
      * Default lower bound for bass note in chord.
      */
-    private static final int LOWER_BOUND_BASS_DEFAULT = 36;
+    private static final int LOWER_BOUND_BASS_DEFAULT = 36; // C3
 
     /**
      * Default lower bound for chord voices in chord.
      */
-    private static final int LOWER_BOUND_CHORD_DEFAULT = 48;
+    private static final int LOWER_BOUND_CHORD_DEFAULT = 48; // C4
+
+    private static final int CODE_MAJOR = 0;
+    private static final int CODE_MELODIC_MINOR = 1;
 
     /**
      * No note in bass.
@@ -57,7 +60,7 @@ public class HarmonyGenerator {
     /**
      * Current key.
      */
-    private Key _curKey;
+    private AbstractKey _curKey;
 
     /**
      * Current voicing.
@@ -73,6 +76,15 @@ public class HarmonyGenerator {
      * Lowest note to be played in chord.
      */
     private int _lowerBoundChord;
+
+    private int _keyCode;
+
+    private ModeTemplate[] _activeModeTemplates;
+
+    /**
+     * Melodic minor or major determined by code.
+     */
+    private AbstractKey[] _activeKeyList;
 
 //    //todo may be unnecessary; never needed to be stored?
 //    /**
@@ -98,13 +110,23 @@ public class HarmonyGenerator {
         _modeTemplateCollection = new ModeTemplateCollection();
         _keyCollection = new KeyCollection();
 
+        _activeKeyList = _keyCollection.getMajorKeys();
+        _activeModeTemplates = _modeTemplateCollection.getMajorModeTemplates();
+        _keyCode = CODE_MAJOR;
+
         _lowerBoundChord = lowerBoundChord;
         _lowerBoundBass = lowerBoundBass;
 
 //        _bassCode = BASS_ROOT;
         _curVoicingTemplate = null;
-        _curMode = _modeTemplateCollection.getModeTemplateForMode(0);
-        _curKey = _keyCollection.getMajorKeyAtIndex(0);
+
+//        _curMode = _modeTemplateCollection.getModeTemplateForMode(0);
+        _curMode = _activeModeTemplates[0];
+
+//        if (_keyCode == CODE_MAJOR) {
+//            _curKey = _keyCollection.getMajorKeyAtIndex(0);
+//        }
+        _curKey = _activeKeyList[0];
     }
 
     //todo method may be unnecessary, create overloaded constructor with int[] as parameters.
@@ -161,11 +183,11 @@ public class HarmonyGenerator {
         this._curMode = _modeTemplateCollection.getModeTemplateForMode(modeIx);
     }
 
-    public Key getKey() {
+    public AbstractKey getKey() {
         return _curKey;
     }
 
-    public void setKey(Key key) {
+    public void setKey(AbstractKey key) {
         this._curKey = key;
     }
 
@@ -195,5 +217,19 @@ public class HarmonyGenerator {
 
     public void setLowerBoundChord(int lowerBound) {
         this._lowerBoundChord = lowerBound;
+    }
+
+    public void setKeyCode(int code) {
+        _keyCode = code;
+        // Set collections to MAJOR.
+        if (code == CODE_MAJOR) {
+            _activeModeTemplates = _modeTemplateCollection.getMajorModeTemplates();
+            _activeKeyList = _keyCollection.getMajorKeys();
+        }
+        // Set collections to MELODIC MINOR.
+        else if (code == CODE_MELODIC_MINOR) {
+            _activeModeTemplates = _modeTemplateCollection.getMelodicMinorModeTemplates();
+            _activeKeyList = _keyCollection.getMelodicMinorKeys();
+        }
     }
 }
