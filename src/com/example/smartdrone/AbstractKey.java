@@ -4,7 +4,7 @@ package com.example.smartdrone;
 abstract class AbstractKey {
 
     //todo check if it should be protected
-    protected abstract void inflateKey();
+    protected abstract void inflateKeyNotes(NoteCollection noteCollection);
 
     /**
      * Index of the key center.
@@ -21,7 +21,7 @@ abstract class AbstractKey {
     /**
      * Array containing all note objects corresponding to the key.
      */
-    private Note[] _notes;
+    protected Note[] _notes;
 
     /**
      * Strength of key.
@@ -39,6 +39,32 @@ abstract class AbstractKey {
      * 1 = sharp; 2 = flat.
      */
     private int _spellingCode;
+
+    /**
+     * Constructs a container of all the notes in the key based on the key center given.
+     * @param       keyCenterIx int; index of the key center.
+     * @param       noteCollection NoteCollection; contains every note object.
+     */
+    public AbstractKey(int keyCenterIx, NoteCollection noteCollection) {
+        this._ix = keyCenterIx;
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
+        this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
+        this._strength = 0;
+        this._isContender = false;
+        this._spellingCode = MusicTheory.SPELLING_CODE[keyCenterIx];
+        inflateKeyNotes(noteCollection);
+    }
+
+    /**
+     * Constructs a container of all the notes in the key based on the key center given.
+     * @param       keyCenterIx int; index of the key center.
+     */
+    public AbstractKey(int keyCenterIx) {
+        this(keyCenterIx, null);
+    }
+
+
+
 
     /**
      * Returns index of key center.

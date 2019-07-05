@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/NoteTimerTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="233" column="5" lean-forward="true" selection-start-line="5" selection-end-line="233" selection-end-column="5" />
+            <state relative-caret-position="487">
+              <caret line="233" column="5" lean-forward="true" selection-start-line="215" selection-end-line="233" selection-end-column="5" />
               <folding>
                 <element signature="e#1965#1966#0" expanded="true" />
                 <element signature="e#2004#2005#0" expanded="true" />
@@ -73,16 +69,50 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="391">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
-                <element signature="e#2051#2052#0" expanded="true" />
-                <element signature="e#2090#2091#0" expanded="true" />
+                <element signature="e#1767#1768#0" expanded="true" />
+                <element signature="e#1806#1807#0" expanded="true" />
+                <element signature="e#2214#2215#0" expanded="true" />
+                <element signature="e#2245#2246#0" expanded="true" />
                 <element signature="e#2375#2376#0" expanded="true" />
                 <element signature="e#2408#2409#0" expanded="true" />
+                <element signature="e#5587#5588#0" expanded="true" />
+                <element signature="e#5623#5624#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MelodicMinorKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="40" column="69" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+              <folding>
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+                <element signature="e#340#341#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding>
+                <element signature="e#345#346#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,6 +268,8 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/MelodicMinorKey.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java" />
       </list>
     </option>
   </component>
@@ -749,10 +781,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="e#1767#1768#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#2214#2215#0" expanded="true" />
+            <element signature="e#2245#2246#0" expanded="true" />
+            <element signature="e#2375#2376#0" expanded="true" />
+            <element signature="e#2408#2409#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#5623#5624#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MelodicMinorKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" column="69" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Key.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="233" column="5" lean-forward="true" selection-start-line="5" selection-end-line="233" selection-end-column="5" />
+        <state relative-caret-position="487">
+          <caret line="233" column="5" lean-forward="true" selection-start-line="215" selection-end-line="233" selection-end-column="5" />
           <folding>
             <element signature="e#1965#1966#0" expanded="true" />
             <element signature="e#2004#2005#0" expanded="true" />
@@ -762,15 +824,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        <state relative-caret-position="561">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
-            <element signature="e#2051#2052#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
-            <element signature="e#2375#2376#0" expanded="true" />
-            <element signature="e#2408#2409#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#566#567#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
           </folding>
         </state>
       </provider>
