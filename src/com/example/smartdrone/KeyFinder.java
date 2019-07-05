@@ -66,6 +66,8 @@ public class KeyFinder {
      */
     private AbstractKey _activeKey;
 
+    private AbstractKey[] _activeKeyList;
+
     /**
      * Number of seconds for the note timer task.
      */
@@ -134,6 +136,7 @@ public class KeyFinder {
         _activeKeyHasChanged = false;
 
         _keyCode = CODE_MAJOR;
+        _activeKeyList = _allKeys.getMajorKeys();
 
         //todo should turn pools into just single thread.
 
@@ -301,12 +304,13 @@ public class KeyFinder {
         int targetNoteIx = target.getIx();
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
             int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
-            if (_keyCode == CODE_MAJOR) {
-                _allKeys.getMajorKeyAtIndex(curKeyIx).incrementStrength();
-            }
-            else {
-                _allKeys.getMelodicMinorKeyAtIndex(curKeyIx).incrementStrength();
-            }
+//            if (_keyCode == CODE_MAJOR) {
+//                _allKeys.getMajorKeyAtIndex(curKeyIx).incrementStrength();
+//            }
+//            else {
+//                _allKeys.getMelodicMinorKeyAtIndex(curKeyIx).incrementStrength();
+//            }
+            _activeKeyList[curKeyIx].incrementStrength();
         }
     }
 
@@ -318,12 +322,13 @@ public class KeyFinder {
         int targetNoteIx = target.getIx();
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
             int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
-            if (_keyCode == CODE_MAJOR) {
-                _allKeys.getMajorKeyAtIndex(curKeyIx).decrementStrength();
-            }
-            else {
-                _allKeys.getMelodicMinorKeyAtIndex(curKeyIx).decrementStrength();
-            }
+//            if (_keyCode == CODE_MAJOR) {
+//                _allKeys.getMajorKeyAtIndex(curKeyIx).decrementStrength();
+//            }
+//            else {
+//                _allKeys.getMelodicMinorKeyAtIndex(curKeyIx).decrementStrength();
+//            }
+            _activeKeyList[curKeyIx].incrementStrength();
         }
     }
 
@@ -337,12 +342,13 @@ public class KeyFinder {
         AbstractKey curKey; // not sure if this will work
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
             // Determine if major or melodic minor.
-            if (_keyCode == CODE_MAJOR) {
-                curKey = this._allKeys.getMajorKeyAtIndex(i);
-            }
-            else {
-                curKey = this._allKeys.getMelodicMinorKeyAtIndex(i);
-            }
+//            if (_keyCode == CODE_MAJOR) {
+//                curKey = this._allKeys.getMajorKeyAtIndex(i);
+//            }
+//            else {
+//                curKey = this._allKeys.getMelodicMinorKeyAtIndex(i);
+//            }
+            curKey = _activeKeyList[i];
 
             if (curKey.getStrength() > maxStrength) {
                 maxStrength = curKey.getStrength();
@@ -396,12 +402,14 @@ public class KeyFinder {
         AbstractKey curKey;
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            if (_keyCode == CODE_MAJOR) {
-                curKey = getMajorKey(i);
-            }
-            else {
-                curKey = getMelodicMinorKey(i);
-            }
+//            if (_keyCode == CODE_MAJOR) {
+//                curKey = getMajorKey(i);
+//            }
+//            else {
+//                curKey = getMelodicMinorKey(i);
+//            }
+            curKey = _activeKeyList[i];
+
             // Don't check active key.
             if (curKey != _activeKey) {
                 // There are 4 states an inactive key can be in,
@@ -538,12 +546,14 @@ public class KeyFinder {
     public void cancelAllKeyTimers() {
         AbstractKey curKey;
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
-            if (_keyCode == CODE_MAJOR) {
-                curKey = getMajorKey(i);
-            }
-            else {
-                curKey = getMelodicMinorKey(i);
-            }
+//            if (_keyCode == CODE_MAJOR) {
+//                curKey = getMajorKey(i);
+//            }
+//            else {
+//                curKey = getMelodicMinorKey(i);
+//            }
+            curKey = _activeKeyList[i];
+
             // Only contender keys will have an active timer.
             if (curKey.isContender()) {
                 cancelActiveKeyChange(curKey);
@@ -658,12 +668,13 @@ public class KeyFinder {
      * @param       keyIx int; index of key to become active key.
      */
     private void scheduleActiveKeyChange(int keyIx) {
-        if (_keyCode == CODE_MAJOR) {
-            scheduleActiveKeyChange(_allKeys.getMajorKeyAtIndex(keyIx));
-        }
-        else {
-            scheduleActiveKeyChange(_allKeys.getMelodicMinorKeyAtIndex(keyIx));
-        }
+//        if (_keyCode == CODE_MAJOR) {
+//            scheduleActiveKeyChange(_allKeys.getMajorKeyAtIndex(keyIx));
+//        }
+//        else {
+//            scheduleActiveKeyChange(_allKeys.getMelodicMinorKeyAtIndex(keyIx));
+//        }
+        scheduleActiveKeyChange(_activeKeyList[keyIx]);
     }
 
     /**
@@ -682,5 +693,22 @@ public class KeyFinder {
     private void cancelActiveKeyChange(int keyIx) {
         _scheduledKeyTasks[keyIx].cancel(true);
         _scheduledKeyTasks[keyIx] = null;
+    }
+
+    //todo probably should use error check of some sort.
+    /**
+     * Sets active keys to match code given.
+     * If major key code given then active key list will contain major keys,
+     * else melodic minor keys will be used.
+     * @param       keyCode int; code for major or melodic minor keys.
+     */
+    public void setActiveKeyList(int keyCode) {
+        _keyCode = keyCode; //todo may be redundant
+        if (keyCode == CODE_MAJOR) {
+            _activeKeyList = _allKeys.getMajorKeys();
+        }
+        else {
+            _activeKeyList = _allKeys.getMelodicMinorKeys();
+        }
     }
 }

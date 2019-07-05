@@ -71,12 +71,27 @@ public class KeyCollection {
     }
 
     /**
+     * Returns array of major keys.
+     * @return      MajorKey[]; array of major keys.
+     */
+    public MajorKey[] getMajorKeys() {
+        return _majorKeys;
+    }
+
+    /**
      * Returns melodic minor key corresponding to the index given.
      * @param       targetKeyIx int; index of target key.
      * @return      Key; corresponding melodic minor key.
      */
     public MelodicMinorKey getMelodicMinorKeyAtIndex(int targetKeyIx) {
         return _melodicMinorKeys[targetKeyIx];
+    }
+    /**
+     * Returns array of melodic minor keys.
+     * @return      MelodicMinorKey[]; array of melodic minor keys.
+     */
+    public MelodicMinorKey[] getMelodicMinorKeys() {
+        return _melodicMinorKeys;
     }
 
     /**
