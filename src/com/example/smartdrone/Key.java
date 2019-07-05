@@ -207,6 +207,7 @@ public class Key {
         return _spellingCode;
     }
 
+    //todo only method that will have to be abstract
     /**
      * Fill key object with corresponding notes.
      * @param       noteCollection NoteCollection; collection of already constructed notes.
