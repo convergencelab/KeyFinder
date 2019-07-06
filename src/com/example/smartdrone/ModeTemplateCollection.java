@@ -131,7 +131,7 @@ public class ModeTemplateCollection {
         return _allMelodicMinorModeTemplates;
     }
 
-    //todo don't use right now
+    @Override
     public String toString() {
         String str = "";
         for (ModeTemplate temp : _allMajorModeTemplates) {

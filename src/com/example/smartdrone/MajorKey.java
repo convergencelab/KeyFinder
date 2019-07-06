@@ -44,4 +44,13 @@ public class MajorKey extends AbstractKey {
             }
         }
     }
+
+    /**
+     * Returns intervals for major scale.
+     * @return      int[]; intervals for major scale.
+     */
+    @Override
+    public int[] getParentIntervals() {
+        return MusicTheory.MAJOR_SCALE_SEQUENCE;
+    }
 }

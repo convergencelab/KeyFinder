@@ -44,4 +44,13 @@ public class MelodicMinorKey extends AbstractKey {
             }
         }
     }
+
+    /**
+     * Returns intervals for melodic minor scale.
+     * @return      int[]; intervals for melodic minor scale.
+     */
+    @Override
+    public int[] getParentIntervals() {
+        return MusicTheory.MELODIC_MINOR_SCALE_SEQUENCE;
+    }
 }

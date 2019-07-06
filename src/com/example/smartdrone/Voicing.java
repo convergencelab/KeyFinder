@@ -40,7 +40,7 @@ public class Voicing {
     public Voicing(VoicingTemplate voicingTemplate, AbstractKey key, int mode, int octave, boolean hasBassNote,
                    ModeTemplateCollection modeTemplateCollection) {
         int root =
-                ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES)
+                ((key.getIx() + MusicTheory.MAJOR_SCALE_SEQUENCE[mode]) % MusicTheory.TOTAL_NOTES) //todo fix this line. should be dynamic; current state 3rd mode of melodic minor is a half step transposed
                         + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
         if (hasBassNote) {
             voiceIxs = new int[voicingTemplate.size() + 1]; // make room for bass note

@@ -63,9 +63,6 @@ public abstract class AbstractKey {
         this(keyCenterIx, null);
     }
 
-
-
-
     /**
      * Returns index of key center.
      * @return      int; index of key center.
@@ -162,4 +159,11 @@ public abstract class AbstractKey {
     public int getSpellingCode() {
         return _spellingCode;
     }
+
+    /**
+     * Returns parent intervals for key.
+     * Check MelodicMinorKey or MajorKey classes for implementations.
+     * @return
+     */
+    public abstract int[] getParentIntervals();
 }
