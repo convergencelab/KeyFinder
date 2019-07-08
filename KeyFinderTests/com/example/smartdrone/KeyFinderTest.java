@@ -211,4 +211,39 @@ public class KeyFinderTest {
 //            Assert.assertEquals(kf.getKeyStrength(i), answerListPre[i]);
 //        }
 //    }
+
+    @Test
+    public void melodicMinorTest() {
+        KeyFinder kf = new KeyFinder();
+        kf.setActiveKeyList(KeyFinder.CODE_MELODIC_MINOR);
+
+        System.out.println(allKeyStrengths(kf));
+
+        addAllNotesFromScale(kf, kf.getKeyAtIndex(0));
+        System.out.println(allKeyStrengths(kf));
+
+        removeAllNotesFromScale(kf, kf.getKeyAtIndex(0));
+        System.out.println(allKeyStrengths(kf));
+    }
+
+    private String allKeyStrengths(KeyFinder kf) {
+        String str = "";
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            str += kf.getKeyAtIndex(i).getName() + " " +  kf.getKeyAtIndex(i).getStrength() + '\n';
+        }
+        return str;
+    }
+
+    private void addAllNotesFromScale(KeyFinder kf, AbstractKey key) {
+        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+            kf.addNoteToList(key.getDegree(i));
+//            System.out.println(key.getDegree(i).getName());
+        }
+    }
+
+    private void removeAllNotesFromScale(KeyFinder kf, AbstractKey key) {
+        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+            kf.removeNoteFromList(key.getDegree(i));
+        }
+    }
 }

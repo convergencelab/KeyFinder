@@ -99,6 +99,11 @@ public class KeyFinder {
     private int _keyCode;
 
     /**
+     * Intervals of keys to increment, changes dependent on parent scale.
+     */
+    private int[] _incrementSequence;
+
+    /**
      * Array stores the scheduled removal of notes.
      * Index with null means there is no scheduled removal.
      */
@@ -137,6 +142,7 @@ public class KeyFinder {
 
         _keyCode = CODE_MAJOR;
         _activeKeyList = _allKeys.getMajorKeys();
+        _incrementSequence = MusicTheory.PHRYGIAN_SCALE_SEQUENCE;
 
         //todo should turn pools into just single thread.
 
@@ -307,7 +313,7 @@ public class KeyFinder {
     private void incrementKeysWithNote(Note target) {
         int targetNoteIx = target.getIx();
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
+            int curKeyIx = (_incrementSequence[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
 //            if (_keyCode == CODE_MAJOR) {
 //                _allKeys.getMajorKeyAtIndex(curKeyIx).incrementStrength();
 //            }
@@ -325,14 +331,14 @@ public class KeyFinder {
     private void decrementKeysWithNote(Note target) {
         int targetNoteIx = target.getIx();
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) { // DIATONIC_SCALE_SIZE = 7
-            int curKeyIx = (MusicTheory.PHRYGIAN_SCALE_SEQUENCE[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
+            int curKeyIx = (_incrementSequence[i] + targetNoteIx) % MusicTheory.TOTAL_NOTES; // = 12
 //            if (_keyCode == CODE_MAJOR) {
 //                _allKeys.getMajorKeyAtIndex(curKeyIx).decrementStrength();
 //            }
 //            else {
 //                _allKeys.getMelodicMinorKeyAtIndex(curKeyIx).decrementStrength();
 //            }
-            _activeKeyList[curKeyIx].incrementStrength();
+            _activeKeyList[curKeyIx].decrementStrength();
         }
     }
 
@@ -710,9 +716,11 @@ public class KeyFinder {
         _keyCode = keyCode; //todo may be redundant
         if (keyCode == CODE_MAJOR) {
             _activeKeyList = _allKeys.getMajorKeys();
+            _incrementSequence = MusicTheory.PHRYGIAN_SCALE_SEQUENCE;
         }
         else {
             _activeKeyList = _allKeys.getMelodicMinorKeys();
+            _incrementSequence = MusicTheory.DORIAN_FLAT2_SEQUENCE;
         }
     }
 }
