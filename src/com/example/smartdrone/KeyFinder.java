@@ -101,7 +101,7 @@ public class KeyFinder {
     /**
      * Intervals of keys to increment, changes dependent on parent scale.
      */
-    private int[] _incrementSequence;
+    public int[] _incrementSequence;
 
     /**
      * Array stores the scheduled removal of notes.
