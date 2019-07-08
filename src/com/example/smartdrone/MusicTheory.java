@@ -135,4 +135,11 @@ public class MusicTheory {
      */
     public final static int DIATONIC_SCALE_SIZE = 7;
 
+    /**
+     * Names of Parent scales.
+     */
+    public final static String[] PARENT_SCALE_NAMES = {
+            "Major",
+            "Melodic Minor"
+    };
 }
