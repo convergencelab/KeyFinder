@@ -20,12 +20,23 @@ public class MusicTheory {
      * Intervals that make up the major scale.
      * Each number can be viewed as the semitone offset from the root.
      */
-    public final static int[] MAJOR_SCALE_SEQUENCE    = { 0, 2, 4, 5, 7, 9, 11};
+    public final static int[] MAJOR_SCALE_SEQUENCE         = { 0, 2, 4, 5, 7, 9, 11 };
 
     /**
-     * Intervals that make up the phrygian scale.
+     * Intervals that make up the melodic minor scale.
+     * Each number can be viewed as the semitone offset from the root.
      */
-    public final static int[] PHRYGIAN_SCALE_SEQUENCE = { 0, 1, 3, 5, 7, 8, 10};
+    public final static int[] MELODIC_MINOR_SCALE_SEQUENCE = { 0, 2, 3, 5, 7, 9, 11 };
+
+    /**
+     * Intervals that make up the Phrygian scale.
+     */
+    public final static int[] PHRYGIAN_SCALE_SEQUENCE = { 0, 1, 3, 5, 7, 8, 10 };
+
+    /**
+     * Intervals that make up the Dorian Flat2 scale.
+     */
+    public final static int[] DORIAN_FLAT2_SEQUENCE   = { 0, 1, 3, 5, 7, 9, 10 };
 
     /**
      * Intervals that make up a major triad.
@@ -88,6 +99,9 @@ public class MusicTheory {
             "B"
     };
 
+    /**
+     * Names of modes in major scale.
+     */
     public final static String[] MAJOR_MODE_NAMES = {
             "Ionian",
             "Dorian",
@@ -96,6 +110,19 @@ public class MusicTheory {
             "Mixolydian",
             "Aeolian",
             "Locrian"
+    };
+
+    /**
+     * Names of modes in melodic minor scale.
+     */
+    public final static String[] MELODIC_MINOR_MODE_NAMES = {
+            "Melodic Minor",
+            "Phrygian Sharp 6",
+            "Lydian Augmented",
+            "Lydian Flat 7",
+            "Mixolydian Flat 6",
+            "Locrian Sharp 2",
+            "Altered"
     };
 
     /**
@@ -108,4 +135,11 @@ public class MusicTheory {
      */
     public final static int DIATONIC_SCALE_SIZE = 7;
 
+    /**
+     * Names of Parent scales.
+     */
+    public final static String[] PARENT_SCALE_NAMES = {
+            "Major",
+            "Melodic Minor"
+    };
 }

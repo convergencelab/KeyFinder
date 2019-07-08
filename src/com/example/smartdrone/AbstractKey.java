@@ -1,9 +1,11 @@
 package com.example.smartdrone;
 
-import java.util.Timer;
+//todo refactor name later to just 'Key'
+public abstract class AbstractKey {
 
-@Deprecated
-public class Key {
+    //todo check if it should be protected
+    protected abstract void inflateKeyNotes(NoteCollection noteCollection);
+
     /**
      * Index of the key center.
      * Ordered from 'C' to 'B' (ascending).
@@ -19,26 +21,13 @@ public class Key {
     /**
      * Array containing all note objects corresponding to the key.
      */
-    private Note[] _notes;
+    protected Note[] _notes;
 
     /**
      * Strength of key.
      * Strength gets one point for every corresponding note that is active.
      */
     private int _strength;
-
-    /**
-     * Timer object that keeps track of the number of seconds a
-     * key object has been a contender as the new active key.
-     */
-    @Deprecated
-    private Timer _timer;
-
-//    /**
-//     * TimerTask to set the key as new active key.
-//     */
-//    @Deprecated
-//    private KeyTimerTask _keyTimerTask;
 
     /**
      * Flag for active key contender.
@@ -56,7 +45,7 @@ public class Key {
      * @param       keyCenterIx int; index of the key center.
      * @param       noteCollection NoteCollection; contains every note object.
      */
-    public Key(int keyCenterIx, NoteCollection noteCollection) {
+    public AbstractKey(int keyCenterIx, NoteCollection noteCollection) {
         this._ix = keyCenterIx;
         this._name = MusicTheory.CHROMATIC_SCALE_SHARP[this._ix];
         this._notes = new Note[MusicTheory.DIATONIC_SCALE_SIZE];
@@ -70,7 +59,7 @@ public class Key {
      * Constructs a container of all the notes in the key based on the key center given.
      * @param       keyCenterIx int; index of the key center.
      */
-    public Key(int keyCenterIx) {
+    public AbstractKey(int keyCenterIx) {
         this(keyCenterIx, null);
     }
 
@@ -124,15 +113,6 @@ public class Key {
     }
 
     /**
-     * Returns Timer object.
-     * @return      Timer; timer object for key.
-     */
-    @Deprecated
-    public Timer getTimer() {
-        return this._timer;
-    }
-
-    /**
      * Increase key strength by 1.
      */
     public void incrementStrength() {
@@ -145,34 +125,6 @@ public class Key {
     public void decrementStrength() {
         this._strength--;
     }
-
-//    /**
-//     * Starts a background thread to set contender key as new active key.
-//     * @param       keyFinder KeyFinder; object containing all active notes.
-//     * @param       seconds int; length of timer.
-//     *
-//     * @deprecated use startKeyTimer() method in KeyFinder class.
-//     */
-//    @Deprecated
-//    public void startKeyTimer(KeyFinder keyFinder, int seconds) {
-//        _timer = new Timer("Key Timer");
-//        // Schedule timer task for key.
-//        _keyTimerTask = new KeyTimerTask(keyFinder, this);
-//        _timer.schedule(_keyTimerTask, seconds * 1000);
-//    }
-
-//    /**
-//     * Terminates key timer task.
-//     * Used when key is no longer a contender.
-//     *
-//     * @deprecated use cancelActiveKeyChange() method in KeyFinder class instead.
-//     */
-//    @Deprecated
-//    public void cancelKeyTimer() {
-//        if (_keyTimerTask != null) {
-//            _keyTimerTask.cancel();
-//        }
-//    }
 
     /**
      * Return contender flag.
@@ -208,29 +160,10 @@ public class Key {
         return _spellingCode;
     }
 
-    //todo only method that will have to be abstract
     /**
-     * Fill key object with corresponding notes.
-     * @param       noteCollection NoteCollection; collection of already constructed notes.
+     * Returns parent intervals for key.
+     * Check MelodicMinorKey or MajorKey classes for implementations.
+     * @return
      */
-    private void inflateKeyNotes(NoteCollection noteCollection) {
-        int offset;
-        int curNoteIx;
-        // Construct from note collection.
-        if (noteCollection != null) {
-            for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-                offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-                curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-                _notes[i] = noteCollection.getNoteAtIndex(curNoteIx);
-            }
-        }
-        // Construct only notes needed.
-        else {
-            for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-                offset = MusicTheory.MAJOR_SCALE_SEQUENCE[i];
-                curNoteIx = (this._ix + offset) % MusicTheory.TOTAL_NOTES; // TOTAL_NOTES = 12
-                _notes[i] = new Note(curNoteIx);
-            }
-        }
-    }
+    public abstract int[] getParentIntervals();
 }

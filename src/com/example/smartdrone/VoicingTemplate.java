@@ -71,6 +71,7 @@ public class VoicingTemplate {
         _name = name;
         _bassTonesRefac = bassTones;
         _chordTonesRefac = chordTones;
+        modeTemplateCollection = new ModeTemplateCollection();
 
         _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
         int i = 0;
@@ -209,7 +210,7 @@ public class VoicingTemplate {
     }
 
     @Deprecated
-    public Voicing generateVoicing(Key key, int mode, int octave, boolean bassNote) {
+    public Voicing generateVoicing(AbstractKey key, int mode, int octave, boolean bassNote) {
         return new Voicing(this, key, mode, octave, bassNote, modeTemplateCollection);
     }
 
