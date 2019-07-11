@@ -155,6 +155,7 @@ public class KeyFinder {
 
         _keyCode = CODE_MAJOR;
         _currentParentKeys = _allKeys.getMajorKeys();
+        _currentModes = _allModes.getMajorModeTemplates();
         _incrementSequence = MusicTheory.PHRYGIAN_SCALE_SEQUENCE;
 
         //todo should turn pools into just single thread.
@@ -692,10 +693,12 @@ public class KeyFinder {
         _keyCode = keyCode; //todo may be redundant
         if (keyCode == CODE_MAJOR) {
             _currentParentKeys = _allKeys.getMajorKeys();
+            _currentModes = _allModes.getMajorModeTemplates();
             _incrementSequence = MusicTheory.PHRYGIAN_SCALE_SEQUENCE;
         }
         else {
             _currentParentKeys = _allKeys.getMelodicMinorKeys();
+            _currentModes = _allModes.getMelodicMinorModeTemplates();
             _incrementSequence = MusicTheory.DORIAN_FLAT2_SEQUENCE;
         }
     }
