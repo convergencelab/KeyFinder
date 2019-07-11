@@ -7,6 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,15 +28,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2346">
-              <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="816">
@@ -45,13 +39,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="204">
+              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding>
-                <element signature="e#3021#3022#0" expanded="true" />
-                <element signature="e#5181#5182#0" expanded="true" />
-                <element signature="e#5358#5359#0" expanded="true" />
-                <element signature="e#5959#5960#0" expanded="true" />
+                <element signature="e#1739#1740#0" expanded="true" />
+                <element signature="e#3899#3900#0" expanded="true" />
+                <element signature="e#4076#4077#0" expanded="true" />
+                <element signature="e#4677#4678#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,8 +54,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="77">
+              <caret line="66" column="52" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,8 +129,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="114" column="106" selection-start-line="114" selection-start-column="106" selection-end-line="114" selection-end-column="106" />
+            <state relative-caret-position="356">
+              <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+              <folding>
+                <element signature="e#945#946#0" expanded="true" />
+                <element signature="e#971#972#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -243,7 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/KeyCollection.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/PitchDetector.java" />
         <option value="$PROJECT_DIR$/src/PitchDetection.java" />
@@ -283,7 +292,6 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Key.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyCollection.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/ModeTemplateCollectionTest.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MelodicMinorKey.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java" />
@@ -292,8 +300,10 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/HarmonyGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" />
-        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" />
+        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java" />
       </list>
     </option>
   </component>
@@ -438,39 +448,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.VoicingTest">
-    <configuration name="KeyFinderTest.melodicMinorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="drone_app_plusplus_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.smartdrone.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
-      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.KeyFinderTest" />
-      <option name="METHOD_NAME" value="melodicMinorTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModeTemplateCollectionTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="drone_app_plusplus_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.smartdrone.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
-      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.ModeTemplateCollectionTest" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.VoicingTest.dPhrygian">
     <configuration name="VoicingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
@@ -486,7 +464,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VoicingTest.getLowestNoteC0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VoicingTest.BbMaj_mode2_bass21_chord50" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
@@ -496,13 +474,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.smartdrone" />
       <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.VoicingTest" />
-      <option name="METHOD_NAME" value="getLowestNoteC0" />
+      <option name="METHOD_NAME" value="BbMaj_mode2_bass21_chord50" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VoicingTest.getLowestNoteC24" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VoicingTest.cMaj_mode0_bass24_chord36" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
@@ -512,7 +490,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.smartdrone" />
       <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.VoicingTest" />
-      <option name="METHOD_NAME" value="getLowestNoteC24" />
+      <option name="METHOD_NAME" value="cMaj_mode0_bass24_chord36" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VoicingTest.dPhrygian" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="drone_app_plusplus_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.smartdrone.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
+      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.VoicingTest" />
+      <option name="METHOD_NAME" value="dPhrygian" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VoicingTest.voicingConstructorCmaj0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="drone_app_plusplus_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.smartdrone.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.smartdrone" />
+      <option name="MAIN_CLASS_NAME" value="com.example.smartdrone.VoicingTest" />
+      <option name="METHOD_NAME" value="voicingConstructorCmaj0" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -520,11 +530,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VoicingTest.dPhrygian" />
+        <item itemvalue="JUnit.VoicingTest.BbMaj_mode2_bass21_chord50" />
+        <item itemvalue="JUnit.VoicingTest.cMaj_mode0_bass24_chord36" />
+        <item itemvalue="JUnit.VoicingTest.voicingConstructorCmaj0" />
         <item itemvalue="JUnit.VoicingTest" />
-        <item itemvalue="JUnit.VoicingTest.getLowestNoteC0" />
-        <item itemvalue="JUnit.VoicingTest.getLowestNoteC24" />
-        <item itemvalue="JUnit.KeyFinderTest.melodicMinorTest" />
-        <item itemvalue="JUnit.ModeTemplateCollectionTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -542,24 +552,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ModeTemplateCollectionTest_test1 - 2019.07.06 at 18h 19m 36s.xml">
-      <configuration name="ModeTemplateCollectionTest.test1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyFinderTest_melodicMinorTest - 2019.07.08 at 09h 09m 34s.xml">
-      <configuration name="KeyFinderTest.melodicMinorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyFinderTest_melodicMinorTest - 2019.07.08 at 09h 10m 45s.xml">
-      <configuration name="KeyFinderTest.melodicMinorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyFinderTest_melodicMinorTest - 2019.07.08 at 09h 22m 04s.xml">
-      <configuration name="KeyFinderTest.melodicMinorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyFinderTest_melodicMinorTest - 2019.07.08 at 09h 23m 02s.xml">
-      <configuration name="KeyFinderTest.melodicMinorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VoicingTest_getLowestNoteC24 - 2019.07.11 at 09h 38m 36s.xml">
-      <configuration name="VoicingTest.getLowestNoteC24" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="VoicingTest_getLowestNoteC24 - 2019.07.11 at 09h 39m 27s.xml">
       <configuration name="VoicingTest.getLowestNoteC24" configurationId="JUnit" />
     </history-entry>
@@ -571,6 +563,24 @@
     </history-entry>
     <history-entry file="VoicingTest - 2019.07.11 at 09h 41m 11s.xml">
       <configuration name="VoicingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_voicingConstructorCmaj0 - 2019.07.11 at 10h 09m 54s.xml">
+      <configuration name="VoicingTest.voicingConstructorCmaj0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_cMaj_mode0_bass24_chord36 - 2019.07.11 at 10h 18m 25s.xml">
+      <configuration name="VoicingTest.cMaj_mode0_bass24_chord36" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_cMaj_mode0_bass24_chord36 - 2019.07.11 at 10h 19m 17s.xml">
+      <configuration name="VoicingTest.cMaj_mode0_bass24_chord36" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_BbMaj_mode2_bass21_chord50 - 2019.07.11 at 10h 20m 59s.xml">
+      <configuration name="VoicingTest.BbMaj_mode2_bass21_chord50" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_dPhrygian - 2019.07.11 at 10h 24m 12s.xml">
+      <configuration name="VoicingTest.dPhrygian" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VoicingTest_dPhrygian - 2019.07.11 at 10h 24m 26s.xml">
+      <configuration name="VoicingTest.dPhrygian" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -781,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/ModeTemplateCollectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -848,13 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="106" selection-start-line="114" selection-start-column="106" selection-end-line="114" selection-end-column="106" />
         </state>
       </provider>
     </entry>
@@ -928,20 +924,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        <state relative-caret-position="77">
+          <caret line="66" column="52" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding>
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="204">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#5181#5182#0" expanded="true" />
-            <element signature="e#5358#5359#0" expanded="true" />
-            <element signature="e#5959#5960#0" expanded="true" />
+            <element signature="e#1739#1740#0" expanded="true" />
+            <element signature="e#3899#3900#0" expanded="true" />
+            <element signature="e#4076#4077#0" expanded="true" />
+            <element signature="e#4677#4678#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -37,30 +37,6 @@ public class Voicing {
             voicesIx++;
         }
         _voices = voices;
-
-//        int root =
-//                ((key.getIx() + key.getParentIntervals()[mode]) % MusicTheory.TOTAL_NOTES) //todo fix this line. should be dynamic; current state 3rd mode of melodic minor is a half step transposed
-//                        + (MusicTheory.TOTAL_NOTES * octave); //TOTAL_NOTES = 12
-//        if (hasBassNote) {
-//            voiceIxs = new int[voicingTemplate.size() + 1]; // make room for bass note
-//            voiceIxs[voiceIxs.length - 1] = root - 12; // put bass note at end of array
-//        }
-//        else {
-//            voiceIxs = new int[voicingTemplate.size()];
-//        }
-//        // Construct voicing
-//        ModeTemplate modeTemplate;
-//        if (key.getClass() == MelodicMinorKey.class) {
-//            modeTemplate = modeTemplateCollection.getMelodicMinorModeTemplates()[mode];
-//        }
-//        else {
-//            modeTemplate = modeTemplateCollection.getMajorModeTemplates()[mode];
-//        }
-//        for (int i = 0; i < voicingTemplate.size(); i++) {
-//            int octaveAdjustment = voicingTemplate.getChordTone(i) / 7;
-//            voiceIxs[i] = root + modeTemplate.getIntervals()[voicingTemplate.getChordTone(i) % 7]; //todo refactor big scary line
-//            voiceIxs[i] += octaveAdjustment * 12;
-//        }
     }
 
     private int getLowestNote(AbstractKey key, int lowerBoundBass) {

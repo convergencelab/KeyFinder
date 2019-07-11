@@ -12,13 +12,20 @@ public class ModeTemplate {
     private int[] _intervals;
 
     /**
+     * Index of mode in parent scale.
+     * (Ionian = 0, Dorian = 1, Phrygian = 2, ... )
+     */
+    private int _ix;
+
+    /**
      * Constructor.
      * @param       name String; name of scale.
      * @param       intervals int[]; intervals in scale.
      */
-    public ModeTemplate(String name, int[] intervals) {
+    public ModeTemplate(String name, int[] intervals, int ix) {
         _name = name;
         _intervals = intervals;
+        _ix = ix;
     }
 
     /**
@@ -35,6 +42,10 @@ public class ModeTemplate {
      */
     public int[] getIntervals() {
         return _intervals;
+    }
+
+    public int getIx() {
+        return _ix;
     }
 
     public String toString() {

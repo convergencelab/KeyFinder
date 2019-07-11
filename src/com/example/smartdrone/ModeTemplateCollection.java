@@ -32,14 +32,14 @@ public class ModeTemplateCollection {
         _allMajorModeTemplates = new ModeTemplate[MusicTheory.DIATONIC_SCALE_SIZE];
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
             _allMajorModeTemplates[i] = new ModeTemplate(
-                    MusicTheory.MAJOR_MODE_NAMES[i], getIntervalsForMajorMode(i));
+                    MusicTheory.MAJOR_MODE_NAMES[i], getIntervalsForMajorMode(i), i);
         }
 
         // Generate melodic minor key templates.
         _allMelodicMinorModeTemplates = new ModeTemplate[MusicTheory.DIATONIC_SCALE_SIZE];
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
             _allMelodicMinorModeTemplates[i] = new ModeTemplate(
-                    MusicTheory.MELODIC_MINOR_MODE_NAMES[i], getIntervalsForMelodicMinorMode(i));
+                    MusicTheory.MELODIC_MINOR_MODE_NAMES[i], getIntervalsForMelodicMinorMode(i), i);
         }
     }
 
