@@ -19,23 +19,24 @@ public class Voicing {
     @Deprecated
     private int[] voiceIxs;
 
-    public Voicing() {
-        // Empty constructor for testing
-    }
-
     public Voicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, AbstractKey key,
                    int lowerBoundBass, int lowerBoundChord) {
-
         //bass notes
+        Note[] voices = new Note[voicingTemplate.getTemplateTones().length];
+        int voicesIx = 0;
+        // Construct Bass Notes
+        int lowestBass = getLowestNote(key, lowerBoundBass);
         for (Tone tone : voicingTemplate.getBassTones()) {
-            // Determine Lowest Bass Note
-            int noteIx = getLowestNote(key, lowerBoundBass);
+            voices[voicesIx] = new Note(lowestBass + modeTemplate.getIntervals()[tone.getDegree()]);
+            voicesIx++;
         }
-
-        //chord notes
-
-
-
+        // Construct Chord Notes
+        int lowestChord = getLowestNote(key, lowerBoundChord);
+        for (Tone tone : voicingTemplate.getChordTones()) {
+            voices[voicesIx] = new Note(lowestChord + modeTemplate.getIntervals()[tone.getDegree()]);
+            voicesIx++;
+        }
+        _voices = voices;
 
 //        int root =
 //                ((key.getIx() + key.getParentIntervals()[mode]) % MusicTheory.TOTAL_NOTES) //todo fix this line. should be dynamic; current state 3rd mode of melodic minor is a half step transposed
@@ -62,7 +63,7 @@ public class Voicing {
 //        }
     }
 
-    public int getLowestNote(AbstractKey key, int lowerBoundBass) {
+    private int getLowestNote(AbstractKey key, int lowerBoundBass) {
         return ((lowerBoundBass / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + key.getIx();
     }
 
