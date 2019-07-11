@@ -36,6 +36,11 @@ public class KeyFinder {
     private static final int DEFAULT_KEY_TIMER_LEN = 3;
 
     /**
+     * Collection of all mode templates.
+     */
+    private ModeTemplateCollection _allModes;
+
+    /**
      * A list of all active notes.
      * Active notes affect key strength.
      */
@@ -127,12 +132,19 @@ public class KeyFinder {
     private ScheduledThreadPoolExecutor _keyTaskPool;
 
     /**
+     * Current set of modes.
+     */
+    private ModeTemplate[] _currentModes;
+
+    /**
      * Constructor.
      */
     public KeyFinder() {
         _activeNotes = new LinkedList<>();
+        //TODO should refactor collection names
         _allNotes = new NoteCollection();
         _allKeys = new KeyCollection(_allNotes);
+        _allModes = new ModeTemplateCollection();
         _activeKey = null;
 
         _noteTimerLength = DEFAULT_NOTE_TIMER_LEN;
@@ -686,5 +698,9 @@ public class KeyFinder {
             _currentParentKeys = _allKeys.getMelodicMinorKeys();
             _incrementSequence = MusicTheory.DORIAN_FLAT2_SEQUENCE;
         }
+    }
+
+    public ModeTemplate getModeTemplate(int ix) {
+        return _currentModes[ix];
     }
 }
