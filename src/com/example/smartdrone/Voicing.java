@@ -19,10 +19,15 @@ public class Voicing {
     @Deprecated
     private int[] voiceIxs;
 
+    public Voicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, AbstractKey key) {
+
+    }
+
     /**
      * Constructor.
      * @param       voices Note[]; notes in the voicing.
      */
+    @Deprecated
     public Voicing(Note[] voices) {
         _voices = voices;
     }
@@ -64,19 +69,9 @@ public class Voicing {
         }
     }
 
-    /**
-     * Get all voices.
-     * @return      int[]; voices in voicing.
-     */
-    @Deprecated
-    public int[] getVoiceIxs() {
-        return this.voiceIxs;
-    }
-
     //todo
     // addVoice()
     // removeVoice()
-
     /**
      * Return voice in chord.
      * Function returns single note instead of array to be consistent with other classes in library.
@@ -114,5 +109,14 @@ public class Voicing {
             str += MusicTheory.CHROMATIC_SCALE_SHARP[(voiceIxs[i]) % 12] + " : " + voiceIxs[i] + '\n';
         }
         return str;
+    }
+
+    /**
+     * Get all voices.
+     * @return      int[]; voices in voicing.
+     */
+    @Deprecated
+    public int[] getVoiceIxs() {
+        return this.voiceIxs;
     }
 }

@@ -137,6 +137,7 @@ public class HarmonyGenerator {
      * @param       chordToneIxs int[]; indices of chord tones.
      * @return      VoicingTemplate; template made from given indices.
      */
+    @Deprecated
     public VoicingTemplate generateVoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
         Tone[] bassTones = new Tone[bassToneIxs.length];
         Tone[] chordTones = new Tone[chordToneIxs.length];
@@ -159,10 +160,14 @@ public class HarmonyGenerator {
      * @param key
      * @return
      */
-    public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, Key key) {
+    public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, AbstractKey key) {
+        // make chord notes; add to array
         return null;
     }
 
+    /*
+        ALL OF THESE METHODS MAY NOT BE REQUIRED
+     */
     public VoicingTemplate getVoicingTemplate() {
         return _curVoicingTemplate;
     }

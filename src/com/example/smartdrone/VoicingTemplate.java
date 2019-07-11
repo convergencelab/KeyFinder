@@ -51,14 +51,52 @@ public class VoicingTemplate {
     @Deprecated
     private ModeTemplateCollection modeTemplateCollection;
 
+    //Todo constructor could use some  refactoring; (make use of private methods)
+
+    public VoicingTemplate(String name, int[] bassToneIxs, int[] chordToneIxs) {
+        Tone[] bassTones = new Tone[bassToneIxs.length];
+        Tone[] chordTones = new Tone[chordToneIxs.length];
+        // Construct Bass Tones
+        for (int i = 0; i < bassToneIxs.length; i++) {
+            bassTones[i] = new Tone(bassToneIxs[i], Tone.TONE_BASS);
+        }
+        // Construct Chord Tones
+        for (int i = 0; i < chordToneIxs.length; i++) {
+            chordTones[i] = new Tone(chordToneIxs[i], Tone.TONE_CHORD);
+        }
+
+        _name = name;
+        _bassTonesRefac = bassTones;
+        _chordTonesRefac = chordTones;
+        modeTemplateCollection = new ModeTemplateCollection(); // this is here because method generateVoicing() uses it. Won't be necessary when HarmonyGenerator is complete
+
+        _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
+        int i = 0;
+        // Add all bass tones.
+        for (Tone curTone : bassTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
+        // Add all chord tones.
+        for (Tone curTone : chordTones) {
+            _templateTonesRefac[i] = curTone;
+            i++;
+        }
+
+    }
     /**
      * Constructor.
      * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
      * @param       bassTones Tone[]; tones for bass.
      * @param       chordTones Tone[]; tones for chord.
      */
+    @Deprecated
     public VoicingTemplate(Tone[] bassTones, Tone[] chordTones) {
         this(null, bassTones, chordTones);
+    }
+
+    public VoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
+        this(null, bassToneIxs, chordToneIxs);
     }
 
     /**
@@ -67,11 +105,12 @@ public class VoicingTemplate {
      * @param       name String; name of voicing template.
      * @param       chordTones Tone[]; scale degrees.
      */
+    @Deprecated
     public VoicingTemplate(String name, Tone[] bassTones, Tone[] chordTones) {
         _name = name;
         _bassTonesRefac = bassTones;
         _chordTonesRefac = chordTones;
-        modeTemplateCollection = new ModeTemplateCollection();
+        modeTemplateCollection = new ModeTemplateCollection(); // this is here because method generateVoicing() uses it. Won't be necessary when HarmonyGenerator is complete
 
         _templateTonesRefac = new Tone[bassTones.length + chordTones.length];
         int i = 0;
