@@ -215,7 +215,7 @@ public class KeyFinderTest {
     @Test
     public void melodicMinorTest() {
         KeyFinder kf = new KeyFinder();
-        kf.setActiveKeyList(KeyFinder.CODE_MELODIC_MINOR);
+        kf.setParentKeyList(KeyFinder.CODE_MELODIC_MINOR);
 
         System.out.println(allKeyStrengths(kf));
 
