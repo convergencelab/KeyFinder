@@ -17,26 +17,26 @@ public class VoicingTemplateCollection {
         templateCatalogue = new HashMap<>();
     }
 
-    /**
-     * Construct a new voicing template and add to voicing collection.
-     * @param       name String; voicing template name.
-     * @param       chordTones int[]; voice template indices.
-     * @return      boolean; true name not in catalogue.
-     */
-    public boolean addVoicingTemplate(String name, int[] chordTones) {
-        // todo error check instead
-        if (name == null) {
-            return false;
-        }
-        // Map already has voicing matching parameter name.
-        if (templateCatalogue.containsKey(name)) {
-            return false;
-        }
-        // Add voicing to catalogue.
-        VoicingTemplate voicingTemplate = new VoicingTemplate(name, chordTones);
-        templateCatalogue.put(name, voicingTemplate);
-        return true;
-    }
+//    /**
+//     * Construct a new voicing template and add to voicing collection.
+//     * @param       name String; voicing template name.
+//     * @param       chordTones int[]; voice template indices.
+//     * @return      boolean; true name not in catalogue.
+//     */
+//    public boolean addVoicingTemplate(String name, int[] chordTones) {
+//        // todo error check instead
+//        if (name == null) {
+//            return false;
+//        }
+//        // Map already has voicing matching parameter name.
+//        if (templateCatalogue.containsKey(name)) {
+//            return false;
+//        }
+//        // Add voicing to catalogue.
+//        VoicingTemplate voicingTemplate = new VoicingTemplate(name, chordTones);
+//        templateCatalogue.put(name, voicingTemplate);
+//        return true;
+//    }
 
     /**
      * Remove voicing template from voicing catalogue.
