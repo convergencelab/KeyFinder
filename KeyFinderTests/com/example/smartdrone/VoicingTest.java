@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class VoicingTest {
-    VoicingTemplate mockVoicingTemplate = new VoicingTemplate(new int[]{0, 4}, new int[]{0, 2, 4, 6});
+    VoicingTemplate mockVoicingTemplate = new VoicingTemplate(HarmonyGenerator.BASS_ROOT_FIFTH, new int[]{0, 2, 4, 6});
     ModeTemplateCollection mockModeTemplateCollection = new ModeTemplateCollection();
     KeyCollection mockKeyCollection = new KeyCollection();
     int mockLowerBass = 36;

@@ -39,6 +39,14 @@ public class Voicing {
         _voices = voices;
     }
 
+    /**
+     * Determines the lowest possible note index for the voicing (bass or chord).
+     * Lowest note will be greater than or equal to lower bound.
+     * @param       key AbstractKey; parent key.
+     * @param       modeTemplate ModeTemplate; mode.
+     * @param       lowerBound int; lowest bound.
+     * @return      int; lowest note index.
+     */
     private int getLowestNote(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
         int root = key.getDegree(modeTemplate.getIx()).getIx();
         int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;

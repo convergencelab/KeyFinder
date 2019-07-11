@@ -51,8 +51,12 @@ public class VoicingTemplate {
     @Deprecated
     private ModeTemplateCollection modeTemplateCollection;
 
-    //Todo constructor could use some  refactoring; (make use of private methods)
 
+    public VoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
+        this(null, bassToneIxs, chordToneIxs);
+    }
+
+    //Todo constructor could use some  refactoring; (make use of private methods)
     public VoicingTemplate(String name, int[] bassToneIxs, int[] chordToneIxs) {
         Tone[] bassTones = new Tone[bassToneIxs.length];
         Tone[] chordTones = new Tone[chordToneIxs.length];
@@ -84,6 +88,7 @@ public class VoicingTemplate {
         }
 
     }
+
     /**
      * Constructor.
      * Chord tones used zero based indexing; follows programming paradigm, but goes against music theory convention.
@@ -93,10 +98,6 @@ public class VoicingTemplate {
     @Deprecated
     public VoicingTemplate(Tone[] bassTones, Tone[] chordTones) {
         this(null, bassTones, chordTones);
-    }
-
-    public VoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
-        this(null, bassToneIxs, chordToneIxs);
     }
 
     /**
