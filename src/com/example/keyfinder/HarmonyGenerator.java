@@ -47,7 +47,7 @@ public class HarmonyGenerator {
      * Uses default lower bounds.
      */
     public HarmonyGenerator() {
-        this(LOWER_BOUND_CHORD_DEFAULT, LOWER_BOUND_BASS_DEFAULT);
+        this(LOWER_BOUND_BASS_DEFAULT, LOWER_BOUND_CHORD_DEFAULT);
     }
 
     /**
@@ -56,8 +56,8 @@ public class HarmonyGenerator {
      * @param       lowerBoundChord int; lowest index for chord notes.
      */
     public HarmonyGenerator(int lowerBoundBass, int lowerBoundChord) {
-        _lowerBoundChord = lowerBoundChord;
         _lowerBoundBass = lowerBoundBass;
+        _lowerBoundChord = lowerBoundChord;
     }
 
     /**

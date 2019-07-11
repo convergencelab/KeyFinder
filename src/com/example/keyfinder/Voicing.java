@@ -33,7 +33,8 @@ public class Voicing {
         // Construct Chord Notes
         int lowestChord = getLowestNote(key, modeTemplate, lowerBoundChord);
         for (Tone tone : voicingTemplate.getChordTones()) {
-            voices[voicesIx] = new Note(lowestChord + modeTemplate.getIntervals()[tone.getDegree()]);
+            voices[voicesIx] = new Note(lowestChord + modeTemplate.getIntervals()[tone.getDegree() % 7] +
+                    (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))); //todo here is bug
             voicesIx++;
         }
         _voices = voices;
