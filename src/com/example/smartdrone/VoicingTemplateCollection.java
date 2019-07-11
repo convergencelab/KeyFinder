@@ -16,7 +16,7 @@ public class VoicingTemplateCollection {
     public VoicingTemplateCollection() {
         templateCatalogue = new HashMap<>();
     }
-    
+
     /**
      * Add voicing to template collection.
      * @param       toAdd VoicingTemplate; voicing template to add.

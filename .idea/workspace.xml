@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +24,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+            <state relative-caret-position="-10108">
+              <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4740#4741#0" expanded="true" />
+                <element signature="e#4780#4781#0" expanded="true" />
+                <element signature="e#5005#5006#0" expanded="true" />
+                <element signature="e#5056#5057#0" expanded="true" />
+                <element signature="e#5264#5265#0" expanded="true" />
+                <element signature="e#5310#5311#0" expanded="true" />
+                <element signature="e#5470#5471#0" expanded="true" />
+                <element signature="e#5512#5513#0" expanded="true" />
+                <element signature="e#5769#5770#0" expanded="true" />
+                <element signature="e#5830#5831#0" expanded="true" />
+                <element signature="e#6062#6063#0" expanded="true" />
+                <element signature="e#6122#6123#0" expanded="true" />
+                <element signature="e#7102#7103#0" expanded="true" />
+                <element signature="e#7161#7162#0" expanded="true" />
+                <element signature="e#7995#7996#0" expanded="true" />
+                <element signature="e#8063#8064#0" expanded="true" />
+                <element signature="e#8295#8296#0" expanded="true" />
+                <element signature="e#8331#8332#0" expanded="true" />
+                <element signature="e#8382#8383#0" expanded="true" />
+                <element signature="e#8430#8431#0" expanded="true" />
+                <element signature="e#8629#8630#0" expanded="true" />
+                <element signature="e#8686#8687#0" expanded="true" />
+                <element signature="e#8907#8908#0" expanded="true" />
+                <element signature="e#8971#8972#0" expanded="true" />
+                <element signature="e#10634#10635#0" expanded="true" />
+                <element signature="e#10669#10670#0" expanded="true" />
+                <element signature="e#10757#10758#0" expanded="true" />
+                <element signature="e#10795#10796#0" expanded="true" />
+                <element signature="e#13213#13214#0" expanded="true" />
+                <element signature="e#13252#13253#0" expanded="true" />
+                <element signature="e#13412#13413#0" expanded="true" />
+                <element signature="e#13454#13455#0" expanded="true" />
+                <element signature="e#13592#13593#0" expanded="true" />
+                <element signature="e#13630#13631#0" expanded="true" />
+                <element signature="e#13788#13789#0" expanded="true" />
+                <element signature="e#13829#13830#0" expanded="true" />
+                <element signature="e#13990#13991#0" expanded="true" />
+                <element signature="e#14032#14033#0" expanded="true" />
+                <element signature="e#14213#14214#0" expanded="true" />
+                <element signature="e#14257#14258#0" expanded="true" />
+                <element signature="e#14388#14389#0" expanded="true" />
+                <element signature="e#14423#14424#0" expanded="true" />
+                <element signature="e#14587#14588#0" expanded="true" />
+                <element signature="e#14630#14631#0" expanded="true" />
+                <element signature="e#14807#14808#0" expanded="true" />
+                <element signature="e#14852#14853#0" expanded="true" />
+                <element signature="e#16492#16493#0" expanded="true" />
+                <element signature="e#16554#16555#0" expanded="true" />
+                <element signature="e#16855#16856#0" expanded="true" />
+                <element signature="e#16920#16921#0" expanded="true" />
+                <element signature="e#17347#17348#0" expanded="true" />
+                <element signature="e#17410#17411#0" expanded="true" />
+                <element signature="e#17578#17579#0" expanded="true" />
+                <element signature="e#17631#17632#0" expanded="true" />
+                <element signature="e#18179#18180#0" expanded="true" />
+                <element signature="e#18253#18254#0" expanded="true" />
+                <element signature="e#18485#18486#0" expanded="true" />
+                <element signature="e#18544#18545#0" expanded="true" />
+                <element signature="e#19657#19658#0" expanded="true" />
+                <element signature="e#19723#19724#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2482">
+            <state relative-caret-position="1309">
               <caret line="146" selection-start-line="146" selection-start-column="2" selection-end-line="153" selection-end-column="7" />
               <folding>
                 <element signature="e#4609#4610#0" expanded="true" />
@@ -49,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="102">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="272">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/HarmonyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
+            <state relative-caret-position="2057">
               <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
               <folding>
                 <element signature="e#2162#2163#0" expanded="true" />
@@ -167,7 +230,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getKeys()</find>
       <find>_chromaticScale</find>
       <find>decrementKeysWith</find>
       <find>RemoveExpiredNote</find>
@@ -197,9 +259,9 @@
       <find>_allmodeTemplates</find>
       <find>getmodeTemplate</find>
       <find>Key</find>
+      <find>_activeKeyList</find>
     </findStrings>
     <replaceStrings>
-      <replace>CHROMATIC_SCALE</replace>
       <replace>_ix</replace>
       <replace>_activeNotes</replace>
       <replace>name</replace>
@@ -229,6 +291,7 @@
       <replace>modeTemplate</replace>
       <replace>_allModeTemplates</replace>
       <replace>getModeTemplate</replace>
+      <replace>_currentParentKeys</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -280,7 +343,6 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplateCollection.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java" />
@@ -288,6 +350,7 @@
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java" />
+        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
       </list>
     </option>
   </component>
@@ -796,20 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="149" column="55" selection-start-line="149" selection-start-column="55" selection-end-line="149" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11386#11387#0" expanded="true" />
-            <element signature="e#11421#11422#0" expanded="true" />
-            <element signature="e#14726#14727#0" expanded="true" />
-            <element signature="e#14767#14768#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3723">
@@ -886,7 +935,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Voicing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
+        <state relative-caret-position="1309">
           <caret line="146" selection-start-line="146" selection-start-column="2" selection-end-line="153" selection-end-column="7" />
           <folding>
             <element signature="e#4609#4610#0" expanded="true" />
@@ -897,8 +946,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/VoicingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -907,7 +956,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/HarmonyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
+        <state relative-caret-position="2057">
           <caret line="121" column="7" lean-forward="true" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
           <folding>
             <element signature="e#2162#2163#0" expanded="true" />
@@ -926,10 +975,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/VoicingTemplateCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="272">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10108">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+            <element signature="e#4780#4781#0" expanded="true" />
+            <element signature="e#5005#5006#0" expanded="true" />
+            <element signature="e#5056#5057#0" expanded="true" />
+            <element signature="e#5264#5265#0" expanded="true" />
+            <element signature="e#5310#5311#0" expanded="true" />
+            <element signature="e#5470#5471#0" expanded="true" />
+            <element signature="e#5512#5513#0" expanded="true" />
+            <element signature="e#5769#5770#0" expanded="true" />
+            <element signature="e#5830#5831#0" expanded="true" />
+            <element signature="e#6062#6063#0" expanded="true" />
+            <element signature="e#6122#6123#0" expanded="true" />
+            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="e#7161#7162#0" expanded="true" />
+            <element signature="e#7995#7996#0" expanded="true" />
+            <element signature="e#8063#8064#0" expanded="true" />
+            <element signature="e#8295#8296#0" expanded="true" />
+            <element signature="e#8331#8332#0" expanded="true" />
+            <element signature="e#8382#8383#0" expanded="true" />
+            <element signature="e#8430#8431#0" expanded="true" />
+            <element signature="e#8629#8630#0" expanded="true" />
+            <element signature="e#8686#8687#0" expanded="true" />
+            <element signature="e#8907#8908#0" expanded="true" />
+            <element signature="e#8971#8972#0" expanded="true" />
+            <element signature="e#10634#10635#0" expanded="true" />
+            <element signature="e#10669#10670#0" expanded="true" />
+            <element signature="e#10757#10758#0" expanded="true" />
+            <element signature="e#10795#10796#0" expanded="true" />
+            <element signature="e#13213#13214#0" expanded="true" />
+            <element signature="e#13252#13253#0" expanded="true" />
+            <element signature="e#13412#13413#0" expanded="true" />
+            <element signature="e#13454#13455#0" expanded="true" />
+            <element signature="e#13592#13593#0" expanded="true" />
+            <element signature="e#13630#13631#0" expanded="true" />
+            <element signature="e#13788#13789#0" expanded="true" />
+            <element signature="e#13829#13830#0" expanded="true" />
+            <element signature="e#13990#13991#0" expanded="true" />
+            <element signature="e#14032#14033#0" expanded="true" />
+            <element signature="e#14213#14214#0" expanded="true" />
+            <element signature="e#14257#14258#0" expanded="true" />
+            <element signature="e#14388#14389#0" expanded="true" />
+            <element signature="e#14423#14424#0" expanded="true" />
+            <element signature="e#14587#14588#0" expanded="true" />
+            <element signature="e#14630#14631#0" expanded="true" />
+            <element signature="e#14807#14808#0" expanded="true" />
+            <element signature="e#14852#14853#0" expanded="true" />
+            <element signature="e#16492#16493#0" expanded="true" />
+            <element signature="e#16554#16555#0" expanded="true" />
+            <element signature="e#16855#16856#0" expanded="true" />
+            <element signature="e#16920#16921#0" expanded="true" />
+            <element signature="e#17347#17348#0" expanded="true" />
+            <element signature="e#17410#17411#0" expanded="true" />
+            <element signature="e#17578#17579#0" expanded="true" />
+            <element signature="e#17631#17632#0" expanded="true" />
+            <element signature="e#18179#18180#0" expanded="true" />
+            <element signature="e#18253#18254#0" expanded="true" />
+            <element signature="e#18485#18486#0" expanded="true" />
+            <element signature="e#18544#18545#0" expanded="true" />
+            <element signature="e#19657#19658#0" expanded="true" />
+            <element signature="e#19723#19724#0" expanded="true" />
           </folding>
         </state>
       </provider>
