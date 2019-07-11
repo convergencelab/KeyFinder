@@ -25,13 +25,13 @@ public class Voicing {
         Note[] voices = new Note[voicingTemplate.getTemplateTones().length];
         int voicesIx = 0;
         // Construct Bass Notes
-        int lowestBass = getLowestNote(key, lowerBoundBass);
+        int lowestBass = getLowestNote(key, modeTemplate, lowerBoundBass);
         for (Tone tone : voicingTemplate.getBassTones()) {
             voices[voicesIx] = new Note(lowestBass + modeTemplate.getIntervals()[tone.getDegree()]);
             voicesIx++;
         }
         // Construct Chord Notes
-        int lowestChord = getLowestNote(key, lowerBoundChord);
+        int lowestChord = getLowestNote(key, modeTemplate, lowerBoundChord);
         for (Tone tone : voicingTemplate.getChordTones()) {
             voices[voicesIx] = new Note(lowestChord + modeTemplate.getIntervals()[tone.getDegree()]);
             voicesIx++;
@@ -39,8 +39,13 @@ public class Voicing {
         _voices = voices;
     }
 
-    private int getLowestNote(AbstractKey key, int lowerBoundBass) {
-        return ((lowerBoundBass / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + key.getIx();
+    private int getLowestNote(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
+        int root = key.getDegree(modeTemplate.getIx()).getIx();
+        int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
+        if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
     }
 
     /**
