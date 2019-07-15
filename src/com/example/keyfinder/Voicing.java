@@ -27,14 +27,15 @@ public class Voicing {
         // Construct Bass Notes
         int lowestBass = getLowestNote(key, modeTemplate, lowerBoundBass);
         for (Tone tone : voicingTemplate.getBassTones()) {
-            voices[voicesIx] = new Note(lowestBass + modeTemplate.getIntervals()[tone.getDegree()]);
+            voices[voicesIx] = new Note(lowestBass + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
+                    + modeTemplate.getIntervals()[tone.getDegree() % 7]);
             voicesIx++;
         }
         // Construct Chord Notes
         int lowestChord = getLowestNote(key, modeTemplate, lowerBoundChord);
         for (Tone tone : voicingTemplate.getChordTones()) {
-            voices[voicesIx] = new Note(lowestChord + modeTemplate.getIntervals()[tone.getDegree() % 7] +
-                    (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))); //todo here is bug
+            voices[voicesIx] = new Note(lowestChord + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
+                    + modeTemplate.getIntervals()[tone.getDegree() % 7]);
             voicesIx++;
         }
         _voices = voices;
