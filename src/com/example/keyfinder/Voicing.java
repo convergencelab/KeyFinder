@@ -25,14 +25,16 @@ public class Voicing {
         Note[] voices = new Note[voicingTemplate.getTemplateTones().length];
         int voicesIx = 0;
         // Construct Bass Notes
-        int lowestBass = getLowestNote(key, modeTemplate, lowerBoundBass);
+        int lowestBass = getLowestValue(key, modeTemplate, lowerBoundBass);
+
+        // Todo: convert these into utility methods
         for (Tone tone : voicingTemplate.getBassTones()) {
             voices[voicesIx] = new Note(lowestBass + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
                     + modeTemplate.getIntervals()[tone.getDegree() % 7]);
             voicesIx++;
         }
         // Construct Chord Notes
-        int lowestChord = getLowestNote(key, modeTemplate, lowerBoundChord);
+        int lowestChord = getLowestValue(key, modeTemplate, lowerBoundChord);
         for (Tone tone : voicingTemplate.getChordTones()) {
             voices[voicesIx] = new Note(lowestChord + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
                     + modeTemplate.getIntervals()[tone.getDegree() % 7]);
@@ -49,7 +51,7 @@ public class Voicing {
      * @param       lowerBound int; lowest bound.
      * @return      int; lowest note index.
      */
-    private int getLowestNote(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
+    private int getLowestValue(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
         int root = key.getDegree(modeTemplate.getIx()).getIx();
         int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
         if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
