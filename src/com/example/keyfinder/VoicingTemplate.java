@@ -86,7 +86,30 @@ public class VoicingTemplate {
             _templateTones[i] = curTone;
             i++;
         }
+    }
 
+    public VoicingTemplate(Tone[] bassTones, Tone[] chordTones) {
+        this(null, bassTones, chordTones);
+    }
+
+    public VoicingTemplate(String name, Tone[] bassTones, Tone[] chordTones) {
+        _name = name;
+        _bassTones = bassTones;
+        _chordTones = chordTones;
+//        modeTemplateCollection = new ModeTemplateCollection(); // this is here because method generateVoicing() uses it. Won't be necessary when HarmonyGenerator is complete
+
+        _templateTones = new Tone[bassTones.length + chordTones.length];
+        int i = 0;
+        // Add all bass tones.
+        for (Tone curTone : bassTones) {
+            _templateTones[i] = curTone;
+            i++;
+        }
+        // Add all chord tones.
+        for (Tone curTone : chordTones) {
+            _templateTones[i] = curTone;
+            i++;
+        }
     }
 
 //    /**
