@@ -84,6 +84,19 @@ public class HarmonyGenerator {
         return new VoicingTemplate(name, bassToneIxs,chordToneIxs);
     }
 
+    public Note generateNote(Tone tone, ModeTemplate modeTemplate, AbstractKey key) {
+        int lowestValue;
+        if (tone.getCode() == Tone.TONE_BASS) {
+            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundBass);
+        }
+        else {
+            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundBass);
+        }
+        // Todo convert into utility method
+        return new Note(lowestValue + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
+                + modeTemplate.getIntervals()[tone.getDegree() % 7]);
+    }
+
     /**
      * Calls VoicingTemplate constructor with null as name and returns voicing template.
      * Just here to be consistent with generateVoicing method, even though this doesn't do anything extra.
@@ -125,6 +138,24 @@ public class HarmonyGenerator {
      */
     public void setLowerBoundChord(int lowerBound) {
         this._lowerBoundChord = lowerBound;
+    }
+
+    // Todo: convert into utility method
+    /**
+     * Determines the lowest possible note index for the voicing (bass or chord).
+     * Lowest note will be greater than or equal to lower bound.
+     * @param       key AbstractKey; parent key.
+     * @param       modeTemplate ModeTemplate; mode.
+     * @param       lowerBound int; lowest bound.
+     * @return      int; lowest note index.
+     */
+    private int getLowestValue(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
+        int root = key.getDegree(modeTemplate.getIx()).getIx();
+        int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
+        if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
     }
 
 //    /**
