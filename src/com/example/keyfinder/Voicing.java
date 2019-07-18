@@ -90,7 +90,9 @@ public class Voicing {
     @Override
     public String toString() {
         String str = "";
-        // todo implement method
+        for (Note curNote : _voices) {
+            str += curNote.toString() + " ";
+        }
         return str;
     }
 }

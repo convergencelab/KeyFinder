@@ -68,6 +68,25 @@ public class Tone {
 
     @Override
     public String toString() {
-        return TONE_NAMES[_code] + " " + Integer.toString(_degree);
+        return TONE_NAMES[_code] + " " + _degree;
+    }
+
+    /**
+     * Tone objects are the same if they share the same type and same degree.
+     * @param other tone to compare.
+     * @return true if same type and degree.
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof Tone)) {
+            return false;
+        }
+        Tone otherTone = (Tone) other;
+
+        return otherTone.getCode() == this.getCode()
+                && otherTone.getDegree() == this.getDegree();
     }
 }
