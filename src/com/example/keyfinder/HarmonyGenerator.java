@@ -90,7 +90,7 @@ public class HarmonyGenerator {
             lowestValue = getLowestValue(key, modeTemplate, _lowerBoundBass);
         }
         else {
-            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundBass);
+            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundChord);
         }
         // Todo convert into utility method
         return new Note(lowestValue + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))

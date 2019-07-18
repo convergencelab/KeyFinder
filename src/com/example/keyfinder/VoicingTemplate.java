@@ -219,7 +219,7 @@ public class VoicingTemplate {
      * @return      int; size.
      */
     public int numVoices() {
-        return _chordTones.length;
+        return _templateTones.length;
     }
 
 //    /**
