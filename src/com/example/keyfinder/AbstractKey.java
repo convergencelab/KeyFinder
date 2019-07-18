@@ -3,7 +3,6 @@ package com.example.keyfinder;
 //todo refactor name later to just 'Key'
 public abstract class AbstractKey {
 
-    //todo check if it should be protected
     protected abstract void inflateKeyNotes(NoteCollection noteCollection);
 
     /**

@@ -22,12 +22,6 @@ public class ModeTemplateCollection {
      * Generate scale template for all 7 modes.
      */
     public ModeTemplateCollection() {
-//        _allModeTemplates = new ModeTemplate[7];
-//        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
-//            _allModeTemplates[i] = new ModeTemplate(
-//                    MusicTheory.MAJOR_MODE_NAMES[i], getIntervalsForMode(i));
-//        }
-
         // Generate major key templates.
         _allMajorModeTemplates = new ModeTemplate[MusicTheory.DIATONIC_SCALE_SIZE];
         for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
