@@ -35,4 +35,44 @@ public class ToneTest {
         curTone = new Tone(5, Tone.TONE_CHORD);
         assertEquals("Chord 5", curTone.toString());
     }
+
+    @Test
+    public void sameChordTone() {
+        Tone aTone = new Tone(0, Tone.TONE_CHORD);
+        Tone otherTone = new Tone(0, Tone.TONE_CHORD);
+
+        assertEquals(aTone, otherTone);
+    }
+
+    @Test
+    public void sameBassTone() {
+        Tone aTone = new Tone(2, Tone.TONE_BASS);
+        Tone otherTone = new Tone(2, Tone.TONE_BASS);
+
+        assertEquals(aTone, otherTone);
+    }
+
+    @Test
+    public void sameTypeDifferentDegrees() {
+        Tone aTone = new Tone(2, Tone.TONE_CHORD);
+        Tone otherTone = new Tone(3, Tone.TONE_CHORD);
+
+        assertNotEquals(aTone, otherTone);
+    }
+
+    @Test
+    public void sameDegreeDifferentType() {
+        Tone aTone = new Tone(3, Tone.TONE_BASS);
+        Tone otherTone = new Tone(3, Tone.TONE_CHORD);
+
+        assertNotEquals(aTone, otherTone);
+    }
+
+    @Test
+    public void difDegreeDifType() {
+        Tone aTone = new Tone(3, Tone.TONE_BASS);
+        Tone otherTone = new Tone(1, Tone.TONE_CHORD);
+
+        assertNotEquals(aTone, otherTone);
+    }
 }

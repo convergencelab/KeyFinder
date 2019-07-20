@@ -157,26 +157,4 @@ public class HarmonyGenerator {
         }
         return lowest;
     }
-
-//    /**
-//     * Makes VoicingTemplate from given indices.
-//     * @param       bassToneIxs int[]; indices of bass tones.
-//     * @param       chordToneIxs int[]; indices of chord tones.
-//     * @return      VoicingTemplate; template made from given indices.
-//     */
-//    @Deprecated
-//    public VoicingTemplate generateVoicingTemplate(int[] bassToneIxs, int[] chordToneIxs) {
-//        Tone[] bassTones = new Tone[bassToneIxs.length];
-//        Tone[] chordTones = new Tone[chordToneIxs.length];
-//        // Construct Bass Tones
-//        for (int i = 0; i < bassToneIxs.length; i++) {
-//            bassTones[i] = new Tone(bassToneIxs[i], Tone.TONE_BASS);
-//        }
-//        // Construct Chord Tones
-//        for (int i = 0; i < chordToneIxs.length; i++) {
-//            chordTones[i] = new Tone(chordToneIxs[i], Tone.TONE_CHORD);
-//        }
-//
-//        return new VoicingTemplate(bassTones, chordTones);
-//    }
 }

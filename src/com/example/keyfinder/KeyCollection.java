@@ -6,9 +6,6 @@ package com.example.keyfinder;
  */
 public class KeyCollection {
 
-    //todo: 1) switch from Key to Major key; 2) implement Melodic Minor;
-
-
     /**
      * All 12 major key objects.
      * Each object is a set that contains all notes found in the corresponding major scale.
@@ -39,7 +36,6 @@ public class KeyCollection {
         // For each key.
         for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) { // TOTAL_NOTES = 12
             // Construct major keys and melodic minor keys.
-//            _majorKeys[i] = new Key(i, _allNotes);
             _majorKeys[i] = new MajorKey(i, _allNotes);
             _melodicMinorKeys[i] = new MelodicMinorKey(i, _allNotes);
         }
