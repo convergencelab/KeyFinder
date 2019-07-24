@@ -52,7 +52,7 @@ public class Note {
      */
     public Note(int noteIx) {
         this._ix = noteIx;
-        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[getIx()];
+        this._name = MusicTheory.CHROMATIC_SCALE_SHARP[_ix];
         this._octave = noteIx / MusicTheory.TOTAL_NOTES;
     }
 

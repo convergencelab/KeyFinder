@@ -14,6 +14,8 @@ package com.example.keyfinder;
  * The reason for tones is to differentiate between bass tones and chord tones.
  * Bass tones can be played much lower than chord tones can be played, so it is important to differentiate between them.
  */
+
+// Todo: should use inheritance (ChordTone, BassTone)
 public class Tone {
     /**
      * Code representing tone as a bass tone.

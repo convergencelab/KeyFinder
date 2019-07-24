@@ -1,10 +1,11 @@
 package com.example.keyfinder;
 
-import java.util.LinkedList;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
 
 /**
  * Determine which key has the strongest relationship to the notes being received.
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * The active key is the key with the strongest strength. If more than one key has max strength then
  * the active key will be chosen at random.
  */
-public class KeyFinder {
+public class KeyFinder extends Observable {
     /**
      * Code if major keys are the current active keys.
      */
@@ -136,6 +137,8 @@ public class KeyFinder {
      */
     private ModeTemplate[] _currentModes;
 
+    private List<Observer> observers;
+
     /**
      * Constructor.
      */
@@ -167,6 +170,8 @@ public class KeyFinder {
         _keyTaskPool = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(1); // todo: extract constant. 7 should be most timers running at one time.
         _keyTaskPool.setRemoveOnCancelPolicy(true);
         _scheduledKeyTasks = new ScheduledFuture<?>[MusicTheory.TOTAL_NOTES];
+
+        observers = new ArrayList<>();
 
     }
 
@@ -384,7 +389,8 @@ public class KeyFinder {
      */
     public void setActiveKey(AbstractKey newActiveKey) {
         this._activeKey = newActiveKey;
-        _activeKeyHasChanged = true;
+        notifyObservers();
+//        _activeKeyHasChanged = true;
     }
 
     /**
