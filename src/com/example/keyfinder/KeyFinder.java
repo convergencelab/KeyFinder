@@ -389,7 +389,8 @@ public class KeyFinder extends Observable {
      */
     public void setActiveKey(AbstractKey newActiveKey) {
         this._activeKey = newActiveKey;
-        notifyObservers();
+        setChanged();
+        notifyObservers(_activeKey);
 //        _activeKeyHasChanged = true;
     }
 
@@ -649,13 +650,10 @@ public class KeyFinder extends Observable {
      * @param       toSchedule AbstractKey; key to become active key.
      */
     private void scheduleActiveKeyChange(AbstractKey toSchedule) {
-        Runnable activeKeyChange = new Runnable() {
-            @Override
-            public void run() {
-                setActiveKey(toSchedule);
-                toSchedule.setContenderStatus(false);
-                cancelAllKeyTimers();
-            }
+        Runnable activeKeyChange = () -> {
+            setActiveKey(toSchedule);
+            toSchedule.setContenderStatus(false);
+            cancelAllKeyTimers();
         };
         _scheduledKeyTasks[toSchedule.getIx()] =
                 _keyTaskPool.schedule(activeKeyChange, _keyTimerLength, TimeUnit.SECONDS);
