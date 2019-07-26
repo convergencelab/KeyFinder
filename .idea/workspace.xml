@@ -72,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="391" column="21" selection-start-line="391" selection-start-column="21" selection-end-line="391" selection-end-column="21" />
+            <state relative-caret-position="135">
+              <caret line="654" column="49" lean-forward="true" selection-start-line="654" selection-start-column="49" selection-end-line="654" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/AbstractKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
+            <state relative-caret-position="849">
+              <caret line="139" column="16" selection-start-line="139" selection-start-column="16" selection-end-line="139" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -562,7 +562,7 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.34621328" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32766616" />
+      <window_info active="true" anchor="bottom" id="Find" order="5" visible="true" weight="0.32766616" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.5656878" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.60123646" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -576,7 +576,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24959481" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.2382496" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.2382496" />
     </layout>
   </component>
   <component name="debuggerHistoryManager">
@@ -810,13 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/AbstractKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Tone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -882,10 +875,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/AbstractKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="849">
+          <caret line="139" column="16" selection-start-line="139" selection-start-column="16" selection-end-line="139" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="391" column="21" selection-start-line="391" selection-start-column="21" selection-end-line="391" selection-end-column="21" />
+        <state relative-caret-position="135">
+          <caret line="654" column="49" lean-forward="true" selection-start-line="654" selection-start-column="49" selection-end-line="654" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

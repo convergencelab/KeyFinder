@@ -651,9 +651,9 @@ public class KeyFinder extends Observable {
      */
     private void scheduleActiveKeyChange(AbstractKey toSchedule) {
         Runnable activeKeyChange = () -> {
-            setActiveKey(toSchedule);
-            toSchedule.setContenderStatus(false);
             cancelAllKeyTimers();
+            toSchedule.setContenderStatus(false);
+            setActiveKey(toSchedule);
         };
         _scheduledKeyTasks[toSchedule.getIx()] =
                 _keyTaskPool.schedule(activeKeyChange, _keyTimerLength, TimeUnit.SECONDS);
@@ -673,7 +673,7 @@ public class KeyFinder extends Observable {
      * @param       toCancel AbstractKey; key to cancel.
      */
     private void cancelActiveKeyChange(AbstractKey toCancel) {
-        _scheduledKeyTasks[toCancel.getIx()].cancel(true);
+        _scheduledKeyTasks[toCancel.getIx()].cancel(false);
         _scheduledKeyTasks[toCancel.getIx()] = null;
     }
 
