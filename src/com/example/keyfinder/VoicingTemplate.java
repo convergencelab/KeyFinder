@@ -126,4 +126,13 @@ public class VoicingTemplate {
     public int numVoices() {
         return _templateTones.length;
     }
+
+    @Override
+    public String toString() {
+        String templateStr = "";
+        for (Tone tone : getTemplateTones()) {
+            templateStr += tone.toString() + ",";
+        }
+        return templateStr;
+    }
 }

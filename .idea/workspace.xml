@@ -7,7 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,17 +28,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="-27">
               <caret line="68" column="6" lean-forward="true" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1819">
-              <caret line="61" column="47" lean-forward="true" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+            <state relative-caret-position="153">
+              <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,21 +56,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Tone.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-              <folding>
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1682#1683#0" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -86,6 +72,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="816">
               <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -250,16 +245,16 @@
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/KeyFinderTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyFinder.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/AbstractKey.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/KeyCollection.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/ModeTemplateCollection.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/ToneTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Tone.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" />
       </list>
     </option>
   </component>
@@ -562,7 +557,7 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.34621328" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info active="true" anchor="bottom" id="Find" order="5" visible="true" weight="0.32766616" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32766616" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.5656878" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.60123646" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -576,7 +571,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24959481" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.2382496" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.2382496" />
     </layout>
   </component>
   <component name="debuggerHistoryManager">
@@ -757,17 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-503">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/KeyCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-931">
@@ -844,23 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1819">
-          <caret line="61" column="47" lean-forward="true" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="68" column="6" lean-forward="true" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ModeTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -886,6 +853,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="654" column="49" lean-forward="true" selection-start-line="654" selection-start-column="49" selection-end-line="654" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="68" column="6" lean-forward="true" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
