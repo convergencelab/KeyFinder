@@ -68,8 +68,13 @@ public class HarmonyGenerator {
      * @param       key key; parent key.
      * @return      Voicing; voicing.
      */
+    @Deprecated
     public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, AbstractKey key) {
         return new Voicing(voicingTemplate, modeTemplate, key, _lowerBoundBass, _lowerBoundChord);
+    }
+
+    public Voicing generateVoicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, int keyIx) {
+        return new Voicing(voicingTemplate, modeTemplate, keyIx, _lowerBoundBass, _lowerBoundChord);
     }
 
     /**
