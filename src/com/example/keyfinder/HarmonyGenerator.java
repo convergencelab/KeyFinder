@@ -89,13 +89,13 @@ public class HarmonyGenerator {
         return new VoicingTemplate(name, bassToneIxs,chordToneIxs);
     }
 
-    public Note generateNote(Tone tone, ModeTemplate modeTemplate, AbstractKey key) {
+    public Note generateNote(Tone tone, ModeTemplate modeTemplate, int keyIx) {
         int lowestValue;
         if (tone.getCode() == Tone.TONE_BASS) {
-            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundBass);
+            lowestValue = getLowestValue(keyIx, _lowerBoundBass);
         }
         else {
-            lowestValue = getLowestValue(key, modeTemplate, _lowerBoundChord);
+            lowestValue = getLowestValue(keyIx, _lowerBoundChord);
         }
         // Todo convert into utility method
         return new Note(lowestValue + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
@@ -156,6 +156,15 @@ public class HarmonyGenerator {
      */
     private int getLowestValue(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
         int root = key.getDegree(modeTemplate.getIx()).getIx();
+        int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
+        if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
+    }
+
+    private int getLowestValue(int keyIx, int lowerBound) {
+        int root = keyIx % MusicTheory.TOTAL_NOTES;
         int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
         if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
             lowest += MusicTheory.TOTAL_NOTES;

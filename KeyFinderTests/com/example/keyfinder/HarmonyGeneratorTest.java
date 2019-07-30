@@ -61,6 +61,14 @@ public class HarmonyGeneratorTest {
         Assert.assertEquals(ans[5], voicing.getVoice(5).getRawIx());
     }
 
+    @Test
+    public void ebDorian3rd() {
+        int ans = 54;
+        HarmonyGenerator generator = new HarmonyGenerator();
+        Note note = generator.generateNote(new Tone(2, Tone.TONE_CHORD), mtc.getMajorModeTemplates()[1], 3);
+        Assert.assertEquals(ans, note.getRawIx());
+    }
+
     /* Melodic Minor Tests */
 
     @Test

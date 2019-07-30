@@ -80,7 +80,6 @@ public class Voicing {
         return lowest;
     }
 
-    // Todo: fixing this function
     private int getLowestValue(int keyIx, int lowerBound) {
         int root = keyIx % MusicTheory.TOTAL_NOTES;
         int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;

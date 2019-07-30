@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java" afterDir="false" />
@@ -30,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="291">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -60,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
+            <state relative-caret-position="157">
+              <caret line="54" column="63" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="76" column="64" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
+            <state relative-caret-position="208">
+              <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -257,8 +256,8 @@
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/KeyFinder.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java" />
       </list>
     </option>
@@ -404,22 +403,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HarmonyGeneratorTest.abLydAugExtended">
-    <configuration name="HarmonyGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="drone_app_plusplus_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.HarmonyGeneratorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HarmonyGeneratorTest.ebDorian3rd">
     <configuration name="HarmonyGeneratorTest.abLydAugExtended" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
@@ -468,6 +452,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HarmonyGeneratorTest.ebDorian3rd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="drone_app_plusplus_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.keyfinder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.HarmonyGeneratorTest" />
+      <option name="METHOD_NAME" value="ebDorian3rd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HarmonyGeneratorTest.ebDorianDropII" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
@@ -486,11 +486,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HarmonyGeneratorTest.abLydAugExtended" />
+        <item itemvalue="JUnit.HarmonyGeneratorTest.ebDorian3rd" />
         <item itemvalue="JUnit.HarmonyGeneratorTest.ebDorianDropII" />
+        <item itemvalue="JUnit.HarmonyGeneratorTest.abLydAugExtended" />
         <item itemvalue="JUnit.HarmonyGeneratorTest.dMajDropII" />
         <item itemvalue="JUnit.HarmonyGeneratorTest.cMajDropIIrefac" />
-        <item itemvalue="JUnit.HarmonyGeneratorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -508,12 +508,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HarmonyGeneratorTest_ebDorianDropII - 2019.07.30 at 16h 11m 02s.xml">
-      <configuration name="HarmonyGeneratorTest.ebDorianDropII" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HarmonyGeneratorTest_ebDorianDropII - 2019.07.30 at 16h 14m 23s.xml">
-      <configuration name="HarmonyGeneratorTest.ebDorianDropII" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HarmonyGeneratorTest_ebDorianDropII - 2019.07.30 at 16h 14m 41s.xml">
       <configuration name="HarmonyGeneratorTest.ebDorianDropII" configurationId="JUnit" />
     </history-entry>
@@ -537,6 +531,12 @@
     </history-entry>
     <history-entry file="HarmonyGeneratorTest_ebDorianDropII - 2019.07.30 at 16h 23m 37s.xml">
       <configuration name="HarmonyGeneratorTest.ebDorianDropII" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HarmonyGeneratorTest_abLydAugExtended - 2019.07.30 at 16h 30m 03s.xml">
+      <configuration name="HarmonyGeneratorTest.abLydAugExtended" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HarmonyGeneratorTest_abLydAugExtended - 2019.07.30 at 16h 31m 01s.xml">
+      <configuration name="HarmonyGeneratorTest.abLydAugExtended" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -577,7 +577,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24959481" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="8" weight="0.24230146" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.24230146" />
     </layout>
   </component>
   <component name="XDebuggerManager">
@@ -840,20 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="76" column="64" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ModeTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -880,15 +866,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="291">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
+        <state relative-caret-position="157">
+          <caret line="54" column="63" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
