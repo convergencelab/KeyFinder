@@ -38,6 +38,31 @@ public class Voicing {
         _voices = voices;
     }
 
+    // Todo: left off here.
+    public Voicing(VoicingTemplate voicingTemplate, ModeTemplate modeTemplate, int keyIx,
+                   int lowerBoundBass, int lowerBoundChord) {
+        //bass notes
+        Note[] voices = new Note[voicingTemplate.getTemplateTones().length];
+        int voicesIx = 0;
+        // Construct Bass Notes
+        int lowestBass = getLowestValue(keyIx, lowerBoundBass);
+        // Todo: convert these into utility methods
+        for (Tone tone : voicingTemplate.getBassTones()) {
+            voices[voicesIx] = new Note(lowestBass + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
+                    + modeTemplate.getIntervals()[tone.getDegree() % 7]);
+            voicesIx++;
+        }
+
+        // Construct Chord Notes
+        int lowestChord = getLowestValue(keyIx, lowerBoundChord);
+        for (Tone tone : voicingTemplate.getChordTones()) {
+            voices[voicesIx] = new Note(lowestChord + (12 * (tone.getDegree() / MusicTheory.DIATONIC_SCALE_SIZE))
+                    + modeTemplate.getIntervals()[tone.getDegree() % 7]);
+            voicesIx++;
+        }
+        _voices = voices;
+    }
+
     /**
      * Determines the lowest possible note index for the voicing (bass or chord).
      * Lowest note will be greater than or equal to lower bound.
@@ -48,6 +73,15 @@ public class Voicing {
      */
     private int getLowestValue(AbstractKey key, ModeTemplate modeTemplate, int lowerBound) {
         int root = key.getDegree(modeTemplate.getIx()).getIx();
+        int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
+        if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
+    }
+
+    private int getLowestValue(int keyIx, int lowerBound) {
+        int root = keyIx % MusicTheory.TOTAL_NOTES;
         int lowest = ((lowerBound / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + root;
         if (lowerBound % MusicTheory.TOTAL_NOTES > root) {
             lowest += MusicTheory.TOTAL_NOTES;
