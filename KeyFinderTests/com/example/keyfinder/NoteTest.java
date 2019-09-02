@@ -18,11 +18,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // C# / Db
@@ -37,11 +37,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // D
@@ -56,11 +56,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // D# / Eb
@@ -75,11 +75,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // C1
@@ -94,11 +94,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // C2
@@ -113,11 +113,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
     // Eb1
@@ -132,11 +132,11 @@ public class NoteTest {
         assertEquals(nameFlat, note.getNameFlat());
         assertEquals(nameSharp, note.getNameSharp());
 
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
         note.setNameSharp();
-        assertEquals(nameSharp, note.getCurName());
+        assertEquals(nameSharp, note.getName());
         note.setNameFlat();
-        assertEquals(nameFlat, note.getCurName());
+        assertEquals(nameFlat, note.getName());
     }
 
 }
