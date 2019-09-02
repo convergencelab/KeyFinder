@@ -1,5 +1,6 @@
 package com.example.keyfinder;
 
+@Deprecated
 public class ModeTemplate {
     /**
      * Name of scale.
