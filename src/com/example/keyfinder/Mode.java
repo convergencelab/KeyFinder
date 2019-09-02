@@ -5,11 +5,11 @@ public abstract class Mode {
     // Implementation will setup intervals and name
     protected abstract void setup();
 
-    private final int ix;
+    protected final int ix;
 
-    private int[] intervals;
+    protected int[] intervals;
 
-    private String name;
+    protected String name;
 
     public Mode(int ix) {
         this.ix = ix;
@@ -27,5 +27,5 @@ public abstract class Mode {
     public String getName() {
         return name;
     }
-    
+
 }

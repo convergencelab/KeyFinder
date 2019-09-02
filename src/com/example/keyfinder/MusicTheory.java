@@ -117,11 +117,11 @@ public class MusicTheory {
      */
     public final static String[] MELODIC_MINOR_MODE_NAMES = {
             "Melodic Minor",
-            "Phrygian Sharp 6",
+            "Phrygian " + SHARP + "6",
             "Lydian Augmented",
-            "Lydian Flat 7",
-            "Mixolydian Flat 6",
-            "Locrian Sharp 2",
+            "Lydian " + FLAT + "7",
+            "Mixolydian " + FLAT + "6",
+            "Locrian " + SHARP + "2",
             "Altered"
     };
 
