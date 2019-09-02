@@ -2,13 +2,13 @@ package com.example.keyfinder;
 
 public class Note {
 
-    private int ix;
+    private final int ix;
+
+    private final String nameFlat;
+
+    private final String nameSharp;
 
     private String curName;
-
-    private String nameFlat;
-
-    private String nameSharp;
 
     public Note(int ix) {
         this.ix = ix;
