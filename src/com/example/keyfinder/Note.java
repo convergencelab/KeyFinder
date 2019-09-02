@@ -4,17 +4,12 @@ public class Note {
 
     private final int ix;
 
-    private final String nameFlat;
-
-    private final String nameSharp;
-
+    // Can be changed between sharp and flat
     private String curName;
 
     public Note(int ix) {
         this.ix = ix;
-        this.nameSharp = MusicTheory.CHROMATIC_SCALE_SHARP[ix % MusicTheory.TOTAL_NOTES];
-        this.nameFlat = MusicTheory.CHROMATIC_SCALE_FLAT[ix % MusicTheory.TOTAL_NOTES];
-        this.curName = nameFlat; // Flat by default
+        this.curName = MusicTheory.CHROMATIC_SCALE_FLAT[ix % MusicTheory.TOTAL_NOTES]; // Flat by default
     }
 
     public int getIx() {
@@ -25,11 +20,19 @@ public class Note {
         return curName;
     }
 
+    public void setNameFlat() {
+        curName = MusicTheory.CHROMATIC_SCALE_FLAT[ix % MusicTheory.TOTAL_NOTES];
+    }
+
+    public void setNameSharp() {
+        curName = MusicTheory.CHROMATIC_SCALE_SHARP[ix % MusicTheory.TOTAL_NOTES];
+    }
+
     public String getNameFlat() {
-        return nameFlat;
+        return MusicTheory.CHROMATIC_SCALE_FLAT[ix % MusicTheory.TOTAL_NOTES];
     }
 
     public String getNameSharp() {
-        return nameSharp;
+        return MusicTheory.CHROMATIC_SCALE_SHARP[ix % MusicTheory.TOTAL_NOTES];
     }
 }
