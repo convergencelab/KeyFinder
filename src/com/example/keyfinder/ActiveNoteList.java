@@ -1,5 +1,19 @@
 package com.example.keyfinder;
 
+/**
+ * ActiveNoteList.java actually does something more than hold onto data.
+ *
+ * This class can track note i/o, count how many of each note, and track the correlation
+ * between active notes and key strength.
+ *
+ * When a note is added or removed, the strength of keys containing that note are
+ * incremented or decremented, respectively. These keys can be known ahead of time by using an
+ * iterate sequence. For example: all major keys containing the note 'C' correspond with C Phrygian
+ * (C, Db, Eb, F, G, Ab, Bb) - this true for any note, not just 'C'.
+ * there is no need to perform a linear search through all 12 keys in this case.
+ * (For melodic minor, use Phrygian #6)
+ *
+ */
 public class ActiveNoteList {
 
     private int[] noteCounts;
@@ -16,6 +30,10 @@ public class ActiveNoteList {
         size = 0;
     }
 
+    public void setIterateSequence(int[] iterateSequence) {
+        this.iterateSequence = iterateSequence;
+    }
+
     public void addNote(int toAdd) {
         noteCounts[toAdd]++;
         size++;
@@ -23,6 +41,10 @@ public class ActiveNoteList {
     }
 
     public void removeNote(int toRemove) {
+        if (noteCounts[toRemove] == 0) {
+            // Todo: Exception?
+            return;
+        }
         noteCounts[toRemove]--;
         size--;
         decrementKeyStrengths(toRemove);
@@ -40,6 +62,10 @@ public class ActiveNoteList {
         return noteCounts[toCheck] > 0;
     }
 
+    public int size() {
+        return size;
+    }
+
     public void clear() {
         size = 0;
         // Reset note counts & key strengths
@@ -49,12 +75,6 @@ public class ActiveNoteList {
             keyStrengths[ix] = 0;
         }
     }
-
-    /*
-     * An iterate sequence is used so the algorithm will look at and modify ONLY the
-     * keys containing the added / removed notes (exactly 7 keys for diatonic scales),
-     * instead of performing a linear search through all 12 keys.
-     */
 
     private void incrementKeyStrengths(int toAdd) {
         for (int interval : iterateSequence) {
@@ -67,8 +87,5 @@ public class ActiveNoteList {
             keyStrengths[(interval + toRemove) % MusicTheory.TOTAL_NOTES]--;
         }
     }
-
-
-
 
 }
