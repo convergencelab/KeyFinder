@@ -22,12 +22,12 @@ public class ActiveNoteList {
 
     private int[] iterateSequence;
 
-    private int size;
+    private int numActiveNotes;
 
     public ActiveNoteList() {
         noteCounts = new int[MusicTheory.TOTAL_NOTES];
         keyStrengths = new int[MusicTheory.TOTAL_NOTES];
-        size = 0;
+        numActiveNotes = 0;
     }
 
     public void setIterateSequence(int[] iterateSequence) {
@@ -36,7 +36,7 @@ public class ActiveNoteList {
 
     public void addNote(int toAdd) {
         noteCounts[toAdd]++;
-        size++;
+        numActiveNotes++;
         incrementKeyStrengths(toAdd);
     }
 
@@ -46,7 +46,7 @@ public class ActiveNoteList {
             return;
         }
         noteCounts[toRemove]--;
-        size--;
+        numActiveNotes--;
         decrementKeyStrengths(toRemove);
     }
 
@@ -58,18 +58,28 @@ public class ActiveNoteList {
         return keyStrengths[toCheck];
     }
 
+    public int getMaxKeyStrength() {
+        int max = -1;
+        for (int strength : keyStrengths) {
+            if (strength > max) {
+                max = strength;
+            }
+        }
+        return max;
+    }
+
     public boolean containsNote(int toCheck) {
         return noteCounts[toCheck] > 0;
     }
 
-    public int size() {
-        return size;
+    public int numActiveNotes() {
+        return numActiveNotes;
     }
 
     public void clear() {
-        size = 0;
+        numActiveNotes = 0;
         // Reset note counts & key strengths
-        // Arrays are same size; 12
+        // Arrays are same numActiveNotes; 12
         for (int ix = 0; ix < noteCounts.length; ix++) {
             noteCounts[ix] = 0;
             keyStrengths[ix] = 0;
