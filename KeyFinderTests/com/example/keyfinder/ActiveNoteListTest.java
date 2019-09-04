@@ -45,7 +45,7 @@ public class ActiveNoteListTest {
 
         // Test note count
         for (int i = 0; i < expectedNoteCounts.length; i++) {
-            assertEquals(expectedNoteCounts[i], /* here */);
+//            assertEquals(expectedNoteCounts[i], /* here */);
         }
 
         // Test key strengths
@@ -61,6 +61,6 @@ public class ActiveNoteListTest {
         return list;
     }
 
-    private boolean compareKeyStrength(int[] exp)
+//    private boolean compareKeyStrength(int[] exp)
 
 }

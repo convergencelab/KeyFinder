@@ -3,6 +3,7 @@ package com.example.keyfinder;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class NoteTest {
 
@@ -137,6 +138,33 @@ public class NoteTest {
         assertEquals(nameSharp, note.getName());
         note.setNameFlat();
         assertEquals(nameFlat, note.getName());
+    }
+
+    @Test
+    public void testNoteIxAndValueSame() {
+        int testIx = 8; // Any number between 0 and 11 (inclusive)
+        Note note = new Note(testIx);
+
+        assertEquals(8, note.getIx());
+        assertEquals(8, note.getNoteValue());
+    }
+
+    @Test
+    public void testNoteIxAndValueDifferent() {
+        int testIx = 20;
+        Note note = new Note(testIx);
+
+        assertEquals(20, note.getIx());
+        assertEquals(8, note.getNoteValue());
+    }
+
+    @Test
+    public void testNotesSameValueDifferentOctave() {
+        Note c0 = new Note(0);
+        Note c1 = new Note(12);
+
+        assertNotEquals(c0.getIx(), c1.getIx());
+        assertEquals(c0.getNoteValue(), c1.getNoteValue());
     }
 
 }
