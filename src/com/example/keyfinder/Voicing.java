@@ -20,7 +20,7 @@ public class Voicing {
                             + key.getMode().intervals[tone.getDegree() % MusicTheory.DIATONIC_SCALE_SIZE]);
             ix++;
         }
-        
+
         // Make Chord Notes
         int chordMin = MusicTheory.getLowestIx(key.getIx(), minChordIx);
         for (ChordTone tone : template.getChordTones()) {

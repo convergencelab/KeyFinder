@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" afterDir="false" />
-    </list>
+    <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,11 +40,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -155,7 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/KeyTimerTask.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/smartdrone/ChordGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ScaleDegree.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ChordGenerator.java" />
@@ -206,6 +210,7 @@
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java" />
       </list>
     </option>
   </component>
@@ -593,7 +598,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/fuckyou.java" />
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Testing/com/example/smartdrone/Testing/NoteTestShow.java" />
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Testing/com/example/smartdrone/Testing/NoteTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Testing/com/example/smartdrone/Testing/NoteTest.java" />
@@ -774,8 +778,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
         </state>
       </provider>
     </entry>
