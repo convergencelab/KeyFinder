@@ -142,4 +142,12 @@ public class MusicTheory {
             "Major",
             "Melodic Minor"
     };
+
+    public static int getLowestIx(int rootIx, int min) {
+        int lowest = ((min / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + (rootIx % MusicTheory.TOTAL_NOTES);
+        if ((min % MusicTheory.TOTAL_NOTES) > (rootIx % MusicTheory.TOTAL_NOTES)) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
+    }
 }

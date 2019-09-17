@@ -21,6 +21,18 @@ public class VoicingTemplate {
         this.size = bassTones.length + chordTones.length;
     }
 
+    public BassTone[] getBassTones() {
+        return bassTones;
+    }
+
+    public ChordTone[] getChordTones() {
+        return chordTones;
+    }
+
+    public int size() {
+        return size;
+    }
+
     private BassTone[] ixsToBassTones(int[] bassToneIxs) {
         final BassTone[] toReturn = new BassTone[bassToneIxs.length];
         for (int i = 0; i < bassToneIxs.length; ++i) {
