@@ -28,4 +28,10 @@ public abstract class Mode {
         return name;
     }
 
+    // Method will accommodate for degrees that are greater than a 7th
+    public int getInterval(int degree) {
+        return (intervals[degree % MusicTheory.DIATONIC_SCALE_SIZE] % MusicTheory.TOTAL_NOTES)
+                + ((degree / MusicTheory.DIATONIC_SCALE_SIZE) * MusicTheory.TOTAL_NOTES);
+    }
+
 }

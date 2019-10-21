@@ -8,9 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ce5d0cf4-abe1-4d48-92b5-d8d5aaca3629" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/drone_app_plusplus_java_jar/drone_app_plusplus_java.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/drone_app_plusplus_java_jar/drone_app_plusplus_java.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/keyfinder/MusicTheory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/drone_app_plusplus_java/com/example/keyfinder/MusicTheory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/drone_app_plusplus_java/com/example/keyfinder/ActiveNoteListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/drone_app_plusplus_java/com/example/keyfinder/ActiveNoteListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/Mode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhrasePatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PatternGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,67 +32,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalTemplate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhrasePatternGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/IntervalTemplateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MelodicMinorModeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="300">
+              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,17 +46,83 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="436">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/eartraining/PatternTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="234" column="98" selection-start-line="234" selection-start-column="98" selection-end-line="234" selection-end-column="98" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalPatternGenerator.java">
+        <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="1167">
+              <caret line="172" column="36" lean-forward="true" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Mode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ActiveNoteList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
             </state>
           </provider>
         </entry>
@@ -123,15 +136,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
-              <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -139,8 +143,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -216,8 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/AbstractKey.java" />
-        <option value="$PROJECT_DIR$/src/com/example/smartdrone/MelodicMinorKey.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MajorKey.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/smartdrone/ModeTemplate.java" />
@@ -236,9 +238,7 @@
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/HarmonyGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/ModeTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/HarmonyGenerator.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Mode.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MelodicMinorModeTest.java" />
-        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/Tone.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/BassTone.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/ChordTone.java" />
@@ -248,8 +248,6 @@
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/MajorMode.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/ParentScale.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/ActiveNoteList.java" />
-        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/ActiveNoteListTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java" />
@@ -263,14 +261,20 @@
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/IntervalTemplate.java" />
         <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/IntervalTemplateTest.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalTemplate.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java" />
-        <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PatternGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalPatternGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhrasePatternGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PatternGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Mode.java" />
+        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/Note.java" />
+        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java" />
+        <option value="$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java" />
+        <option value="$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/eartraining/PatternTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
@@ -285,6 +289,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -375,7 +380,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,6 +402,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.keyfinder.eartraining" />
       <recent name="com.example.keyfinder" />
       <recent name="com.example.smartdrone" />
       <recent name="com.example.smartdrone.Testing" />
@@ -421,92 +426,93 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.IntervalTemplateTest.testFindRange_defaultConstructor">
-    <configuration name="ActiveNoteListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PatternTest">
+    <configuration name="PatternTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.eartraining.IntervalPatternGenerator" />
+          <option name="PATTERN" value="com.example.keyfinder.eartraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.ActiveNoteListTest" />
+      <option name="PACKAGE_NAME" value="com.example.keyfinder.eartraining" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.eartraining.PatternTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActiveNoteListTest.testAddNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatternTest.testGeneratePattern_7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.eartraining.IntervalPatternGenerator" />
+          <option name="PATTERN" value="com.example.keyfinder.eartraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.ActiveNoteListTest" />
-      <option name="METHOD_NAME" value="testAddNote" />
+      <option name="PACKAGE_NAME" value="com.example.keyfinder.eartraining" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.eartraining.PatternTest" />
+      <option name="METHOD_NAME" value="testGeneratePattern_7" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActiveNoteListTest.testNumActiveNotes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatternTest.testGeneratePattern_8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.eartraining.IntervalPatternGenerator" />
+          <option name="PATTERN" value="com.example.keyfinder.eartraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.ActiveNoteListTest" />
-      <option name="METHOD_NAME" value="testNumActiveNotes" />
+      <option name="PACKAGE_NAME" value="com.example.keyfinder.eartraining" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.eartraining.PatternTest" />
+      <option name="METHOD_NAME" value="testGeneratePattern_8" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IntervalTemplateTest.testFindRange_defaultConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.eartraining.IntervalPatternGenerator" />
+          <option name="PATTERN" value="com.example.keyfinder.eartraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.IntervalTemplateTest" />
-      <option name="METHOD_NAME" value="testFindRange_defaultConstructor" />
+      <option name="PACKAGE_NAME" value="com.example.keyfinder.eartraining" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.eartraining.PatternTest" />
+      <option name="METHOD_NAME" value="testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote_defGeneratePattern" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="drone_app_plusplus_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.keyfinder.eartraining.IntervalPatternGenerator" />
+          <option name="PATTERN" value="com.example.keyfinder.eartraining.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.keyfinder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.NoteTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.example.keyfinder.eartraining" />
+      <option name="MAIN_CLASS_NAME" value="com.example.keyfinder.eartraining.PatternTest" />
+      <option name="METHOD_NAME" value="testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote_defGeneratePattern" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IntervalTemplateTest.testFindRange_defaultConstructor" />
-        <item itemvalue="JUnit.ActiveNoteListTest" />
-        <item itemvalue="JUnit.ActiveNoteListTest.testNumActiveNotes" />
-        <item itemvalue="JUnit.ActiveNoteListTest.testAddNote" />
-        <item itemvalue="JUnit.NoteTest" />
+        <item itemvalue="JUnit.PatternTest" />
+        <item itemvalue="JUnit.PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote_defGeneratePattern" />
+        <item itemvalue="JUnit.PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote" />
+        <item itemvalue="JUnit.PatternTest.testGeneratePattern_8" />
+        <item itemvalue="JUnit.PatternTest.testGeneratePattern_7" />
       </list>
     </recent_temporary>
   </component>
@@ -524,35 +530,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ActiveNoteListTest_testAddNote - 2019.09.03 at 20h 19m 51s.xml">
-      <configuration name="ActiveNoteListTest.testAddNote" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_1 - 2019.10.20 at 21h 37m 46s.xml">
+      <configuration name="PatternTest.testGeneratePattern_1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NoteTest - 2019.09.04 at 17h 37m 53s.xml">
-      <configuration name="NoteTest" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_2 - 2019.10.20 at 21h 38m 24s.xml">
+      <configuration name="PatternTest.testGeneratePattern_2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NoteTest - 2019.09.04 at 17h 38m 11s.xml">
-      <configuration name="NoteTest" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_3 - 2019.10.20 at 21h 39m 02s.xml">
+      <configuration name="PatternTest.testGeneratePattern_3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NoteTest - 2019.09.04 at 17h 40m 39s.xml">
-      <configuration name="NoteTest" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_4 - 2019.10.20 at 21h 39m 37s.xml">
+      <configuration name="PatternTest.testGeneratePattern_4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActiveNoteListTest_testAddNote - 2019.09.05 at 21h 01m 07s.xml">
-      <configuration name="ActiveNoteListTest.testAddNote" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_5 - 2019.10.20 at 21h 40m 21s.xml">
+      <configuration name="PatternTest.testGeneratePattern_5" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActiveNoteListTest_testAddNote - 2019.09.05 at 21h 02m 13s.xml">
-      <configuration name="ActiveNoteListTest.testAddNote" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_6 - 2019.10.20 at 21h 41m 09s.xml">
+      <configuration name="PatternTest.testGeneratePattern_6" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActiveNoteListTest_testNumActiveNotes - 2019.09.05 at 21h 06m 25s.xml">
-      <configuration name="ActiveNoteListTest.testNumActiveNotes" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_7 - 2019.10.20 at 21h 41m 50s.xml">
+      <configuration name="PatternTest.testGeneratePattern_7" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ActiveNoteListTest - 2019.09.05 at 21h 06m 29s.xml">
-      <configuration name="ActiveNoteListTest" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_8 - 2019.10.20 at 21h 42m 40s.xml">
+      <configuration name="PatternTest.testGeneratePattern_8" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatternTemplateTest_testFindRange_defaultConstructor - 2019.10.20 at 12h 23m 44s.xml">
-      <configuration name="PatternTemplateTest.testFindRange_defaultConstructor" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote - 2019.10.20 at 21h 46m 17s.xml">
+      <configuration name="PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatternTemplateTest_testFindRange_defaultConstructor - 2019.10.20 at 12h 24m 43s.xml">
-      <configuration name="PatternTemplateTest.testFindRange_defaultConstructor" configurationId="JUnit" />
+    <history-entry file="PatternTest_testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote - 2019.10.20 at 21h 46m 42s.xml">
+      <configuration name="PatternTest.testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -575,13 +581,13 @@
       <window_info id="Image Layers" order="4" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32766616" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.34494194" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32766616" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.4742952" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.56414217" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.5638474" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.3285968" />
@@ -593,7 +599,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.24959481" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.28178138" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="8" visible="true" weight="0.31336033" />
     </layout>
   </component>
   <component name="XDebuggerManager">
@@ -601,7 +607,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java</url>
-          <line>7</line>
+          <line>6</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -663,7 +669,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/out/test/drone_app_plusplus_java/com/example/smartdrone/NoteTest.class" />
     <entry file="file://$PROJECT_DIR$/src/com/example/smartdrone/Test.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -725,34 +730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ActiveNoteList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Mode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/MelodicMinorMode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -780,34 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="147" column="22" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ParentScale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -818,24 +775,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/VoicingTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="476">
           <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="561">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/IntervalTemplateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -849,54 +812,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/IntervalTemplateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/IntervalPatternGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="782">
           <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/MusicTheory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2465">
+          <caret line="145" column="17" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PatternGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/OctaveList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/ActiveNoteList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Voicing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/MajorModeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Mode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhraseTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="300">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/PhrasePatternGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/Note.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        <state relative-caret-position="31">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/NoteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1167">
+          <caret line="172" column="36" lean-forward="true" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/keyfinder/eartraining/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KeyFinderTests/com/example/keyfinder/eartraining/PatternTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="234" column="98" selection-start-line="234" selection-start-column="98" selection-end-line="234" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

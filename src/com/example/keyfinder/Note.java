@@ -1,5 +1,7 @@
 package com.example.keyfinder;
 
+import java.util.Objects;
+
 public class Note {
 
     private final int ix;
@@ -41,5 +43,18 @@ public class Note {
 
     public String getNameSharp() {
         return MusicTheory.CHROMATIC_SCALE_SHARP[noteValue];
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Note note = (Note) o;
+        return ix == note.ix;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ix);
     }
 }

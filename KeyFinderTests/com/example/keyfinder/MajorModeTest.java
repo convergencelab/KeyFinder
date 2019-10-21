@@ -97,4 +97,30 @@ public class MajorModeTest {
         assertEquals(testName, mode.getName());
     }
 
+    @Test
+    public void testGetInterval() {
+        // Dorian
+        Mode mode = new MajorMode(1);
+
+        // Get root
+        int ans = mode.getInterval(0);
+        assertEquals(0, ans);
+
+        // Get 3rd
+        ans = mode.getInterval(2);
+        assertEquals(3, ans);
+
+        // Get 7th
+        ans = mode.getInterval(6);
+        assertEquals(10, ans);
+
+        // Get 8th
+        ans = mode.getInterval(7);
+        assertEquals(12, ans);
+
+        // Get 9th
+        ans = mode.getInterval(8);
+        assertEquals(14, ans);
+    }
+
 }

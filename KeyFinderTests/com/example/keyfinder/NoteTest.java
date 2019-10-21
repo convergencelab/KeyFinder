@@ -2,8 +2,7 @@ package com.example.keyfinder;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class NoteTest {
 
@@ -165,6 +164,13 @@ public class NoteTest {
 
         assertNotEquals(c0.getIx(), c1.getIx());
         assertEquals(c0.getNoteValue(), c1.getNoteValue());
+    }
+
+    @Test
+    public void testEquals() {
+        Note lhs = new Note(0);
+        Note rhs = new Note(0);
+        assertTrue(lhs.equals(rhs));
     }
 
 }

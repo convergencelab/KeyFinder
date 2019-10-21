@@ -36,6 +36,10 @@ public class PhraseTemplate {
         return range;
     }
 
+    public void addDegree(int degree) {
+        tones.add(degree);
+    }
+
     private void findRange() {
         if (tones.isEmpty()) {
             range[0] = -1;
