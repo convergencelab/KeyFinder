@@ -2,6 +2,7 @@ package com.example.keyfinder.eartraining;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PhraseTemplate {
 
@@ -75,5 +76,18 @@ public class PhraseTemplate {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhraseTemplate that = (PhraseTemplate) o;
+        return Objects.equals(tones, that.tones);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tones);
     }
 }

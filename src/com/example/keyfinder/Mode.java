@@ -1,5 +1,8 @@
 package com.example.keyfinder;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public abstract class Mode {
 
     // Implementation will setup intervals and name
@@ -34,4 +37,19 @@ public abstract class Mode {
                 + ((degree / MusicTheory.DIATONIC_SCALE_SIZE) * MusicTheory.TOTAL_NOTES);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mode mode = (Mode) o;
+        return ix == mode.ix &&
+                Arrays.equals(intervals, mode.intervals);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(ix);
+        result = 31 * result + Arrays.hashCode(intervals);
+        return result;
+    }
 }
