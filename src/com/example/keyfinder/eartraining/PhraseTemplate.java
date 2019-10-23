@@ -7,7 +7,9 @@ public class PhraseTemplate {
 
     private List<Integer> tones;
 
-    private int[] range;
+    private int lowestDegree;
+
+    private int highestDegree;
 
     public PhraseTemplate() {
         this(new ArrayList<>());
@@ -15,7 +17,8 @@ public class PhraseTemplate {
 
     public PhraseTemplate(List<Integer> tones) {
         this.tones = tones;
-        range = new int[2];
+        lowestDegree = 0;
+        highestDegree = 0;
         findRange();
     }
 
@@ -32,30 +35,45 @@ public class PhraseTemplate {
         return tones.size();
     }
 
-    public int[] getRange() {
-        return range;
+    public int getLowestDegree() {
+        return lowestDegree;
+    }
+
+    public int getHighestDegree() {
+        return highestDegree;
     }
 
     public void addDegree(int degree) {
         tones.add(degree);
+
+        // Edge case, going from 0 to 1 nodes
+        if (tones.size() == 1) {
+            lowestDegree = highestDegree = tones.get(0);
+        }
+
+        else if (degree < lowestDegree) {
+            lowestDegree = degree;
+        }
+        else if (degree > highestDegree) {
+            highestDegree = degree;
+        }
     }
 
     private void findRange() {
         if (tones.isEmpty()) {
-            range[0] = -1;
-            range[1] = -1;
+            lowestDegree = -1;
+            highestDegree = -1;
         }
         else {
-            range[0] = range[1] = tones.get(0);
+            lowestDegree = highestDegree = tones.get(0);
             for (int tone : tones) {
-                if (tone < range[0]) {
-                    range[0] = tone;
+                if (tone < lowestDegree) {
+                    lowestDegree = tone;
                 }
-                else if (tone > range[1]) {
-                    range[1] = tone;
+                else if (tone > highestDegree) {
+                    highestDegree = tone;
                 }
             }
         }
     }
-
 }

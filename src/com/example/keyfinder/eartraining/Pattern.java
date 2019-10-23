@@ -34,7 +34,8 @@ public class Pattern {
 
     static public Pattern generatePattern(PhraseTemplate template, Mode mode, int rootIx) {
         Pattern toReturn = new Pattern();
-        toReturn.offset = rootIx - mode.getInterval(template.getTones().get(0));
+//        toReturn.offset = rootIx - mode.getInterval(template.getTones().get(0));
+        toReturn.offset = rootIx - mode.getInterval(template.getLowestDegree());
         toReturn.mode = mode;
 
         for (int degree : template.getTones()) {
@@ -54,6 +55,10 @@ public class Pattern {
         return toReturn;
     }
 
+    static public int calculateMinSpaceRequired(PhraseTemplate template, Mode mode) {
+        return mode.getInterval(template.getHighestDegree()) - mode.getInterval(template.getLowestDegree());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,5 +70,16 @@ public class Pattern {
     @Override
     public int hashCode() {
         return Objects.hash(notes);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        for (Note note : notes) {
+            string.append(note.getName());
+            string.append(note.getIx());
+            string.append(' ');
+        }
+        return string.toString();
     }
 }
