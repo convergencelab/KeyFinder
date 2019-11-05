@@ -31,6 +31,9 @@ public class Pattern {
         getNotes().add(new Note(mode.getInterval(degree) + offset));
     }
 
+    public int size() {
+        return notes.size();
+    }
 
     static public Pattern generatePattern(PhraseTemplate template, Mode mode, int rootIx) {
         Pattern toReturn = new Pattern();

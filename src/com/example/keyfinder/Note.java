@@ -54,6 +54,11 @@ public class Note {
     }
 
     @Override
+    public String toString() {
+        return name + ix;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(ix);
     }

@@ -17,16 +17,27 @@ public class MusicTheory {
     public final static char FLAT = '\u266d';
 
     /**
+     * Unicode for natural sign.
+     */
+    public final static char NATURAL = '\u266e';
+
+    /**
      * Intervals that make up the major scale.
      * Each number can be viewed as the semitone offset from the root.
      */
-    public final static int[] MAJOR_SCALE_SEQUENCE         = { 0, 2, 4, 5, 7, 9, 11 };
+    public final static int[] MAJOR_SCALE_SEQUENCE = { 0, 2, 4, 5, 7, 9, 11 };
 
     /**
      * Intervals that make up the melodic minor scale.
      * Each number can be viewed as the semitone offset from the root.
      */
     public final static int[] MELODIC_MINOR_SCALE_SEQUENCE = { 0, 2, 3, 5, 7, 9, 11 };
+
+    /**
+     * Intervals pertaining to harmonic minor scale.
+     * Indices represent semitones away from root.
+     */
+    public final static int[] HARMONIC_MINOR_SCALE_SEQUENCE = { 0, 2, 3, 5, 7, 8, 11 };
 
     /**
      * Intervals that make up the Phrygian scale.
@@ -123,6 +134,19 @@ public class MusicTheory {
             "Mixolydian " + FLAT + "6",
             "Locrian " + SHARP + "2",
             "Altered"
+    };
+
+    /**
+     * Names of harmonic minor modes.
+     */
+    public final static String[] HARMONIC_MINOR_MODE_NAMES = {
+            "Harmonic Minor",
+            "Locrian " + NATURAL + "6",
+            "Ionian " + SHARP + '5',
+            "Dorian " + SHARP + '4',
+            "Phrygian Dominant",
+            "Lydian " + SHARP + '9',
+            "Altered Diminished"
     };
 
     /**
