@@ -2,9 +2,9 @@ package com.example.keyfinder;
 
 import java.util.Objects;
 
-public class Note {
+public class Note implements Comparable<Note> {
 
-    private final int ix;
+    private final Integer ix;
 
     // Same notes of a different octave will have the same note value
     private final int noteValue;
@@ -61,5 +61,10 @@ public class Note {
     @Override
     public int hashCode() {
         return Objects.hash(ix);
+    }
+
+    @Override
+    public int compareTo(Note note) {
+        return this.ix.compareTo(note.ix);
     }
 }

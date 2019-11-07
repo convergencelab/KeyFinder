@@ -15,12 +15,15 @@ public class Pattern {
 
     private Mode mode;
 
+    private boolean canInterrupt;
+
     public Pattern() {
         this(new ArrayList<>());
     }
 
     public Pattern(List<Note> notes) {
         this.notes = notes;
+        canInterrupt = false;
     }
 
     public List<Note> getNotes() {
@@ -33,6 +36,14 @@ public class Pattern {
 
     public int size() {
         return notes.size();
+    }
+
+    public void setCanInterrupt(boolean canInterrupt) {
+        this.canInterrupt = true;
+    }
+
+    public boolean canInterrupt() {
+        return canInterrupt;
     }
 
     static public Pattern generatePattern(PhraseTemplate template, Mode mode, int rootIx) {
