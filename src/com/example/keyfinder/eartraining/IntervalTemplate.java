@@ -1,6 +1,7 @@
 package com.example.keyfinder.eartraining;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,69 +10,62 @@ import java.util.List;
  */
 public class IntervalTemplate {
 
-    private List<Integer> tones;
+    private List<Integer> indices;
 
-    private int[] range;
+    private int highestIx;
+
+    private int lowestIx;
 
     public IntervalTemplate() {
-        this(new ArrayList<>());
+        indices = new ArrayList<>();
+        highestIx = -1;
+        lowestIx = -1;
     }
 
-    public IntervalTemplate(List<Integer> tones) {
-        this.tones = tones;
-        // todo sort data
-        range = new int[2];
+    public IntervalTemplate(Integer[] indices) {
+        this(Arrays.asList(indices));
+    }
+
+    public IntervalTemplate(List<Integer> indices) {
+        this.indices = indices;
         findRange();
     }
 
-    public void setTones(int[] tones) {
-        // todo: convert array to list
-    }
-
-    public void setTones(List<Integer> tones) {
-        this.tones = tones;
-        // todo: sort
-        findRange();
-    }
-
-    public List<Integer> getTonesAscending() {
-        return tones;
-    }
-
-    public List<Integer> getTonesDescending() {
-        List<Integer> toReturn = new ArrayList<>();
-        for (int i = tones.size() - 1; i > 0; i--) {
-            toReturn.add(tones.get(i));
-        }
-        return toReturn;
-    }
-
-    public List<Integer> getTonesRandomized() {
-        // Todo: shuffle list
-        return null;
-    }
-
-    public int numTones() {
-        return tones.size();
-    }
-
-    // Todo: implement equals
     private void findRange() {
-        if (tones.isEmpty()) {
-            range[0] = -1;
-            range[1] = -1;
+        if (size() == 0) {
+            highestIx = lowestIx = -1;
         }
         else {
-            // tones list is sorted
-            range[0] = tones.get(0);
-            range[1] = tones.get(tones.size() - 1);
+            highestIx = lowestIx = indices.get(0);
+            for (int ix : indices) {
+                if (ix < lowestIx) {
+                    lowestIx = ix;
+                }
+                else if (ix > highestIx) {
+                    highestIx = ix;
+                }
+            }
         }
     }
 
-    public int[] getRange() {
-        return range;
+    public int getSpaceRequired() {
+        return highestIx - lowestIx;
     }
 
+//    public Pattern generatePattern(int key) {
+//        Pattern pattern = new Pattern();
+//        for (int ix : indices) {
+//            pattern.getNotes().add(new Note(ix + key));
+//        }
+//        return pattern;
+//    }
 
+    public int size() {
+        return indices.size();
+    }
+
+    public List<Integer> getIndices() {
+        return indices;
+    }
 
 }

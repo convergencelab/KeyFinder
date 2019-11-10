@@ -2,6 +2,7 @@ package com.example.keyfinder.eartraining;
 
 import java.util.List;
 
+@Deprecated
 public class IntervalPatternGenerator {
 
     private List<IntervalTemplate> intervalTemplates;

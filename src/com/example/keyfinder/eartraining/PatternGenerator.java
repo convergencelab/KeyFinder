@@ -5,6 +5,7 @@ import com.example.keyfinder.Mode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class PatternGenerator {
 
     private List<PhraseTemplate> phraseTemplates;

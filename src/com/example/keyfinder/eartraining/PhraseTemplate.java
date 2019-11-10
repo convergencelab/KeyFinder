@@ -1,5 +1,7 @@
 package com.example.keyfinder.eartraining;
 
+import com.example.keyfinder.Mode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,6 +78,10 @@ public class PhraseTemplate {
                 }
             }
         }
+    }
+
+    public int calculateMinSpaceRequired(Mode mode) {
+        return mode.getInterval(highestDegree) - mode.getInterval(lowestDegree);
     }
 
     @Override
