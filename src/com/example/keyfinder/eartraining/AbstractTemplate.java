@@ -2,11 +2,12 @@ package com.example.keyfinder.eartraining;
 
 import com.example.keyfinder.Mode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PhraseTemplate {
+public class AbstractTemplate implements Serializable {
 
     private List<Integer> tones;
 
@@ -14,11 +15,11 @@ public class PhraseTemplate {
 
     private int highestDegree;
 
-    public PhraseTemplate() {
+    public AbstractTemplate() {
         this(new ArrayList<>());
     }
 
-    public PhraseTemplate(List<Integer> tones) {
+    public AbstractTemplate(List<Integer> tones) {
         this.tones = tones;
         lowestDegree = 0;
         highestDegree = 0;
@@ -88,7 +89,7 @@ public class PhraseTemplate {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PhraseTemplate that = (PhraseTemplate) o;
+        AbstractTemplate that = (AbstractTemplate) o;
         return Objects.equals(tones, that.tones);
     }
 

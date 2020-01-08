@@ -25,7 +25,7 @@ public class PatternGenerationTest {
     @Test
     public void generateRandomPattern() {
         // Make pattern 1 3 4 5
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
         template.addDegree(3);
         template.addDegree(0);
         template.addDegree(6);
@@ -71,7 +71,7 @@ public class PatternGenerationTest {
         Assert.assertFalse(fuckedUp);
     }
 
-    private int determineRangeRequired(PhraseTemplate template, List<Mode> modes) {
+    private int determineRangeRequired(AbstractTemplate template, List<Mode> modes) {
         int range = -1;
         for (Mode curMode : modes) {
             final int result = Pattern.calculateMinSpaceRequired(template, curMode);

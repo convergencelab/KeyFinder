@@ -17,8 +17,8 @@ public class Pattern {
 
     private boolean canInterrupt;
 
-    // PhraseTemplate, Mode, Key
-    public Pattern(PhraseTemplate template, int key, Mode mode) {
+    // AbstractTemplate, Mode, Key
+    public Pattern(AbstractTemplate template, int key, Mode mode) {
         notes = new ArrayList<>();
         offset = key - mode.getInterval(template.getLowestDegree());
         this.mode = mode;
@@ -78,7 +78,7 @@ public class Pattern {
     }
 
     @Deprecated
-    static public Pattern generatePattern(PhraseTemplate template, Mode mode, int rootIx) {
+    static public Pattern generatePattern(AbstractTemplate template, Mode mode, int rootIx) {
         Pattern toReturn = new Pattern();
 //        toReturn.offset = rootIx - mode.getInterval(template.getTones().get(0));
         toReturn.offset = rootIx - mode.getInterval(template.getLowestDegree());
@@ -103,7 +103,7 @@ public class Pattern {
     }
 
     @Deprecated
-    static public int calculateMinSpaceRequired(PhraseTemplate template, Mode mode) {
+    static public int calculateMinSpaceRequired(AbstractTemplate template, Mode mode) {
         return mode.getInterval(template.getHighestDegree()) - mode.getInterval(template.getLowestDegree());
     }
 

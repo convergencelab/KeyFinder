@@ -1,5 +1,6 @@
 package com.example.keyfinder.eartraining;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * Class holds onto harmonic data.
  * Orders it's tones.
  */
-public class IntervalTemplate {
+public class IntervalTemplate implements Serializable {
 
     private List<Integer> indices;
 

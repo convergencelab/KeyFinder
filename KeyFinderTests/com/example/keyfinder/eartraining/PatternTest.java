@@ -13,7 +13,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_root() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -30,7 +30,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootSecond() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -49,7 +49,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_thirdFifth() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(2);
@@ -68,7 +68,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifth() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -89,7 +89,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifth_differentRoot() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -110,7 +110,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifthNinth() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -133,7 +133,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifthNinthThird() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -158,7 +158,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifthNinthThird_phrygian() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -183,7 +183,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifthNinthThird_melMin() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);
@@ -208,7 +208,7 @@ public class PatternTest {
 
     @Test
     public void testGeneratePattern_rootThirdFifthNinthThird_melMin_addNote() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         // Add pattern degrees
         template.addDegree(0);

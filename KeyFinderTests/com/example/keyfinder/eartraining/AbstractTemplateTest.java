@@ -3,11 +3,11 @@ package com.example.keyfinder.eartraining;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PhraseTemplateTest {
+public class AbstractTemplateTest {
 
     @Test
     public void testRange() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
 
         Assert.assertEquals(-1, template.getLowestDegree());
         Assert.assertEquals(-1, template.getHighestDegree());
@@ -15,7 +15,7 @@ public class PhraseTemplateTest {
 
     @Test
     public void testRange_triad_inorder() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
         template.addDegree(0);
         template.addDegree(2);
         template.addDegree(4);
@@ -26,7 +26,7 @@ public class PhraseTemplateTest {
 
     @Test
     public void testRange_triad_notInorder() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
         template.addDegree(2);
         template.addDegree(0);
         template.addDegree(4);
@@ -38,7 +38,7 @@ public class PhraseTemplateTest {
 
     @Test
     public void testRange_triad_whyThefuckdoesntitwork() {
-        PhraseTemplate template = new PhraseTemplate();
+        AbstractTemplate template = new AbstractTemplate();
         template.addDegree(5);
         template.addDegree(0);
         template.addDegree(2);
