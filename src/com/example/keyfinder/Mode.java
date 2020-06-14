@@ -3,20 +3,33 @@ package com.example.keyfinder;
 import java.util.Arrays;
 import java.util.Objects;
 
-public abstract class Mode {
+public class Mode {
 
-    // Implementation will setup intervals and name
-    protected abstract void setup();
+//    // Implementation will setup intervals and name
+//    protected abstract void setup();
 
     protected final int ix;
 
-    protected int[] intervals;
+    private int[] intervals;
 
-    protected String name;
+    private final String name;
 
-    public Mode(int ix) {
+    // TODO: come back to this function
+    public Mode(int[] parentScale, int ix) {
         this.ix = ix;
-        setup();
+        name = MusicTheory.MELODIC_MINOR_MODE_NAMES[this.ix % MusicTheory.TOTAL_NOTES];
+
+        // Build intervals for mode
+        intervals = new int[MusicTheory.DIATONIC_SCALE_SIZE];
+        final int offset = MusicTheory.MELODIC_MINOR_SCALE_SEQUENCE[ix % MusicTheory.TOTAL_NOTES];
+        for (int i = 0; i < MusicTheory.DIATONIC_SCALE_SIZE; i++) {
+            int curInterval = MusicTheory.MELODIC_MINOR_SCALE_SEQUENCE[(i + ix) % MusicTheory.DIATONIC_SCALE_SIZE] - offset;
+            if (curInterval < 0) {
+                curInterval += MusicTheory.TOTAL_NOTES;
+            }
+            intervals[i] = curInterval;
+        }
+//        setup();
     }
 
     public int getIx() {

@@ -3,6 +3,7 @@ package com.example.keyfinder;
 // TODO: better documentation / variable naming
 public class ActiveNoteList {
 
+    // TODO: could combine these lists into one list; if keyweight > 0 then note is active
     // One index for each note, true if active
     private boolean[] noteActiveList = new boolean[MusicTheory.TOTAL_NOTES];
     // One index for each note, stores note count/weight

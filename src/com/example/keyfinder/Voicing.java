@@ -4,7 +4,7 @@ public class Voicing {
 
     private final Note[] voices;
 
-    public Voicing(VoicingTemplate template, Key key, int minBassIx, int minChordIx) {
+    public Voicing(VoicingTemplate template, Key key, Mode mode, int minBassIx, int minChordIx) {
         voices = makeVoices(template, key, minBassIx, minChordIx);
     }
 

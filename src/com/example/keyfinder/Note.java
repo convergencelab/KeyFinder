@@ -2,47 +2,19 @@ package com.example.keyfinder;
 
 import java.util.Objects;
 
-public class Note implements Comparable<Note> {
+public class Note {
 
-    private final Integer ix;
+    private final int ix;
 
-    // Same notes of a different octave will have the same note value
-    private final int noteValue;
-
+    @Deprecated
     private String name;
 
     public Note(int ix) {
         this.ix = ix;
-        this.noteValue = ix % MusicTheory.TOTAL_NOTES;
-        this.name = getNameFlat(); // Flat by default
     }
 
     public int getIx() {
         return ix;
-    }
-
-    public int getNoteValue() {
-        return noteValue;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setNameFlat() {
-        name = getNameFlat();
-    }
-
-    public void setNameSharp() {
-        name = getNameSharp();
-    }
-
-    public String getNameFlat() {
-        return MusicTheory.CHROMATIC_SCALE_FLAT[noteValue];
-    }
-
-    public String getNameSharp() {
-        return MusicTheory.CHROMATIC_SCALE_SHARP[noteValue];
     }
 
     @Override
@@ -53,18 +25,14 @@ public class Note implements Comparable<Note> {
         return ix == note.ix;
     }
 
-    @Override
-    public String toString() {
-        return name + ix;
-    }
+//    @Override
+//    public String toString() {
+//        return name + ix;
+//    }
 
     @Override
     public int hashCode() {
         return Objects.hash(ix);
     }
 
-    @Override
-    public int compareTo(Note note) {
-        return this.ix.compareTo(note.ix);
-    }
 }
