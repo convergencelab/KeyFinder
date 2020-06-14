@@ -1,33 +1,25 @@
 package com.example.keyfinder;
 
-/**
- * ActiveNoteList.java actually does something more than hold onto data.
- *
- * This class can track note i/o, count how many of each note, and track the correlation
- * between active notes and key strength.
- *
- * When a note is added or removed, the strength of keys containing that note are
- * incremented or decremented, respectively. These keys can be known ahead of time by using an
- * iterate sequence. For example: all major keys containing the note 'C' correspond with C Phrygian
- * (C, Db, Eb, F, G, Ab, Bb) - this true for any note, not just 'C'.
- * there is no need to perform a linear search through all 12 keys in this case.
- * (For melodic minor, use Phrygian #6)
- *
- */
+// TODO: better documentation / variable naming
 public class ActiveNoteList {
 
-    private int[] noteCounts;
+    // One index for each note, true if active
+    private boolean[] noteActiveList = new boolean[MusicTheory.TOTAL_NOTES];
+    // One index for each note, stores note count/weight
+    private int[] noteWeightList = new int[MusicTheory.TOTAL_NOTES];
 
-    private int[] keyStrengths;
+    // Weight + 1 if note is active
+    private int[] keyStrengths = new int[MusicTheory.TOTAL_NOTES];
+    // Sum of all note weights
+    private int[] keyWeights = new int[MusicTheory.TOTAL_NOTES];
 
+    // Sequence to iterate over key weights (based on scale)
     private int[] iterateSequence;
 
-    private int numActiveNotes;
+    // Todo: note sure why this is here
+    private int numActiveNotes = 0;
 
     public ActiveNoteList() {
-        noteCounts = new int[MusicTheory.TOTAL_NOTES];
-        keyStrengths = new int[MusicTheory.TOTAL_NOTES];
-        numActiveNotes = 0;
     }
 
     public void setIterateSequence(int[] iterateSequence) {
@@ -35,23 +27,33 @@ public class ActiveNoteList {
     }
 
     public void addNote(int toAdd) {
-        noteCounts[toAdd]++;
+        if (!noteActiveList[toAdd]) {
+            incrementKeyStrengths(toAdd);
+            noteActiveList[toAdd] = true;
+        }
+        incrementKeyWeights(toAdd);
+        noteWeightList[toAdd]++;
         numActiveNotes++;
-        incrementKeyStrengths(toAdd);
     }
 
     public void removeNote(int toRemove) {
-        if (noteCounts[toRemove] == 0) {
-            // Todo: Exception?
-            return;
+        if (!noteActiveList[toRemove]) {
+            // TODO: improve exception (display note and list)
+            throw new IllegalStateException("Tried to remove note that isn't active.");
         }
-        noteCounts[toRemove]--;
-        numActiveNotes--;
         decrementKeyStrengths(toRemove);
+        decrementKeyWeights(toRemove, noteWeightList[toRemove]);
+        noteActiveList[toRemove] = false;
+        noteWeightList[toRemove] = 0;
+        numActiveNotes--;
     }
 
-    public int getNoteCount(int toCheck) {
-        return noteCounts[toCheck];
+    public boolean isNoteActive(int toCheck) {
+        return noteActiveList[toCheck];
+    }
+
+    public int getNoteWeight(int toCheck) {
+        return noteWeightList[toCheck];
     }
 
     public int getKeyStrength(int toCheck) {
@@ -68,9 +70,19 @@ public class ActiveNoteList {
         return max;
     }
 
-    public boolean containsNote(int toCheck) {
-        return noteCounts[toCheck] > 0;
+    public int getMaxKeyWeight() {
+        int max = -1;
+        for (int weight : keyWeights) {
+            if (weight > max) {
+                max = weight;
+            }
+        }
+        return max;
     }
+
+//    public boolean containsNote(int toCheck) {
+//        return noteActiveList[toCheck] > 0;
+//    }
 
     public int numActiveNotes() {
         return numActiveNotes;
@@ -80,9 +92,11 @@ public class ActiveNoteList {
         numActiveNotes = 0;
         // Reset note counts & key strengths
         // Arrays are same numActiveNotes; 12
-        for (int ix = 0; ix < noteCounts.length; ix++) {
-            noteCounts[ix] = 0;
+        for (int ix = 0; ix < noteActiveList.length; ix++) {
+            noteActiveList[ix] = false;
+            noteWeightList[ix] = 0;
             keyStrengths[ix] = 0;
+            keyWeights[ix] = 0;
         }
     }
 
@@ -95,6 +109,18 @@ public class ActiveNoteList {
     private void decrementKeyStrengths(int toRemove) {
         for (int interval : iterateSequence) {
             keyStrengths[(interval + toRemove) % MusicTheory.TOTAL_NOTES]--;
+        }
+    }
+
+    private void incrementKeyWeights(int toAdd) {
+        for (int interval : iterateSequence) {
+            keyWeights[(interval + toAdd) % MusicTheory.TOTAL_NOTES]++;
+        }
+    }
+
+    private void decrementKeyWeights(int toRemove, int amount) {
+        for (int interval : iterateSequence) {
+            keyWeights[(interval + toRemove) % MusicTheory.TOTAL_NOTES] -= amount;
         }
     }
 
