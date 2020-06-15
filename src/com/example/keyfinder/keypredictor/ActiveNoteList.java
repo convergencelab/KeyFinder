@@ -1,4 +1,6 @@
-package com.example.keyfinder;
+package com.example.keyfinder.keypredictor;
+
+import com.example.keyfinder.MusicTheory;
 
 import java.util.ArrayList;
 import java.util.List;
