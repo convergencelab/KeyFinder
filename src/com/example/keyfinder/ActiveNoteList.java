@@ -1,5 +1,8 @@
 package com.example.keyfinder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // TODO: better documentation / variable naming
 public class ActiveNoteList {
 
@@ -17,10 +20,29 @@ public class ActiveNoteList {
     // Sequence to iterate over key weights (based on scale)
     private int[] iterateSequence;
 
+    private int maxKeyStrength = 0;
+    private int maxKeyWeight = 0;
+
     // Todo: note sure why this is here
     private int numActiveNotes = 0;
 
     public ActiveNoteList() {
+    }
+
+    public boolean[] getNoteActiveList() {
+        return noteActiveList;
+    }
+
+    public int[] getNoteWeightList() {
+        return noteWeightList;
+    }
+
+    public int[] getKeyStrengths() {
+        return keyStrengths;
+    }
+
+    public int[] getKeyWeights() {
+        return keyWeights;
     }
 
     public void setIterateSequence(int[] iterateSequence) {
@@ -62,28 +84,32 @@ public class ActiveNoteList {
     }
 
     public int getMaxKeyStrength() {
-        int max = -1;
-        for (int strength : keyStrengths) {
-            if (strength > max) {
-                max = strength;
-            }
-        }
-        return max;
+        return maxKeyStrength;
     }
 
     public int getMaxKeyWeight() {
-        int max = -1;
-        for (int weight : keyWeights) {
-            if (weight > max) {
-                max = weight;
-            }
-        }
-        return max;
+        return maxKeyWeight;
     }
 
-//    public boolean containsNote(int toCheck) {
-//        return noteActiveList[toCheck] > 0;
-//    }
+    public List<Integer> getKeysWithMaxStrength() {
+        ArrayList<Integer> toReturn = new ArrayList<>();
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            if (keyStrengths[i] == maxKeyStrength) {
+                toReturn.add(i);
+            }
+        }
+        return toReturn;
+    }
+
+    public List<Integer> getKeysWihtMaxWeight() {
+        ArrayList<Integer> toReturn = new ArrayList<>();
+        for (int i = 0; i < MusicTheory.TOTAL_NOTES; i++) {
+            if (keyWeights[i] == maxKeyWeight) {
+                toReturn.add(i);
+            }
+        }
+        return toReturn;
+    }
 
     public int numActiveNotes() {
         return numActiveNotes;
@@ -98,7 +124,29 @@ public class ActiveNoteList {
             noteWeightList[ix] = 0;
             keyStrengths[ix] = 0;
             keyWeights[ix] = 0;
+            maxKeyWeight = 0;
+            maxKeyStrength = 0;
         }
+    }
+
+    public int findMaxKeyStrength() {
+        int max = -1;
+        for (int strength : keyStrengths) {
+            if (strength > max) {
+                max = strength;
+            }
+        }
+        return max;
+    }
+
+    private int findMaxKeyWeight() {
+        int max = -1;
+        for (int weight : keyWeights) {
+            if (weight > max) {
+                max = weight;
+            }
+        }
+        return max;
     }
 
     private void incrementKeyStrengths(int toAdd) {
