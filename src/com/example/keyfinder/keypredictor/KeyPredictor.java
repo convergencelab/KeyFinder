@@ -7,10 +7,11 @@ import java.util.List;
 
 public abstract class KeyPredictor {
 
+    // todo: i'm not totally sold on noteExpiration being a part of this class
     // Milliseconds
     private long noteExpirationLength = -1;
 
-    private List<KeyPredictorListener> listeners = new ArrayList<>();
+    final private List<KeyPredictorListener> listeners = new ArrayList<>();
 
     public abstract void addNote(Note addNote);
 
@@ -22,16 +23,16 @@ public abstract class KeyPredictor {
         this.noteExpirationLength = noteExpirationLength;
     }
 
-    public void removeListener(KeyPredictorListener listener) {
+    public void addListener(KeyPredictorListener listener) {
         listeners.add(listener);
     }
 
     // TODO: test remove function; not neccessary right now
-    public void addListener(KeyPredictorListener listener) {
+    public void removeListener(KeyPredictorListener listener) {
         listeners.remove(listener);
     }
 
-    public void notifyListeners(int newKey) {
+    protected void notifyListeners(int newKey) {
         for (KeyPredictorListener listener : listeners) {
             listener.notifyKeyPrediction(newKey);
         }
