@@ -1,5 +1,6 @@
 package com.example.keyfinder;
 
+import com.example.keyfinder.keypredictor.ActiveNoteList;
 import org.junit.Assert;
 import org.junit.Test;
 

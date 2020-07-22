@@ -1,7 +1,7 @@
 package com.example.keyfinder.eartraining;
 
-import com.example.keyfinder.Mode;
-import com.example.keyfinder.Note;
+import com.example.keyfinder.melody.Mode;
+import com.example.keyfinder.melody.Note;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,14 +120,14 @@ public class Pattern {
         return Objects.hash(notes);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder string = new StringBuilder();
-        for (Note note : notes) {
-            string.append(note.getName());
-            string.append(note.getIx());
-            string.append(' ');
-        }
-        return string.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder string = new StringBuilder();
+//        for (Note note : notes) {
+//            string.append(note.getName());
+//            string.append(note.getIx());
+//            string.append(' ');
+//        }
+//        return string.toString();
+//    }
 }

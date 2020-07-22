@@ -1,4 +1,7 @@
-package com.example.keyfinder;
+package com.example.keyfinder.harmony;
+
+import com.example.keyfinder.Key;
+import com.example.keyfinder.melody.Mode;
 
 public class Voicing {
 

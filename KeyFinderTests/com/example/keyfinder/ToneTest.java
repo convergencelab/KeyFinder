@@ -1,5 +1,8 @@
 package com.example.keyfinder;
 
+import com.example.keyfinder.harmony.BassTone;
+import com.example.keyfinder.harmony.ChordTone;
+import com.example.keyfinder.harmony.Tone;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

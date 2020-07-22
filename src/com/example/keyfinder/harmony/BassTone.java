@@ -1,4 +1,4 @@
-package com.example.keyfinder;
+package com.example.keyfinder.harmony;
 
 public class BassTone extends Tone {
 

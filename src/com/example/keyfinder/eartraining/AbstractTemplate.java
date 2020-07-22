@@ -1,6 +1,6 @@
 package com.example.keyfinder.eartraining;
 
-import com.example.keyfinder.Mode;
+import com.example.keyfinder.melody.Mode;
 
 import java.io.Serializable;
 import java.util.ArrayList;

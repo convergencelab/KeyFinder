@@ -1,4 +1,4 @@
-package com.example.keyfinder;
+package com.example.keyfinder.melody;
 
 public class ParentScale {
 

@@ -1,4 +1,6 @@
-package com.example.keyfinder;
+package com.example.keyfinder.melody;
+
+import com.example.keyfinder.MusicTheory;
 
 import java.util.Arrays;
 import java.util.Objects;
