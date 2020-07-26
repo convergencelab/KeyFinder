@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KeyFinder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KeyFinder_jar</output-path>
+    <root id="archive" name="KeyFinder.jar">
+      <element id="module-output" name="KeyFinder" />
+    </root>
+  </artifact>
+</component>

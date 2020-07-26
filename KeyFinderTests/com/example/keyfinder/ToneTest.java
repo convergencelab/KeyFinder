@@ -1,5 +1,8 @@
 package com.example.keyfinder;
 
+import com.example.keyfinder.harmony.BassTone;
+import com.example.keyfinder.harmony.ChordTone;
+import com.example.keyfinder.harmony.Tone;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,72 +10,32 @@ import static org.junit.Assert.*;
 public class ToneTest {
 
     @Test
-    public void getDegree() {
-        Tone curTone = new Tone(0, Tone.TONE_BASS);
-        assertEquals(0, curTone.getDegree());
+    public void testDegree0() {
+        int testDegree = 0;
 
-        curTone = new Tone(7, Tone.TONE_BASS);
-        assertEquals(7, curTone.getDegree());
+        Tone bassTone = new BassTone(testDegree);
+        Tone chordTone = new ChordTone(testDegree);
 
-        curTone = new Tone(12, Tone.TONE_BASS);
-        assertEquals(12, curTone.getDegree());
+        assertEquals(testDegree, bassTone.getDegree());
+        assertEquals(testDegree, chordTone.getDegree());
     }
 
     @Test
-    public void getCode() {
-        Tone curTone = new Tone(5, Tone.TONE_BASS);
-        assertEquals(Tone.TONE_BASS, curTone.getCode());
+    public void testDegree15() {
+        int testDegree = 15;
+        Tone bassTone = new BassTone(testDegree);
+        Tone chordTone = new ChordTone(testDegree);
 
-        curTone = new Tone(5, Tone.TONE_CHORD);
-        assertEquals(Tone.TONE_CHORD, curTone.getCode());
+        assertEquals(testDegree, bassTone.getDegree());
+        assertEquals(testDegree, chordTone.getDegree());
     }
 
     @Test
-    public void toStringTest() {
-        Tone curTone = new Tone(3, Tone.TONE_BASS);
-        assertEquals("Bass 3", curTone.toString());
+    public void testClassType() {
+        Tone bassTone = new BassTone(0);
+        Tone chordTone = new ChordTone(0);
 
-        curTone = new Tone(5, Tone.TONE_CHORD);
-        assertEquals("Chord 5", curTone.toString());
+        assertNotSame(bassTone.getClass(), chordTone.getClass());
     }
 
-    @Test
-    public void sameChordTone() {
-        Tone aTone = new Tone(0, Tone.TONE_CHORD);
-        Tone otherTone = new Tone(0, Tone.TONE_CHORD);
-
-        assertEquals(aTone, otherTone);
-    }
-
-    @Test
-    public void sameBassTone() {
-        Tone aTone = new Tone(2, Tone.TONE_BASS);
-        Tone otherTone = new Tone(2, Tone.TONE_BASS);
-
-        assertEquals(aTone, otherTone);
-    }
-
-    @Test
-    public void sameTypeDifferentDegrees() {
-        Tone aTone = new Tone(2, Tone.TONE_CHORD);
-        Tone otherTone = new Tone(3, Tone.TONE_CHORD);
-
-        assertNotEquals(aTone, otherTone);
-    }
-
-    @Test
-    public void sameDegreeDifferentType() {
-        Tone aTone = new Tone(3, Tone.TONE_BASS);
-        Tone otherTone = new Tone(3, Tone.TONE_CHORD);
-
-        assertNotEquals(aTone, otherTone);
-    }
-
-    @Test
-    public void difDegreeDifType() {
-        Tone aTone = new Tone(3, Tone.TONE_BASS);
-        Tone otherTone = new Tone(1, Tone.TONE_CHORD);
-
-        assertNotEquals(aTone, otherTone);
-    }
 }

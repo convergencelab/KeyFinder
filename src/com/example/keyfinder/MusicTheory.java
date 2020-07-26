@@ -17,16 +17,27 @@ public class MusicTheory {
     public final static char FLAT = '\u266d';
 
     /**
+     * Unicode for natural sign.
+     */
+    public final static char NATURAL = '\u266e';
+
+    /**
      * Intervals that make up the major scale.
      * Each number can be viewed as the semitone offset from the root.
      */
-    public final static int[] MAJOR_SCALE_SEQUENCE         = { 0, 2, 4, 5, 7, 9, 11 };
+    public final static int[] MAJOR_SCALE_SEQUENCE = { 0, 2, 4, 5, 7, 9, 11 };
 
     /**
      * Intervals that make up the melodic minor scale.
      * Each number can be viewed as the semitone offset from the root.
      */
     public final static int[] MELODIC_MINOR_SCALE_SEQUENCE = { 0, 2, 3, 5, 7, 9, 11 };
+
+    /**
+     * Intervals pertaining to harmonic minor scale.
+     * Indices represent semitones away from root.
+     */
+    public final static int[] HARMONIC_MINOR_SCALE_SEQUENCE = { 0, 2, 3, 5, 7, 8, 11 };
 
     /**
      * Intervals that make up the Phrygian scale.
@@ -117,12 +128,25 @@ public class MusicTheory {
      */
     public final static String[] MELODIC_MINOR_MODE_NAMES = {
             "Melodic Minor",
-            "Phrygian Sharp 6",
+            "Phrygian " + SHARP + "6",
             "Lydian Augmented",
-            "Lydian Flat 7",
-            "Mixolydian Flat 6",
-            "Locrian Sharp 2",
+            "Lydian " + FLAT + "7",
+            "Mixolydian " + FLAT + "6",
+            "Locrian " + SHARP + "2",
             "Altered"
+    };
+
+    /**
+     * Names of harmonic minor modes.
+     */
+    public final static String[] HARMONIC_MINOR_MODE_NAMES = {
+            "Harmonic Minor",
+            "Locrian " + NATURAL + "6",
+            "Ionian " + SHARP + '5',
+            "Dorian " + SHARP + '4',
+            "Phrygian Dominant",
+            "Lydian " + SHARP + '9',
+            "Altered Diminished"
     };
 
     /**
@@ -142,4 +166,15 @@ public class MusicTheory {
             "Major",
             "Melodic Minor"
     };
+
+    // TODO: figure out what this does
+    public static int getLowestIx(int rootIx, int min) {
+        int lowest = ((min / MusicTheory.TOTAL_NOTES) * MusicTheory.TOTAL_NOTES) + (rootIx % MusicTheory.TOTAL_NOTES);
+        if ((min % MusicTheory.TOTAL_NOTES) > (rootIx % MusicTheory.TOTAL_NOTES)) {
+            lowest += MusicTheory.TOTAL_NOTES;
+        }
+        return lowest;
+    }
+
+
 }
